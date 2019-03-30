@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import styled from "@emotion/styled";
 import YouTube from "react-youtube";
 
-const Root = styled.div({ backgroundColor: "red", height: "100vh" });
+const Root = styled.div({ backgroundColor: "#117773", height: "100vh" });
 const MainContainer = styled.div({
   maxWidth: 1280,
   display: "block",
@@ -10,7 +10,7 @@ const MainContainer = styled.div({
   marginRight: "auto",
   paddingTop: 64,
   paddingBottom: 64,
-  backgroundColor: "yellow",
+  backgroundColor: "#36d1cb",
   height: "100%",
   textAlign: "center"
 });
