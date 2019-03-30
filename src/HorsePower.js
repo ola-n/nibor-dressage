@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "@emotion/styled";
+import { css } from "@emotion/core";
 import YouTube from "react-youtube";
 
 const Root = styled.div({ backgroundColor: "#117773", height: "100vh" });
@@ -15,6 +16,8 @@ const MainContainer = styled.div({
   textAlign: "center"
 });
 
+const mobileStyle = css({ display: "block" });
+
 class HorsePower extends Component {
   _onReady(event) {
     // access to player in all event handlers via event.target
@@ -23,8 +26,8 @@ class HorsePower extends Component {
 
   render() {
     const opts = {
-      height: "390",
-      width: "640",
+      height: "229",
+      width: "368",
       playerVars: {
         // https://developers.google.com/youtube/player_parameters
         autoplay: 1
@@ -33,7 +36,7 @@ class HorsePower extends Component {
 
     return (
       <Root>
-        <MainContainer>
+        <MainContainer className={mobileStyle}>
           <h1 style={{ marginBottom: 64 }}>HorsePower</h1>
 
           <YouTube videoId="OWFBqiUgspg" opts={opts} onReady={this._onReady} />
