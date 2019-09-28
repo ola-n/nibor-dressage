@@ -18,7 +18,7 @@ const MainContainer = styled.div({
 
 const mobileStyle = css({ display: "block" });
 
-class HorsePower extends Component {
+class NiborDressage extends Component {
   _onReady(event) {
     // access to player in all event handlers via event.target
     event.target.playVideo();
