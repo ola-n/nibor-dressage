@@ -1,10 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import HorsePower from './HorsePower';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import NiborDressage from "./NiborDressage";
+import * as serviceWorker from "./serviceWorker";
 
-ReactDOM.render(<HorsePower />, document.getElementById('root'));
+ReactDOM.render(<NiborDressage />, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
