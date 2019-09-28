@@ -37,7 +37,7 @@ class HorsePower extends Component {
     return (
       <Root>
         <MainContainer className={mobileStyle}>
-          <h1 style={{ marginBottom: 64 }}>HorsePower</h1>
+          <h1 style={{ marginBottom: 64 }}>Dressage Me</h1>
 
           <YouTube videoId="O3rpmctmC_M" opts={opts} onReady={this._onReady} />
         </MainContainer>
@@ -46,4 +46,4 @@ class HorsePower extends Component {
   }
 }
 
-export default HorsePower;
+export default NiborDressage;
