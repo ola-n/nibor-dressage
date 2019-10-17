@@ -1,0 +1,7 @@
+# Ignore gatsby-specific folders
+**/public
+**/.cache
+
+# Ignore test reports & static typing
+**/coverage
+**/flow-typed

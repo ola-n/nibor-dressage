@@ -1,0 +1,13 @@
+# Flow
+/flow-typed
+
+# Build artifacts and editor configs
+public
+.cache
+coverage
+/test
+/.vscode
+/.idea
+
+# Internal tools
+/tools
