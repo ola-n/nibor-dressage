@@ -28,6 +28,20 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          '@src': 'src',
+          '@components': 'src/components',
+          '@images': 'src/images',
+          '@pages': 'src/pages',
+          '@spec': 'src/specification',
+          '@state': 'src/state',
+        },
+        extensions: ['js'],
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
