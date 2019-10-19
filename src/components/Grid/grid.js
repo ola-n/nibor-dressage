@@ -7,7 +7,6 @@ export const Banner = styled.div(
   {
     position: 'relative',
     width: '100%',
-    asd,
   },
   ({ color }) => ({
     backgroundColor: color,
@@ -56,17 +55,17 @@ export const Grid = styled.div(
     gridTemplateColumns: '1fr',
 
     [breakpoints.tablet]: {
-      gridTemplateColumns: `repeat(auto-fit, minmax(295px, 1fr))`,
+      gridTemplateColumns: 'repeat(auto-fit, minmax(295px, 1fr))',
       gridColumnGap: '30px',
       gridRowGap: '20px',
     },
     [breakpoints.desktopSmall]: {
-      gridTemplateColumns: `repeat(auto-fit, minmax(265px, 1fr))`,
+      gridTemplateColumns: 'repeat(auto-fit, minmax(265px, 1fr))',
       gridColumnGap: '50px',
       gridRowGap: '50px',
     },
     [breakpoints.desktopLarge]: {
-      gridTemplateColumns: `repeat(auto-fit, minmax(325px, 1fr))`,
+      gridTemplateColumns: 'repeat(auto-fit, minmax(325px, 1fr))',
     },
   },
   ({ numberColumns }) => ({

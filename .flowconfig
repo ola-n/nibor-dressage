@@ -1,4 +1,9 @@
 [ignore]
+.*/build/.*
+.*/public/.*
+.*/static/.*
+.*/packages/.*/lib
+.*/packages/.*/test
 
 [include]
 
@@ -7,5 +12,11 @@
 [lints]
 
 [options]
+module.name_mapper='^src' ->'<PROJECT_ROOT>/src'
+module.name_mapper='^state' ->'<PROJECT_ROOT>/src/state'
+module.name_mapper='^pages' ->'<PROJECT_ROOT>/src/pages'
+module.name_mapper='^images' ->'<PROJECT_ROOT>/src/images'
+module.name_mapper='^components' ->'<PROJECT_ROOT>/src/components'
+module.name_mapper='^spec' ->'<PROJECT_ROOT>/src/specification'
 
 [strict]
