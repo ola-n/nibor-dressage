@@ -1,16 +1,23 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react';
+import { Link } from 'gatsby';
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import { spacing } from '@spec/ui-spec';
+
+import Layout from '@components/layout';
+import SEO from '@components/seo';
+import { Banner, MainContainer } from '@components/Grid/grid';
 
 const SecondPage = () => (
   <Layout>
-    <SEO title="Page two" />
-    <h1>Hi from the second page</h1>
-    <p>Welcome to page 2</p>
-    <Link to="/">Go back to the homepage</Link>
+    <Banner>
+      <MainContainer py={spacing.m}>
+        <SEO title="Sida 2" />
+        <h1>Hej från sida 2</h1>
+        <p>paragraf</p>
+        <Link to="/">Till landningssida</Link>
+      </MainContainer>
+    </Banner>
   </Layout>
-)
+);
 
-export default SecondPage
+export default SecondPage;
