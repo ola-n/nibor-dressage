@@ -1,10 +1,10 @@
 // @flow
 import * as React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+// import { useStaticQuery, graphql } from 'gatsby';
 
 import Navbar from './Navbar';
 import './layout.css';
-import { Banner, MainContainer } from '@components/Grid/grid';
+import { MainContainer } from '@components/Grid/grid';
 
 type Props = {
   children: ?React.Node,

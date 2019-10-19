@@ -2,10 +2,8 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
-import { space } from 'styled-system';
 
-import { breakpoints, spacing, navbarSpec } from '@spec/ui-spec';
+import { breakpoints, navbarSpec } from '@spec/ui-spec';
 import { colors } from '@spec/colors/';
 
 import logo from '@images/logo/nibor.svg';
