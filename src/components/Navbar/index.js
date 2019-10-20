@@ -11,6 +11,7 @@ import { Banner, MainContainer } from '@components/Grid/grid';
 
 const Navbar = styled(MainContainer)({
   height: navbarSpec.heightSmall,
+  flexShrink: 0,
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',

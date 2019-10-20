@@ -1,14 +1,21 @@
 // @flow
 import * as React from 'react';
+import styled from '@emotion/styled';
 // import { useStaticQuery, graphql } from 'gatsby';
 
 import Navbar from './Navbar';
+import Footer from './Footer';
 import './layout.css';
-import { MainContainer } from '@components/Grid/grid';
 
 type Props = {
   children: ?React.Node,
 };
+const Root = styled.div({
+  minHeight: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'stretch',
+});
 
 const Layout = (props: Props) => {
   /*
@@ -25,14 +32,11 @@ const Layout = (props: Props) => {
 
   const { children } = props;
   return (
-    <>
+    <Root>
       <Navbar />
       <main>{children}</main>
-
-      <footer>
-        <MainContainer>© {new Date().getFullYear()} Nibor AB</MainContainer>
-      </footer>
-    </>
+      <Footer />
+    </Root>
   );
 };
 
