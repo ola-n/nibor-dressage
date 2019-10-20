@@ -11,8 +11,8 @@ const SecondPage = () => (
   <Layout>
     <Banner>
       <MainContainer py={spacing.m}>
-        <SEO title="Sida 2" />
-        <h1>Hej från sida 2</h1>
+        <SEO title="Teamet" />
+        <h1>Hej från teamet</h1>
         <p>paragraf</p>
         <Link to="/">Till landningssida</Link>
       </MainContainer>
