@@ -3,9 +3,13 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 // import { useStaticQuery, graphql } from 'gatsby';
 
+/* Components */
 import Navbar from './Navbar';
 import Footer from './Footer';
-import './layout.css';
+
+/* CSS */
+import '../styling/normalize.css';
+import '../styling/global.css';
 
 type Props = {
   children: ?React.Node,
