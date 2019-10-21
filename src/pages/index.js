@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import { spacing } from '@spec/ui-spec';
 
 import Layout from '@components/layout';
