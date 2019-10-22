@@ -27,7 +27,7 @@ const Logo = styled('img')({
 const NavbarComponent = () => {
   return (
     <header>
-      <Banner color={colors.secondary_blue}>
+      <Banner color={colors.primary_blue}>
         <Navbar>
           <Link to="/">
             <Logo src={logo} />

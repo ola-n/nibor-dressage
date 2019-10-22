@@ -2,13 +2,15 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import { space } from 'styled-system';
 
-import { spacing } from '@spec/ui-spec';
+import { spacing, breakpoints } from '@spec/ui-spec';
 import { colors } from '@spec/colors/';
 
 import logo from '@images/logo/nibor-footer.svg';
 import { MainContainer } from '@components/Grid/grid';
+import { Display4, Body2, Body3 } from '@components/typography';
 
 const FooterRoot = styled.footer(
   {
@@ -29,75 +31,144 @@ const FooterContent = styled(MainContainer)({
 const Row = styled.div(
   {
     display: 'flex',
-    flexDirection: 'row',
+    flexDirection: 'column',
     justifyContent: 'space-between',
+
+    [breakpoints.tablet]: {
+      flexDirection: 'row',
+    },
   },
   space
 );
-const LeftSideRow = styled.div({
-  display: 'flex',
-  flexDirection: 'row',
-});
 
+const Row2 = styled.div(
+  {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+
+    [breakpoints.desktopSmall]: {
+      flexDirection: 'row',
+    },
+  },
+  space
+);
+
+const LeftSideRow = styled.div(
+  {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+  space
+);
+
+const ContactCol = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  order: 1,
+  marginBottom: 12,
+
+  [breakpoints.tablet]: { order: 0, flexDirection: 'row', marginBottom: 0 },
+});
+const ColumnLogo = styled.div(
+  {
+    display: 'inline-block',
+    order: 0,
+    marginBottom: 32,
+
+    [breakpoints.tablet]: { order: 1, marginBottom: 0 },
+  },
+  space
+);
 const Column = styled.div({ display: 'inline-block' }, space);
 
 const Logo = styled('img')({
   margin: 0,
 });
 
+const FooterLink = styled(Link)(
+  {
+    color: colors.secondary_grey_800,
+    textDecoration: 'none',
+    marginRight: 16,
+    lineHeight: '24px',
+
+    '&:hover': {
+      color: colors.primary_blue,
+    },
+  },
+  space
+);
+
 const FooterComponent = () => {
   return (
     <FooterRoot py={spacing.m}>
       <FooterContent>
         <Row pb={spacing.m}>
-          <LeftSideRow>
-            <Column pr={spacing.m}>
-              <h4 style={{ margin: 0, marginBottom: 12 }}>Kontakta oss</h4>
-              <p style={{ margin: 0, marginBottom: 2 }}>
+          <ContactCol>
+            <Column pr={spacing.m} mb={spacing.s}>
+              <Display4 mb={'2px'} color={colors.primary_blue}>
+                Kontakta oss
+              </Display4>
+              <Body2
+                color={colors.tertiary_blue}
+                style={{ margin: 0, marginBottom: 2 }}
+              >
                 mika.nordstroem@gmail.com
-              </p>
-              <p style={{ margin: 0, marginBottom: 2 }}>0707 - 17 89 17</p>
+              </Body2>
+              <Body2
+                color={colors.tertiary_blue}
+                style={{ margin: 0, marginBottom: 2 }}
+              >
+                0707 - 17 89 17
+              </Body2>
             </Column>
             <Column>
-              <h4 style={{ margin: 0, marginBottom: 12 }}>Adress</h4>
-              <p style={{ margin: 0, marginBottom: 2 }}>Nibor Dressage PRE</p>
-              <p style={{ margin: 0, marginBottom: 2 }}>Gränskullavägen 7</p>
-              <p style={{ margin: 0, marginBottom: 2 }}>218 75 Tygelsjö</p>
+              <Display4 color={colors.primary_blue} mb={'2px'}>
+                Adress
+              </Display4>
+              <Body2
+                color={colors.tertiary_blue}
+                style={{ margin: 0, marginBottom: 2 }}
+              >
+                Nibor Dressage PRE
+              </Body2>
+              <Body2
+                color={colors.tertiary_blue}
+                style={{ margin: 0, marginBottom: 2 }}
+              >
+                Gränskullavägen 7
+              </Body2>
+              <Body2
+                color={colors.tertiary_blue}
+                style={{ margin: 0, marginBottom: 2 }}
+              >
+                218 75 Tygelsjö
+              </Body2>
             </Column>
-          </LeftSideRow>
-          <Column>
+          </ContactCol>
+          <ColumnLogo logoCol>
             <Logo src={logo} />
-          </Column>
+          </ColumnLogo>
         </Row>
 
-        <Row>
-          <LeftSideRow>
-            <Link to={'/hastarna/'} style={{ marginRight: 12 }}>
-              Hästarna
-            </Link>
-            <Link to={'/nyheter/'} style={{ marginRight: 12 }}>
-              Nyheter
-            </Link>
-            <Link to={'/anlaggningen/'} style={{ marginRight: 12 }}>
-              Anläggningen
-            </Link>
-            <Link to={'/teamet/'} style={{ marginRight: 12 }}>
-              Teamet
-            </Link>
-            <Link to={'/tjanster/'} style={{ marginRight: 12 }}>
-              Tjänster
-            </Link>
-            <Link to={'/kontakt/'} style={{ marginRight: 12 }}>
-              Kontakt
-            </Link>
-            <Link to={'/cookies/'} style={{ marginRight: 12 }}>
-              Cookies
-            </Link>
+        <Row2>
+          <LeftSideRow mb={spacing.s}>
+            <FooterLink to={'/hastarna/'}>Hästarna</FooterLink>
+            <FooterLink to={'/nyheter/'}>Nyheter</FooterLink>
+            <FooterLink to={'/anlaggningen/'}>Anläggningen</FooterLink>
+            <FooterLink to={'/teamet/'}>Teamet</FooterLink>
+            <FooterLink to={'/tjanster/'}>Tjänster</FooterLink>
+            <FooterLink to={'/kontakt/'}>Kontakt</FooterLink>
+            <FooterLink to={'/cookies/'}>Cookies</FooterLink>
           </LeftSideRow>
           <Column>
-            © {new Date().getFullYear()} Alla rättigheter förbehållna.
+            <Body3 color={colors.secondary_grey_800}>
+              © {new Date().getFullYear()} Alla rättigheter förbehållna.
+            </Body3>
           </Column>
-        </Row>
+        </Row2>
       </FooterContent>
     </FooterRoot>
   );
