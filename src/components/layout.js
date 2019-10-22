@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react';
+import Helmet from 'react-helmet';
 import styled from '@emotion/styled';
 // import { useStaticQuery, graphql } from 'gatsby';
 
@@ -37,6 +38,12 @@ const Layout = (props: Props) => {
   const { children } = props;
   return (
     <Root>
+      <Helmet>
+        <link
+          href="https://fonts.googleapis.com/css?family=Poppins:500,600,700&display=swap"
+          rel="stylesheet"
+        />
+      </Helmet>
       <Navbar />
       <main>{children}</main>
       <Footer />

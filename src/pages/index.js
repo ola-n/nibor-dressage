@@ -1,9 +1,12 @@
 import React from 'react';
+
+import { colors } from '@spec/colors';
 import { spacing } from '@spec/ui-spec';
 
 import Layout from '@components/layout';
 import SEO from '@components/seo';
 import { Banner, MainContainer } from '@components/Grid/grid';
+import { Display1 } from '@components/Typography';
 
 const LandingPage = () => {
   return (
@@ -11,7 +14,9 @@ const LandingPage = () => {
       <Banner>
         <MainContainer py={spacing.m}>
           <SEO title="Hem" />
-          <h1 style={{ fontFamily: 'Poppins' }}>Hej!</h1>
+          {/*<Display1 mb={spacing.t} color={colors.primary_yellow}>
+            PRE med kvalitét
+          </Display1>*/}
           <p>Här kommer mer info inom kort.</p>
         </MainContainer>
       </Banner>
