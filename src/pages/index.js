@@ -11,7 +11,7 @@ const LandingPage = () => {
       <Banner>
         <MainContainer py={spacing.m}>
           <SEO title="Hem" />
-          <h1>Hej!</h1>
+          <h1 style={{ fontFamily: 'Poppins' }}>Hej!</h1>
           <p>Här kommer mer info inom kort.</p>
         </MainContainer>
       </Banner>

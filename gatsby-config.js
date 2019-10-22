@@ -31,13 +31,13 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
+        name: 'Nibor Dressage PRE',
+        short_name: 'Nibor',
         start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
-        display: 'minimal-ui',
-        icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
+        background_color: '#001350',
+        theme_color: '#FFA62D',
+        display: 'browser', // test different values here and see what it looks like on a mobile device
+        icon: 'src/images/logo/yellow-logo-no-text.svg', // This path is relative to the root of the site.
       },
     },
     {
