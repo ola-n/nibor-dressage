@@ -95,7 +95,20 @@ const FooterLink = styled(Link)(
     lineHeight: '24px',
 
     '&:hover': {
-      color: colors.primary_blue,
+      color: colors.primary_yellow,
+    },
+  },
+  space
+);
+
+const TextLink = styled.a(
+  {
+    color: colors.primary_blue,
+    textDecoration: 'none',
+    marginRight: 16,
+
+    '&:hover': {
+      color: colors.primary_yellow,
     },
   },
   space
@@ -111,33 +124,23 @@ const FooterComponent = () => {
               <Display4 mb={'2px'} color={colors.primary_blue}>
                 Kontakta oss
               </Display4>
-              <Body2
-                color={colors.tertiary_blue}
-                style={{ margin: 0, marginBottom: 2 }}
-              >
-                mika.nordstroem@gmail.com
+              <Body2 color={colors.tertiary_blue} style={{ marginBottom: 2 }}>
+                <TextLink href="mailto:mika.nordstroem@gmail.com">
+                  mika.nordstroem@gmail.com
+                </TextLink>
               </Body2>
-              <Body2
-                color={colors.tertiary_blue}
-                style={{ margin: 0, marginBottom: 2 }}
-              >
-                0707 - 17 89 17
+              <Body2 color={colors.tertiary_blue} style={{ marginBottom: 2 }}>
+                <TextLink href="tel:+46707178917">0707 - 17 89 17</TextLink>
               </Body2>
             </Column>
             <Column>
               <Display4 color={colors.primary_blue} mb={'2px'}>
                 Adress
               </Display4>
-              <Body2
-                color={colors.tertiary_blue}
-                style={{ margin: 0, marginBottom: 2 }}
-              >
+              <Body2 color={colors.tertiary_blue} style={{ marginBottom: 2 }}>
                 Nibor Dressage PRE
               </Body2>
-              <Body2
-                color={colors.tertiary_blue}
-                style={{ margin: 0, marginBottom: 2 }}
-              >
+              <Body2 color={colors.tertiary_blue} style={{ marginBottom: 2 }}>
                 Gränskullavägen 7
               </Body2>
               <Body2
