@@ -2,7 +2,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
 import { space } from 'styled-system';
 
 import { spacing, breakpoints } from '@spec/ui-spec';
@@ -54,14 +53,16 @@ const Row2 = styled.div(
   space
 );
 
-const LeftSideRow = styled.div(
-  {
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+const NavigationRow = styled.div({
+  display: 'flex',
+  flexDirection: 'row',
+  flexWrap: 'wrap',
+  marginBottom: 16,
+
+  [breakpoints.tablet]: {
+    marginBottom: 0,
   },
-  space
-);
+});
 
 const ContactCol = styled.div({
   display: 'flex',
@@ -157,7 +158,7 @@ const FooterComponent = () => {
         </Row>
 
         <Row2>
-          <LeftSideRow mb={spacing.s}>
+          <NavigationRow>
             <FooterLink to={'/hastarna/'}>Hästarna</FooterLink>
             <FooterLink to={'/nyheter/'}>Nyheter</FooterLink>
             <FooterLink to={'/anlaggningen/'}>Anläggningen</FooterLink>
@@ -165,7 +166,7 @@ const FooterComponent = () => {
             <FooterLink to={'/tjanster/'}>Tjänster</FooterLink>
             <FooterLink to={'/kontakt/'}>Kontakt</FooterLink>
             <FooterLink to={'/cookies/'}>Cookies</FooterLink>
-          </LeftSideRow>
+          </NavigationRow>
           <Column>
             <Body3 color={colors.secondary_grey_800}>
               © {new Date().getFullYear()} Alla rättigheter förbehållna.

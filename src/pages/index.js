@@ -17,7 +17,19 @@ const LandingPage = () => {
           {/*<Display1 mb={spacing.t} color={colors.primary_yellow}>
             PRE med kvalitét
           </Display1>*/}
-          <p>Här kommer mer info inom kort.</p>
+          <p style={{ marginBottom: 80 }}>Här kommer mer info inom kort.</p>
+          <p style={{ marginBottom: 80 }}>Här kommer mer info inom kort.</p>
+          <p style={{ marginBottom: 80 }}>Här kommer mer info inom kort.</p>
+          <p style={{ marginBottom: 80 }}>Här kommer mer info inom kort.</p>
+          <p style={{ marginBottom: 80 }}>Här kommer mer info inom kort.</p>
+          <p style={{ marginBottom: 80 }}>Här kommer mer info inom kort.</p>
+          <p style={{ marginBottom: 80 }}>Här kommer mer info inom kort.</p>
+          <p style={{ marginBottom: 80 }}>Här kommer mer info inom kort.</p>
+          <p style={{ marginBottom: 80 }}>Här kommer mer info inom kort.</p>
+          <p style={{ marginBottom: 80 }}>Här kommer mer info inom kort.</p>
+          <p style={{ marginBottom: 80 }}>Här kommer mer info inom kort.</p>
+          <p style={{ marginBottom: 80 }}>Här kommer mer info inom kort.</p>
+          <p style={{ marginBottom: 80 }}>Här kommer mer info inom kort.</p>
         </MainContainer>
       </Banner>
     </Layout>

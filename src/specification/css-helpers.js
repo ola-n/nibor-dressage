@@ -17,9 +17,3 @@ export const centered = css({
   marginLeft: 'auto',
   marginRight: 'auto',
 });
-
-export const zIndexDefinition = {
-  navbar: 1,
-  popup: 2,
-  aboveAll: 3,
-};

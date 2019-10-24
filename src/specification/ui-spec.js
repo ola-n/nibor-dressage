@@ -42,3 +42,9 @@ export const navbarSpec = {
   heightSmall: 76,
   heightLarge: 90,
 };
+
+export const zIndexDefinition = {
+  navbar: 1,
+  popup: 2,
+  aboveAll: 3,
+};
