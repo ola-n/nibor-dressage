@@ -36,6 +36,7 @@ export const breakpoints = {
   onlySmallPhone: `@media screen and (max-width: ${breakpointValues.regularPhone}px)`,
   onlyPhone: `@media screen and (max-width: ${breakpointValues.tablet}px)`,
   onlyMobile: `@media screen and (max-width: ${breakpointValues.desktopSmall}px)`,
+  onlyBelowMaxWidth: `@media screen and (max-width: ${spacing.maxWidthDesktopLarge}px)`,
 };
 
 export const navbarSpec = {

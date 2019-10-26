@@ -2,19 +2,42 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-import { zIndexDefinition } from '@spec/ui-spec';
+import { breakpoints, zIndexDefinition } from '@spec/ui-spec';
 import { colors } from '@spec/colors/';
 
+const BurgerRoot = styled.div(
+  { position: 'relative', animationFillMode: 'forwards' },
+  ({ open, navMenuButton }) => {
+    if (open && !navMenuButton) {
+      return {
+        [breakpoints.desktopLarge]: {
+          animation: 'fade-hide-element 0.1s',
+          animationFillMode: 'forwards',
+        },
+      };
+    }
+  },
+  ({ navMenuButton }) => {
+    if (navMenuButton) {
+      return {
+        display: 'none',
+
+        [breakpoints.desktopLarge]: {
+          display: 'block',
+        },
+      };
+    }
+  }
+);
+
 const StyledBurger = styled.button({
-  position: 'absolute',
-  top: 28,
-  right: '2rem',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-around',
   width: '2rem',
   height: '2rem',
   background: 'transparent',
+  transition: 'opacity 0.3s linear',
   border: 'none',
   cursor: 'pointer',
   padding: 0,
@@ -23,6 +46,10 @@ const StyledBurger = styled.button({
 
   '&:focus': {
     outline: 'none',
+  },
+
+  ':hover div': {
+    background: colors.primary_yellow,
   },
 });
 
@@ -40,6 +67,7 @@ const Line1 = styled.div(lineProps, ({ open }) => {
   if (open) {
     return {
       transform: 'rotate(45deg)',
+      background: colors.primary_blue,
     };
   }
 });
@@ -48,6 +76,7 @@ const Line2 = styled.div(lineProps, ({ open }) => {
     return {
       opacity: 0,
       transform: 'translateX(20px)',
+      background: colors.primary_blue,
     };
   }
 });
@@ -55,36 +84,27 @@ const Line3 = styled.div(lineProps, ({ open }) => {
   if (open) {
     return {
       transform: 'rotate(-45deg)',
+      background: colors.primary_blue,
     };
   }
 });
 
-/*
-':first-of-type': {
-          transform: 'rotate(45deg)',
-        },
-        ':nth-of-type(1)': {
-          opacity: 0,
-          transform: 'translateX(20px)',
-        },
-        ':nth-of-type(2)': {
-          transform: 'rotate(-45deg)',
-        },
-*/
-
 type Props = {
   navMenuOpen: boolean,
   setOpen: Function,
+  navMenuButton?: boolean,
 };
 
-const Burger = ({ navMenuOpen, setOpen }: Props) => {
+const Burger = ({ navMenuOpen, setOpen, navMenuButton }: Props) => {
   console.log('navMenuOpen ', navMenuOpen);
   return (
-    <StyledBurger open={navMenuOpen} onClick={() => setOpen(!navMenuOpen)}>
-      <Line1 open={navMenuOpen} />
-      <Line2 open={navMenuOpen} />
-      <Line3 open={navMenuOpen} />
-    </StyledBurger>
+    <BurgerRoot open={navMenuOpen} navMenuButton={navMenuButton}>
+      <StyledBurger open={navMenuOpen} onClick={() => setOpen(!navMenuOpen)}>
+        <Line1 open={navMenuOpen} />
+        <Line2 open={navMenuOpen} />
+        <Line3 open={navMenuOpen} />
+      </StyledBurger>
+    </BurgerRoot>
   );
 };
 

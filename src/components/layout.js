@@ -6,15 +6,17 @@ import styled from '@emotion/styled';
 
 // import { useStaticQuery, graphql } from 'gatsby';
 
+// Theme variables
+import { spacing } from '@spec/ui-spec';
+
 /* Components */
 import Navbar from './Navbar';
-import Burger from './Navbar/Burger';
-import Navmenu from './Navbar/NavMenu';
 import Footer from './Footer';
 
 /* CSS */
 import '../styling/normalize.css';
 import '../styling/global.css';
+import '../styling/animations.css';
 
 type Props = {
   children: ?React.Node,
@@ -24,14 +26,7 @@ const Root = styled.div({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'stretch',
-});
-
-const NavMenuWrap = styled.div({
-  position: 'fixed',
-  maxWidth: 480,
-  zIndex: 4,
-  right: 0,
-  top: 0,
+  position: 'relative',
 });
 
 const Layout = (props: Props) => {
@@ -58,12 +53,7 @@ const Layout = (props: Props) => {
           rel="stylesheet"
         />
       </Helmet>
-      <Navbar />
-
-      <NavMenuWrap>
-        <Navmenu navMenuOpen={navMenuOpen} />
-        <Burger navMenuOpen={navMenuOpen} setOpen={setOpen} />
-      </NavMenuWrap>
+      <Navbar navMenuOpen={navMenuOpen} setOpen={setOpen} />
 
       <main>{children}</main>
       <Footer />

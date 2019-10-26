@@ -7,6 +7,8 @@ import { breakpoints, navbarSpec, zIndexDefinition } from '@spec/ui-spec';
 import { colors } from '@spec/colors/';
 
 import { Banner, MainContainer } from '@components/Grid/grid';
+import Burger from './Burger';
+import Navmenu from './NavMenu';
 import logo from '@images/logo/nibor.svg';
 
 export const NavbarPlaceholder = styled.div({
@@ -41,11 +43,26 @@ const NavbarContent = styled(MainContainer)({
     height: navbarSpec.heightLarge,
   },
 });
+
+const NavLinks = styled.div({
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'flex-end',
+  alignItems: 'center',
+  height: '100%',
+  width: '100%',
+});
+
 const Logo = styled('img')({
   margin: 0,
 });
 
-const Navbar = () => {
+type Props = {
+  navMenuOpen: boolean,
+  setOpen: Function,
+};
+
+const Navbar = ({ navMenuOpen, setOpen }: Props) => {
   return (
     <NavbarPlaceholder>
       <FixedNavbar color={colors.primary_blue}>
@@ -53,7 +70,11 @@ const Navbar = () => {
           <Link to="/">
             <Logo src={logo} />
           </Link>
+          <NavLinks>
+            <Burger navMenuOpen={navMenuOpen} setOpen={setOpen} />
+          </NavLinks>
         </NavbarContent>
+        <Navmenu navMenuOpen={navMenuOpen} setOpen={setOpen} />
       </FixedNavbar>
     </NavbarPlaceholder>
   );
