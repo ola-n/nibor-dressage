@@ -2,11 +2,15 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-import { breakpoints, zIndexDefinition } from '@spec/ui-spec';
+import { breakpoints } from '@spec/ui-spec';
 import { colors } from '@spec/colors/';
 
 const BurgerRoot = styled.div(
-  { position: 'relative', animationFillMode: 'forwards' },
+  {
+    position: 'relative',
+    animationFillMode: 'forwards',
+    zIndex: 100,
+  },
   ({ open, navMenuButton }) => {
     if (open && !navMenuButton) {
       return {
@@ -41,7 +45,6 @@ const StyledBurger = styled.button({
   border: 'none',
   cursor: 'pointer',
   padding: 0,
-  zIndex: zIndexDefinition.aboveAll,
   transform: 'rotate(180deg)',
 
   '&:focus': {
@@ -99,7 +102,7 @@ const Burger = ({ navMenuOpen, setOpen, navMenuButton }: Props) => {
   console.log('navMenuOpen ', navMenuOpen);
   return (
     <BurgerRoot open={navMenuOpen} navMenuButton={navMenuButton}>
-      <StyledBurger open={navMenuOpen} onClick={() => setOpen(!navMenuOpen)}>
+      <StyledBurger open={navMenuOpen} onClick={() => setOpen()}>
         <Line1 open={navMenuOpen} />
         <Line2 open={navMenuOpen} />
         <Line3 open={navMenuOpen} />

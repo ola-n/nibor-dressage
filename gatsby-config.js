@@ -40,6 +40,7 @@ module.exports = {
         icon: 'src/images/logo/yellow-logo-no-text.svg', // This path is relative to the root of the site.
       },
     },
+    `gatsby-plugin-emotion`,
     {
       resolve: 'gatsby-plugin-alias-imports',
       options: {

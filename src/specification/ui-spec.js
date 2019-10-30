@@ -45,7 +45,12 @@ export const navbarSpec = {
 };
 
 export const zIndexDefinition = {
-  navbar: 1,
-  popup: 2,
-  aboveAll: 3,
+  content: 1,
+  navbar: 2,
+  popup: 3,
+  aboveAll: 50,
+};
+
+export const animationTimings = {
+  navMenuAnimationTime: '0.3s',
 };

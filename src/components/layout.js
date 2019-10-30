@@ -3,11 +3,10 @@ import * as React from 'react';
 import { useState } from 'react';
 import Helmet from 'react-helmet';
 import styled from '@emotion/styled';
-
+import { Global, css } from '@emotion/core';
 // import { useStaticQuery, graphql } from 'gatsby';
 
-// Theme variables
-import { spacing } from '@spec/ui-spec';
+import { getScrollBarWidth } from '../utils/getScrollBarWidth';
 
 /* Components */
 import Navbar from './Navbar';
@@ -18,9 +17,18 @@ import '../styling/normalize.css';
 import '../styling/global.css';
 import '../styling/animations.css';
 
-type Props = {
-  children: ?React.Node,
-};
+const scrollbarWidth = getScrollBarWidth();
+
+const globalStyles = css`
+  .no-scroll {
+    overflow: hidden !important;
+    margin-right: ${scrollbarWidth}px;
+  }
+  .pad-for-removed-scrollbar {
+    padding-right: ${scrollbarWidth}px;
+  }
+`;
+
 const Root = styled.div({
   minHeight: '100%',
   display: 'flex',
@@ -28,6 +36,10 @@ const Root = styled.div({
   alignItems: 'stretch',
   position: 'relative',
 });
+
+type Props = {
+  children: ?React.Node,
+};
 
 const Layout = (props: Props) => {
   /*
@@ -45,6 +57,10 @@ const Layout = (props: Props) => {
   const { children } = props;
   const [navMenuOpen, setOpen] = useState(false);
 
+  function toggleNavMenu() {
+    setOpen(!navMenuOpen);
+  }
+
   return (
     <Root>
       <Helmet>
@@ -52,9 +68,10 @@ const Layout = (props: Props) => {
           href="https://fonts.googleapis.com/css?family=Poppins:500,600,700&display=swap"
           rel="stylesheet"
         />
+        <body className={navMenuOpen ? 'no-scroll' : ''} />
       </Helmet>
-      <Navbar navMenuOpen={navMenuOpen} setOpen={setOpen} />
-
+      <Global styles={globalStyles} />
+      <Navbar navMenuOpen={navMenuOpen} setOpen={toggleNavMenu} />
       <main>{children}</main>
       <Footer />
     </Root>

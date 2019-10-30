@@ -3,8 +3,8 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from '@emotion/styled';
 
-import { zIndexDefinition } from '@spec/ui-spec';
 import { colors } from '@spec/colors/';
+import { zIndexDefinition, animationTimings } from '@spec/ui-spec';
 
 import Burger from '../Burger';
 
@@ -19,10 +19,10 @@ const StyledMenu = styled.nav(
     padding: '2rem',
     boxShadow: '3px 0 7px 0 rgba(0, 0, 0, 0.2)',
 
-    transition: 'transform 0.3s ease-in-out, opacity 0.3s linear',
+    transition: `transform ${animationTimings.navMenuAnimationTime} ease-in-out, opacity ${animationTimings.navMenuAnimationTime} linear`,
     width: '100%',
     maxWidth: 480,
-    zIndex: -1,
+    zIndex: zIndexDefinition.aboveAll,
     position: 'fixed',
     top: 0,
     right: 0,
@@ -46,7 +46,7 @@ const StyledLink = styled(Link)({
   letterSpacing: '0.5rem',
   color: colors.primary_white,
   textDecoration: 'none',
-  transition: 'color 0.3s linear',
+  transition: `color ${animationTimings.navMenuAnimationTime} linear`,
 
   '&:hover': {
     color: colors.primary_yellow,
@@ -68,13 +68,8 @@ const NavMenu = ({ navMenuOpen, setOpen }: Props) => {
           navMenuButton={true}
         />
       </BurgerWrap>
-      <StyledLink to={'/hastarna/'}>
-        <span role="img" aria-label="horses">
-          &#x1f481;&#x1f3fb;&#x200d;&#x2642;&#xfe0f;
-        </span>
-        Hästarna
-      </StyledLink>
-      <StyledLink to={'/nyheter/'}>
+      <StyledLink to={'/hastarna/'}>Test</StyledLink>
+      {/*<StyledLink to={'/nyheter/'}>
         <span role="img" aria-label="news">
           &#x1f4b8;
         </span>
@@ -85,7 +80,7 @@ const NavMenu = ({ navMenuOpen, setOpen }: Props) => {
           &#x1f4e9;
         </span>
         Anläggningen
-      </StyledLink>
+      </StyledLink>*/}
     </StyledMenu>
   );
 };

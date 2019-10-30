@@ -3,7 +3,12 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from '@emotion/styled';
 
-import { breakpoints, navbarSpec, zIndexDefinition } from '@spec/ui-spec';
+import {
+  breakpoints,
+  navbarSpec,
+  zIndexDefinition,
+  animationTimings,
+} from '@spec/ui-spec';
 import { colors } from '@spec/colors/';
 
 import { Banner, MainContainer } from '@components/Grid/grid';
@@ -30,6 +35,7 @@ export const FixedNavbar = styled(Banner)({
   boxShadow: '0 3px 6px 0 rgba(0, 0, 0, 0.2)',
   backdropFilter: 'blur(10px)',
   WebkitBackdropFilter: 'blur(10px)',
+  overflow: 'visible',
 });
 
 const NavbarContent = styled(MainContainer)({
@@ -57,6 +63,17 @@ const Logo = styled('img')({
   margin: 0,
 });
 
+const ContentCover = styled.div({
+  width: '100%',
+  height: '100vh',
+  backgroundColor: colors.primary_black,
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  opacity: 0.6,
+  transition: `opacity ${animationTimings.navMenuAnimationTime} linear`,
+});
+
 type Props = {
   navMenuOpen: boolean,
   setOpen: Function,
@@ -65,7 +82,10 @@ type Props = {
 const Navbar = ({ navMenuOpen, setOpen }: Props) => {
   return (
     <NavbarPlaceholder>
-      <FixedNavbar color={colors.primary_blue}>
+      <FixedNavbar
+        color={colors.primary_blue}
+        className={navMenuOpen ? 'pad-for-removed-scrollbar' : ''}
+      >
         <NavbarContent>
           <Link to="/">
             <Logo src={logo} />
@@ -75,6 +95,14 @@ const Navbar = ({ navMenuOpen, setOpen }: Props) => {
           </NavLinks>
         </NavbarContent>
         <Navmenu navMenuOpen={navMenuOpen} setOpen={setOpen} />
+        <ContentCover
+          style={{
+            opacity: navMenuOpen ? 0.6 : 0,
+            cursor: navMenuOpen ? 'pointer' : 'auto',
+            pointerEvents: navMenuOpen ? 'all' : 'none',
+          }}
+          onClick={() => setOpen()}
+        />
       </FixedNavbar>
     </NavbarPlaceholder>
   );
