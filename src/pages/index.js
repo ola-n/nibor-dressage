@@ -15,19 +15,7 @@ const LandingPage = () => {
           {/*<Display1 mb={spacing.t} color={colors.primary_yellow}>
             PRE med kvalitét
           </Display1>*/}
-          <p style={{ marginBottom: 120 }}>Mycket info så att det scrollar</p>
-          <p style={{ marginBottom: 120 }}>Mycket info så att det scrollar</p>
-          <p style={{ marginBottom: 120 }}>Mycket info så att det scrollar</p>
-          <p style={{ marginBottom: 120 }}>Mycket info så att det scrollar</p>
-          <p style={{ marginBottom: 120 }}>Mycket info så att det scrollar</p>
-          <p style={{ marginBottom: 120 }}>Mycket info så att det scrollar</p>
-          <p style={{ marginBottom: 120 }}>Mycket info så att det scrollar</p>
-          <p style={{ marginBottom: 120 }}>Mycket info så att det scrollar</p>
-          <p style={{ marginBottom: 120 }}>Mycket info så att det scrollar</p>
-          <p style={{ marginBottom: 120 }}>Mycket info så att det scrollar</p>
-          <p style={{ marginBottom: 120 }}>Mycket info så att det scrollar</p>
-          <p style={{ marginBottom: 120 }}>Mycket info så att det scrollar</p>
-          <p style={{ marginBottom: 120 }}>Mycket info så att det scrollar</p>
+          <p style={{ marginBottom: 120 }}>Mer info kommer snart</p>
         </MainContainer>
       </Banner>
     </Layout>

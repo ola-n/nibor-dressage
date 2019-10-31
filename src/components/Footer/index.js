@@ -6,6 +6,7 @@ import { space } from 'styled-system';
 
 import { spacing, breakpoints } from '@spec/ui-spec';
 import { colors } from '@spec/colors/';
+import routes from '../../routes';
 
 import logo from '@images/logo/nibor-footer.svg';
 import { MainContainer } from '@components/Grid/grid';
@@ -94,9 +95,14 @@ const FooterLink = styled(Link)(
     textDecoration: 'none',
     marginRight: 16,
     lineHeight: '24px',
+    fontSize: 12,
 
     '&:hover': {
       color: colors.primary_yellow,
+    },
+
+    [breakpoints.desktopSmall]: {
+      fontSize: 14,
     },
   },
   space
@@ -159,13 +165,13 @@ const FooterComponent = () => {
 
         <Row2>
           <NavigationRow>
-            <FooterLink to={'/hastarna/'}>Hästarna</FooterLink>
-            <FooterLink to={'/nyheter/'}>Nyheter</FooterLink>
-            <FooterLink to={'/anlaggningen/'}>Anläggningen</FooterLink>
-            <FooterLink to={'/teamet/'}>Teamet</FooterLink>
-            <FooterLink to={'/tjanster/'}>Tjänster</FooterLink>
-            <FooterLink to={'/kontakt/'}>Kontakt</FooterLink>
-            <FooterLink to={'/cookies/'}>Cookies</FooterLink>
+            <FooterLink to={routes.HORSES}>Hästarna</FooterLink>
+            <FooterLink to={routes.NEWS}>Nyheter</FooterLink>
+            <FooterLink to={routes.FACILITY}>Anläggningen</FooterLink>
+            <FooterLink to={routes.TEAM}>Teamet</FooterLink>
+            <FooterLink to={routes.SERVICES}>Tjänster</FooterLink>
+            <FooterLink to={routes.CONTACT}>Kontakt</FooterLink>
+            <FooterLink to={routes.COOKIES}>Cookies</FooterLink>
           </NavigationRow>
           <Column>
             <Body3 color={colors.secondary_grey_800}>

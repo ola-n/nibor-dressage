@@ -2,6 +2,9 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { breakpoints } from '@spec/ui-spec';
 import { space, color } from 'styled-system';
+import { Link } from 'gatsby';
+
+import { colors } from '@spec/colors';
 
 // source: https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight#Common_weight_name_mapping
 export const fontWeight = {
@@ -17,6 +20,7 @@ const display1 = css({
   fontWeight: fontWeight.bold,
   fontSize: 32,
   marginTop: 0,
+
   // hyphens: 'auto',
   [breakpoints.tablet]: { fontSize: 42 },
   [breakpoints.desktopSmall]: { fontSize: 52 },
@@ -28,6 +32,7 @@ const display2 = css({
   fontWeight: fontWeight.bold,
   fontSize: 22,
   marginTop: 0,
+
   // hyphens: 'auto',
   [breakpoints.tablet]: { fontSize: 28 },
   [breakpoints.desktopSmall]: { fontSize: 32 },
@@ -39,6 +44,7 @@ const display3 = css({
   fontWeight: fontWeight.semiBold,
   fontSize: 18,
   marginTop: 0,
+
   // hyphens: 'auto',
   [breakpoints.tablet]: {
     fontWeight: fontWeight.bold,
@@ -54,6 +60,7 @@ const display4 = css({
   fontSize: 16,
   marginTop: 0,
   // hyphens: 'auto',
+
   [breakpoints.tablet]: {
     fontWeight: fontWeight.bold,
     fontSize: 18,
@@ -68,6 +75,7 @@ const title1 = css({
   marginTop: 0,
   marginBottom: 12,
   fontSize: 24,
+
   [breakpoints.tablet]: { fontSize: 28 },
   [breakpoints.desktopSmall]: { fontSize: 32 },
   [breakpoints.desktopLarge]: { fontSize: 36 },
@@ -79,6 +87,7 @@ const subhead = css({
   textTransform: 'none',
   fontSize: 16,
   marginTop: 0,
+
   [breakpoints.desktopSmall]: { fontSize: 22 },
   [breakpoints.desktopLarge]: { fontSize: 24 },
 });
@@ -89,6 +98,7 @@ const intro = css({
   textTransform: 'none',
   fontSize: 16,
   marginTop: 0,
+
   [breakpoints.tablet]: { fontSize: 18 },
   [breakpoints.desktopSmall]: { fontSize: 20 },
 });
@@ -98,6 +108,7 @@ const body1 = css({
   fontWeight: fontWeight.regular,
   textTransform: 'none',
   fontSize: 16,
+
   [breakpoints.desktopSmall]: { fontSize: 18 },
 });
 
@@ -106,6 +117,7 @@ const body2 = css({
   fontWeight: fontWeight.regular,
   textTransform: 'none',
   fontSize: 14,
+
   [breakpoints.tablet]: { fontSize: 15 },
   [breakpoints.desktopSmall]: { fontSize: 16 },
 });
@@ -115,7 +127,28 @@ const body3 = css({
   lineHeight: 1.5,
   fontWeight: fontWeight.regular,
   textTransform: 'none',
+
   [breakpoints.desktopSmall]: { fontSize: 14 },
+});
+
+const navBarText = css({
+  fontSize: 13,
+  marginLeft: 42,
+  lineHeight: 1.5,
+  display: 'none',
+  fontWeight: fontWeight.regular,
+  fontFamily: 'Poppins, sans-serif',
+  textTransform: 'none',
+  textDecoration: 'none',
+  color: colors.primary_white,
+
+  '&:hover': {
+    color: colors.primary_yellow,
+  },
+
+  [breakpoints.desktopSmall]: {
+    display: 'block',
+  },
 });
 
 // make the raw classNames available for extending elsewhere
@@ -131,6 +164,7 @@ export const cls = {
   body1,
   body2,
   body3,
+  navBarText,
 };
 
 // exported Components:
@@ -189,6 +223,16 @@ export const Body3 = styled.div(
   space,
   ({ bold }) => !!bold && { fontWeight: `${fontWeight.semiBold} !important` }
 );
+export const NavbarLink = styled(Link)(
+  navBarText,
+  color,
+  space,
+  ({ selected }) =>
+    !!selected && {
+      fontWeight: `${fontWeight.bold} !important`,
+      color: colors.primary_yellow,
+    }
+);
 
 export default {
   Display1,
@@ -200,4 +244,5 @@ export default {
   Body1,
   Body2,
   Body3,
+  NavbarLink,
 };

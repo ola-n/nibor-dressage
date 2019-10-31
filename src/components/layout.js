@@ -72,7 +72,7 @@ const Layout = (props: Props) => {
       </Helmet>
       <Global styles={globalStyles} />
       <Navbar navMenuOpen={navMenuOpen} setOpen={toggleNavMenu} />
-      <main>{children}</main>
+      <main style={{ minHeight: '80vh' }}>{children}</main>
       <Footer />
     </Root>
   );

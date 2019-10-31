@@ -10,6 +10,11 @@ const BurgerRoot = styled.div(
     position: 'relative',
     animationFillMode: 'forwards',
     zIndex: 100,
+    display: 'block',
+
+    [breakpoints.desktopSmall]: {
+      display: 'none',
+    },
   },
   ({ open, navMenuButton }) => {
     if (open && !navMenuButton) {
@@ -99,7 +104,6 @@ type Props = {
 };
 
 const Burger = ({ navMenuOpen, setOpen, navMenuButton }: Props) => {
-  console.log('navMenuOpen ', navMenuOpen);
   return (
     <BurgerRoot open={navMenuOpen} navMenuButton={navMenuButton}>
       <StyledBurger open={navMenuOpen} onClick={() => setOpen()}>
