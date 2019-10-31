@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'gatsby';
 import styled from '@emotion/styled';
@@ -105,51 +106,54 @@ type Props = {
   navigate: typeof navigate,
 };
 
-const Navbar = ({ navMenuOpen, setOpen, currentPage, navigate }: Props) => {
-  console.log('currentPage ', currentPage);
-  return (
-    <NavbarPlaceholder>
-      <FixedNavbar className={navMenuOpen ? 'pad-for-removed-scrollbar' : ''}>
-        <NavbarContent>
-          <Link to={routes.HOME}>
-            <Logo src={logo} />
-          </Link>
+class Navbar extends React.Component<Props> {
+  render() {
+    const { navMenuOpen, setOpen, currentPage, navigate } = this.props;
+    console.log('currentPage ', currentPage);
+    return (
+      <NavbarPlaceholder>
+        <FixedNavbar className={navMenuOpen ? 'pad-for-removed-scrollbar' : ''}>
+          <NavbarContent>
+            <Link to={routes.HOME}>
+              <Logo src={logo} />
+            </Link>
 
-          <LinkContainer>
-            <NavLinks>
-              <NavbarLink
-                to={routes.HORSES}
-                onClick={() => navigate(routes.HORSES)}
-              >
-                HÄSTARNA
-              </NavbarLink>
-              <NavbarLink to={routes.NEWS}>NYHETER</NavbarLink>
-              <NavbarLink to={routes.FACILITY}>ANLÄGGNINGEN</NavbarLink>
-              <NavbarLink to={routes.TEAM}>TEAMET</NavbarLink>
-              <NavbarLink to={routes.SERVICES}>TJÄNSTER</NavbarLink>
-              <NavbarLink to={routes.CONTACT}>KONTAKT</NavbarLink>
-              <Burger navMenuOpen={navMenuOpen} setOpen={setOpen} />
-            </NavLinks>
+            <LinkContainer>
+              <NavLinks>
+                <NavbarLink
+                  to={routes.HORSES}
+                  onClick={() => navigate(routes.HORSES)}
+                >
+                  HÄSTARNA
+                </NavbarLink>
+                <NavbarLink to={routes.NEWS}>NYHETER</NavbarLink>
+                <NavbarLink to={routes.FACILITY}>ANLÄGGNINGEN</NavbarLink>
+                <NavbarLink to={routes.TEAM}>TEAMET</NavbarLink>
+                <NavbarLink to={routes.SERVICES}>TJÄNSTER</NavbarLink>
+                <NavbarLink to={routes.CONTACT}>KONTAKT</NavbarLink>
+                <Burger navMenuOpen={navMenuOpen} setOpen={setOpen} />
+              </NavLinks>
 
-            <LinkLine>
-              <div />
-            </LinkLine>
-          </LinkContainer>
-        </NavbarContent>
+              <LinkLine>
+                <div />
+              </LinkLine>
+            </LinkContainer>
+          </NavbarContent>
 
-        <Navmenu navMenuOpen={navMenuOpen} setOpen={setOpen} />
-        <ContentCover
-          style={{
-            opacity: navMenuOpen ? 0.6 : 0,
-            cursor: navMenuOpen ? 'pointer' : 'auto',
-            pointerEvents: navMenuOpen ? 'all' : 'none',
-          }}
-          onClick={() => setOpen()}
-        />
-      </FixedNavbar>
-    </NavbarPlaceholder>
-  );
-};
+          <Navmenu navMenuOpen={navMenuOpen} setOpen={setOpen} />
+          <ContentCover
+            style={{
+              opacity: navMenuOpen ? 0.6 : 0,
+              cursor: navMenuOpen ? 'pointer' : 'auto',
+              pointerEvents: navMenuOpen ? 'all' : 'none',
+            }}
+            onClick={() => setOpen()}
+          />
+        </FixedNavbar>
+      </NavbarPlaceholder>
+    );
+  }
+}
 
 const mapStateToProps = state => {
   return {
@@ -157,9 +161,17 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = () => ({
+/*const mapDispatchToProps = () => ({
   navigate,
-});
+});*/
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      navigate,
+    },
+    dispatch
+  );
 
 export default connect(
   mapStateToProps,
