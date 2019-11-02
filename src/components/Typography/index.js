@@ -151,6 +151,27 @@ const navBarText = css({
   },
 });
 
+const navMenuText = css({
+  fontSize: 26,
+  cursor: 'pointer',
+  marginBottom: 8,
+  lineHeight: 1.5,
+  display: 'block',
+  fontWeight: fontWeight.regular,
+  fontFamily: 'Poppins, sans-serif',
+  textTransform: 'none',
+  textDecoration: 'none',
+  color: colors.primary_blue,
+
+  '&:hover': {
+    color: colors.primary_yellow,
+  },
+
+  [breakpoints.desktopSmall]: {
+    display: 'none',
+  },
+});
+
 // make the raw classNames available for extending elsewhere
 // as an alternative to the `withComponent` syntax
 export const cls = {
@@ -165,6 +186,7 @@ export const cls = {
   body2,
   body3,
   navBarText,
+  navMenuText,
 };
 
 // exported Components:
@@ -233,6 +255,16 @@ export const NavbarLink = styled(Link)(
       color: colors.primary_yellow,
     }
 );
+export const NavMenuLink = styled.div(
+  navMenuText,
+  color,
+  space,
+  ({ selected }) =>
+    !!selected && {
+      fontWeight: `${fontWeight.bold} !important`,
+      color: colors.primary_yellow,
+    }
+);
 
 export default {
   Display1,
@@ -245,4 +277,5 @@ export default {
   Body2,
   Body3,
   NavbarLink,
+  NavMenuLink,
 };

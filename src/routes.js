@@ -1,4 +1,6 @@
-export default {
+// @flow
+
+export const routes = {
   HOME: '/',
   HORSES: '/hastarna/',
   NEWS: '/nyheter/',
@@ -8,3 +10,5 @@ export default {
   CONTACT: '/kontakt/',
   COOKIES: '/cookies/',
 };
+
+export default routes;

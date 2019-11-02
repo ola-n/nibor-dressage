@@ -1,11 +1,10 @@
 // @flow
 import type { Action } from '../types';
-import { NAVIGATE } from './types';
+import { SET_ACTIVE_PAGE } from './types';
 
-export const navigate = (toPage: string): Action => {
-  console.log('toPage in action ', toPage);
+export const setActivePage = (page: string): Action => {
   return {
-    type: NAVIGATE,
-    payload: { toPage: toPage },
+    type: SET_ACTIVE_PAGE,
+    payload: { page: page },
   };
 };

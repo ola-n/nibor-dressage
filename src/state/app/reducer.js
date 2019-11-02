@@ -13,7 +13,6 @@ export const appReducer = (
   state: AppState = initialState,
   action: Action
 ): AppState => {
-  console.log('action app ', action);
   switch (action.type) {
     case TOGGLE_DARKMODE: {
       const { isDarkMode } = action.payload || {};

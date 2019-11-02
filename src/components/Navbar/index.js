@@ -1,6 +1,5 @@
 // @flow
 import React from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'gatsby';
 import styled from '@emotion/styled';
@@ -13,7 +12,6 @@ import {
 } from '@spec/ui-spec';
 import { colors } from '@spec/colors/';
 import routes from '../../routes';
-import { navigate } from '@state/navigation/actions';
 
 import { Banner, MainContainer } from '@components/Grid/grid';
 import { NavbarLink } from '@components/Typography';
@@ -103,13 +101,12 @@ type Props = {
   navMenuOpen: boolean,
   setOpen: Function,
   currentPage: string,
-  navigate: typeof navigate,
 };
 
 class Navbar extends React.Component<Props> {
   render() {
-    const { navMenuOpen, setOpen, currentPage, navigate } = this.props;
-    console.log('currentPage ', currentPage);
+    const { navMenuOpen, setOpen, currentPage } = this.props;
+
     return (
       <NavbarPlaceholder>
         <FixedNavbar className={navMenuOpen ? 'pad-for-removed-scrollbar' : ''}>
@@ -122,15 +119,40 @@ class Navbar extends React.Component<Props> {
               <NavLinks>
                 <NavbarLink
                   to={routes.HORSES}
-                  onClick={() => navigate(routes.HORSES)}
+                  selected={currentPage === routes.HORSES}
                 >
                   HÄSTARNA
                 </NavbarLink>
-                <NavbarLink to={routes.NEWS}>NYHETER</NavbarLink>
-                <NavbarLink to={routes.FACILITY}>ANLÄGGNINGEN</NavbarLink>
-                <NavbarLink to={routes.TEAM}>TEAMET</NavbarLink>
-                <NavbarLink to={routes.SERVICES}>TJÄNSTER</NavbarLink>
-                <NavbarLink to={routes.CONTACT}>KONTAKT</NavbarLink>
+                <NavbarLink
+                  to={routes.NEWS}
+                  selected={currentPage === routes.NEWS}
+                >
+                  NYHETER
+                </NavbarLink>
+                <NavbarLink
+                  to={routes.FACILITY}
+                  selected={currentPage === routes.FACILITY}
+                >
+                  ANLÄGGNINGEN
+                </NavbarLink>
+                <NavbarLink
+                  to={routes.TEAM}
+                  selected={currentPage === routes.TEAM}
+                >
+                  TEAMET
+                </NavbarLink>
+                <NavbarLink
+                  to={routes.SERVICES}
+                  selected={currentPage === routes.SERVICES}
+                >
+                  TJÄNSTER
+                </NavbarLink>
+                <NavbarLink
+                  to={routes.CONTACT}
+                  selected={currentPage === routes.CONTACT}
+                >
+                  KONTAKT
+                </NavbarLink>
                 <Burger navMenuOpen={navMenuOpen} setOpen={setOpen} />
               </NavLinks>
 
@@ -161,19 +183,7 @@ const mapStateToProps = state => {
   };
 };
 
-/*const mapDispatchToProps = () => ({
-  navigate,
-});*/
-
-const mapDispatchToProps = dispatch =>
-  bindActionCreators(
-    {
-      navigate,
-    },
-    dispatch
-  );
-
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  null
 )(Navbar);

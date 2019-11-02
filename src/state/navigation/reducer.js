@@ -1,6 +1,5 @@
 // @flow
-import * as actions from './actions';
-import { type NavigationState, NAVIGATE } from './types';
+import { type NavigationState, SET_ACTIVE_PAGE } from './types';
 import { type Action } from '../types';
 
 const initialState: NavigationState = {
@@ -12,14 +11,12 @@ export const navigationReducer = (
   action: Action
 ): NavigationState => {
   switch (action.type) {
-    case NAVIGATE: {
-      const { toPage } = action.payload || {};
-      console.log('actions ', actions);
+    case SET_ACTIVE_PAGE: {
+      const { page } = action.payload || {};
 
-      console.log('toPage in reducer ', toPage);
       return {
         ...state,
-        currentPage: toPage,
+        currentPage: page,
       };
     }
 
@@ -29,5 +26,3 @@ export const navigationReducer = (
 };
 
 export default navigationReducer;
-
-// { payload = {}, type }: Action

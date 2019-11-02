@@ -51,6 +51,7 @@ export const zIndexDefinition = {
   aboveAll: 50,
 };
 
+// Timings in milliseconds
 export const animationTimings = {
-  navMenuAnimationTime: '0.3s',
+  navMenuAnimationTime: '300',
 };
