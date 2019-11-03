@@ -73,7 +73,7 @@ const ContentCover = styled.div({
   top: 0,
   left: 0,
   opacity: 0.6,
-  transition: `opacity ${animationTimings.navMenuAnimationTime} linear`,
+  transition: `opacity ${animationTimings.navMenuAnimationTime}ms linear`,
 });
 
 const LinkContainer = styled.div({

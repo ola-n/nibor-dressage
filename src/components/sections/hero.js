@@ -20,7 +20,11 @@ const HeroRoot = styled(Banner)({
 
 const HeroContent = styled(MainContainer)({
   display: 'flex',
-  flexDirection: 'row',
+  flexDirection: 'column',
+
+  [breakpoints.desktopSmall]: {
+    flexDirection: 'row',
+  },
 });
 
 const TextContainer = styled.div({
@@ -102,12 +106,35 @@ const TildedImage = styled(Img)({
   },
 });
 
+const MobileImage = styled(Img)({
+  width: '100%',
+  height: 'auto',
+  maxHeight: 290,
+
+  [breakpoints.landscapePhone]: {
+    maxHeight: 450,
+  },
+
+  [breakpoints.desktopSmall]: {
+    display: 'none',
+  },
+});
+
 export const HeroSection = () => {
   const data = useStaticQuery(graphql`
     query {
       heroImage: file(relativePath: { eq: "hero-images/temp-hero.png" }) {
         childImageSharp {
           fluid(maxWidth: 1100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      heroImageMobile: file(
+        relativePath: { eq: "hero-images/decidido-low-res.jpg" }
+      ) {
+        childImageSharp {
+          fluid(maxWidth: 640) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -131,9 +158,12 @@ export const HeroSection = () => {
           <Lead mb={0}>Vår anläggning finns i Tygelsjö, utanför Malmö.</Lead>
         </TextContainer>
         <Spacer />
-
-        <TildedImage fluid={data.heroImage.childImageSharp.fluid} />
       </HeroContent>
+
+      <MobileImage
+        fluid={data.heroImageMobile.childImageSharp.fluid}
+      ></MobileImage>
+      <TildedImage fluid={data.heroImage.childImageSharp.fluid} />
     </HeroRoot>
   );
 };
