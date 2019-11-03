@@ -41,6 +41,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-emotion`,
+    `gatsby-plugin-netlify`,
     {
       resolve: 'gatsby-plugin-alias-imports',
       options: {

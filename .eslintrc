@@ -8,5 +8,10 @@
     "browser": true,
     "node": true,
     "jasmine": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }
