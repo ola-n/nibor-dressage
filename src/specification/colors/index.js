@@ -22,3 +22,12 @@ export const colors = {
   link_color: '#E52427',
   link_color_hover: '#CC2023',
 };
+
+export const niborHorizontalGradient =
+  'linear-gradient(0.25turn, #01155d, #000924)';
+
+/*
+  boxShadow: '0 3px 6px 0 rgba(0, 0, 0, 0.2)',
+  backdropFilter: 'blur(10px)',
+  WebkitBackdropFilter: 'blur(10px)',
+*/

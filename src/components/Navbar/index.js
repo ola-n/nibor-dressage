@@ -10,7 +10,7 @@ import {
   zIndexDefinition,
   animationTimings,
 } from '@spec/ui-spec';
-import { colors } from '@spec/colors/';
+import { colors, niborHorizontalGradient } from '@spec/colors/';
 import routes from '../../routes';
 
 import { Banner, MainContainer } from '@components/Grid/grid';
@@ -24,21 +24,18 @@ export const NavbarPlaceholder = styled.div({
   position: 'relative',
   height: navbarSpec.heightSmall,
 
-  [breakpoints.tablet]: {
+  [breakpoints.desktopSmall]: {
     height: navbarSpec.heightLarge,
   },
 });
 
 export const FixedNavbar = styled(Banner)({
-  background: 'linear-gradient(0.25turn, #01155d, #000924)',
+  background: niborHorizontalGradient,
   width: '100%',
   position: 'fixed',
   top: 0,
   zIndex: zIndexDefinition.navbar,
   color: colors.primary_white,
-  boxShadow: '0 3px 6px 0 rgba(0, 0, 0, 0.2)',
-  backdropFilter: 'blur(10px)',
-  WebkitBackdropFilter: 'blur(10px)',
   overflow: 'visible',
 });
 

@@ -4,12 +4,11 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import { setActivePage } from '@state/navigation/actions';
-import { spacing } from '@spec/ui-spec';
 import routes from '../routes';
 
 import Layout from '@components/layout';
 import SEO from '@components/seo';
-import { Banner, MainContainer } from '@components/Grid/grid';
+import { HeroSection } from '@components/sections/hero';
 
 type Props = {
   setActivePage: typeof setActivePage,
@@ -28,15 +27,8 @@ class LandingPage extends React.Component<Props> {
   render() {
     return (
       <Layout>
-        <Banner>
-          <MainContainer py={spacing.m}>
-            <SEO title="Hem" />
-            {/*<Display1 mb={spacing.t} color={colors.primary_yellow}>
-            PRE med kvalitét
-          </Display1>*/}
-            <p style={{ marginBottom: 120 }}>Mer info kommer snart</p>
-          </MainContainer>
-        </Banner>
+        <SEO title="Hem" />
+        <HeroSection></HeroSection>
       </Layout>
     );
   }

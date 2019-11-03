@@ -25,6 +25,7 @@ export const breakpointValues = {
   tablet: 767,
   desktopSmall: 991,
   desktopLarge: 1281,
+  desktopHuge: 1700,
 };
 export const breakpoints = {
   smallPhone: `@media screen and (min-width: ${breakpointValues.smallPhone}px)`,
@@ -33,6 +34,7 @@ export const breakpoints = {
   tablet: `@media screen and (min-width: ${breakpointValues.tablet}px)`,
   desktopSmall: `@media screen and (min-width: ${breakpointValues.desktopSmall}px)`,
   desktopLarge: `@media screen and (min-width: ${breakpointValues.desktopLarge}px)`,
+  desktopHuge: `@media screen and (min-width: ${breakpointValues.desktopHuge}px)`,
   onlySmallPhone: `@media screen and (max-width: ${breakpointValues.regularPhone}px)`,
   onlyPhone: `@media screen and (max-width: ${breakpointValues.tablet}px)`,
   onlyMobile: `@media screen and (max-width: ${breakpointValues.desktopSmall}px)`,
