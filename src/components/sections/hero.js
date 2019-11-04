@@ -34,7 +34,7 @@ const TextContainer = styled.div({
 
   [breakpoints.desktopSmall]: {
     paddingTop: 32,
-    paddingBottom: 64,
+    paddingBottom: 112,
     paddingRight: 0,
   },
 
@@ -163,7 +163,10 @@ export const HeroSection = () => {
       <MobileImage
         fluid={data.heroImageMobile.childImageSharp.fluid}
       ></MobileImage>
-      <TildedImage fluid={data.heroImage.childImageSharp.fluid} />
+      <TildedImage
+        imgStyle={{ objectPosition: 'left center' }}
+        fluid={data.heroImage.childImageSharp.fluid}
+      />
     </HeroRoot>
   );
 };

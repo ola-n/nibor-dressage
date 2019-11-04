@@ -9,6 +9,7 @@ import routes from '../routes';
 import Layout from '@components/layout';
 import SEO from '@components/seo';
 import { HeroSection } from '@components/sections/hero';
+import { HorsesSection } from '@components/sections/horses';
 
 type Props = {
   setActivePage: typeof setActivePage,
@@ -28,7 +29,8 @@ class LandingPage extends React.Component<Props> {
     return (
       <Layout>
         <SEO title="Hem" />
-        <HeroSection></HeroSection>
+        <HeroSection />
+        <HorsesSection />
       </Layout>
     );
   }
