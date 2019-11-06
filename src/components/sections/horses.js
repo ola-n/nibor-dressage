@@ -101,21 +101,21 @@ export const HorsesSection = () => {
       }
       thumb1: file(relativePath: { eq: "hastar/thumb1.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 190) {
+          fluid(maxWidth: 330) {
             ...GatsbyImageSharpFluid
           }
         }
       }
       thumb2: file(relativePath: { eq: "hastar/thumb2.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 190) {
+          fluid(maxWidth: 330) {
             ...GatsbyImageSharpFluid
           }
         }
       }
       thumb3: file(relativePath: { eq: "hastar/thumb3.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 190) {
+          fluid(maxWidth: 330) {
             ...GatsbyImageSharpFluid
           }
         }
