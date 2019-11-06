@@ -6,7 +6,8 @@ import styled from '@emotion/styled';
 
 import routes from '../../../routes';
 import { colors } from '@spec/colors/';
-import { zIndexDefinition, animationTimings } from '@spec/ui-spec';
+import { zIndexDefinition } from '@spec/ui-spec';
+import { animationTimings } from '@spec/animations';
 
 import { NavMenuLink } from '@components/Typography';
 import Burger from '../Burger';

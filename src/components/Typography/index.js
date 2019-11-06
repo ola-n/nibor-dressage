@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
-import { breakpoints } from '@spec/ui-spec';
-import { space, color } from 'styled-system';
 import { Link } from 'gatsby';
+import { css } from '@emotion/core';
+import { space, color } from 'styled-system';
+import { breakpoints } from '@spec/ui-spec';
 
 import { colors } from '@spec/colors';
 
@@ -172,6 +172,23 @@ const navMenuText = css({
   },
 });
 
+export const buttonTextCSS = css({
+  fontSize: 14,
+  cursor: 'pointer',
+  marginBottom: 6,
+  lineHeight: 1.5,
+  display: 'block',
+  fontWeight: fontWeight.bold,
+  fontFamily: 'Poppins, sans-serif',
+  textTransform: 'none',
+  textDecoration: 'none',
+  color: colors.primary_blue,
+
+  '&:hover': {
+    // color: colors.primary_yellow,
+  },
+});
+
 // make the raw classNames available for extending elsewhere
 // as an alternative to the `withComponent` syntax
 export const cls = {
@@ -187,6 +204,7 @@ export const cls = {
   body3,
   navBarText,
   navMenuText,
+  buttonTextCSS,
 };
 
 // exported Components:

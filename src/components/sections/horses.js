@@ -1,15 +1,17 @@
 // @flow
 import React from 'react';
 import styled from '@emotion/styled';
-import { useStaticQuery, graphql } from 'gatsby';
+import { Link, useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
 import { breakpoints, spacing } from '@spec/ui-spec';
+import { easeOut500 } from '@spec/animations';
 import { colors } from '@spec/colors/';
-//import routes from '../routes';
+import routes from '../../routes';
 
 import { Banner, MainContainer } from '@components/Grid/grid';
 import { Display3, Body1 } from '@components/Typography';
+import { Button } from '../Button';
 
 const Root = styled(Banner)({
   backgroundColor: colors.primary_white,
@@ -39,7 +41,7 @@ const HorseGrid = styled.div({
   gridTemplateColumns: '1fr 1fr 1fr',
 
   [breakpoints.desktopLarge]: {
-    gridColumnGap: '30px',
+    //gridColumnGap: '30px',
   },
 });
 
@@ -54,29 +56,36 @@ const Image = styled(Img)({
 });
 
 const Thumb = styled(Img)({
+  transition: `transform 200ms ${easeOut500}`,
   maxWidth: 122,
   height: 'auto',
 
-  [breakpoints.tablet]: {
-    maxWidth: 200,
-    height: 'auto',
+  [breakpoints.landscapePhone]: {
+    maxWidth: 300,
   },
-});
 
-const HorseContainer = styled.div({
-  paddingBottom: 50,
+  [breakpoints.desktopSmall]: {
+    maxWidth: 200,
+  },
+
+  '&:hover': {
+    transform: 'scale(1.15)',
+    cursor: 'pointer',
+  },
 });
 
 const HorseContent = styled.div({
   paddingTop: 30,
+  paddingBottom: 45,
   paddingLeft: 0,
 
   [breakpoints.desktopSmall]: {
-    paddingLeft: 60,
+    paddingTop: 40,
+    paddingLeft: 50,
   },
   [breakpoints.desktopLarge]: {
     paddingTop: 60,
-    paddingLeft: 60,
+    paddingLeft: 20,
   },
 });
 
@@ -119,22 +128,29 @@ export const HorsesSection = () => {
       <MainContainer>
         <MainGrid>
           <Image fluid={data.horsesImage.childImageSharp.fluid}></Image>
-          <HorseContainer>
-            <HorseContent>
-              <Display3>Våra hästar</Display3>
-              <HorseGrid>
+
+          <HorseContent>
+            <Display3>Våra hästar</Display3>
+            <HorseGrid>
+              <Link to={routes.HORSES}>
                 <Thumb fluid={data.thumb1.childImageSharp.fluid}></Thumb>
+              </Link>
+              <Link to={routes.HORSES}>
                 <Thumb fluid={data.thumb2.childImageSharp.fluid}></Thumb>
+              </Link>
+              <Link to={routes.HORSES}>
                 <Thumb fluid={data.thumb3.childImageSharp.fluid}></Thumb>
-              </HorseGrid>
-              <Body1 mt={spacing.t}>
-                Vi har valt att satsa på PRE-hästar med extra hög kvalité både
-                gällande hållbarhet och ridbarhet. Hästarna är väl uppföda på
-                stora kuperade ytor, röntgade och gås regelbundet igenom av
-                veterinär och equiterapeut.
-              </Body1>
-            </HorseContent>
-          </HorseContainer>
+              </Link>
+            </HorseGrid>
+            <Body1 mt={spacing.s} mb={spacing.m}>
+              Vi har valt att satsa på PRE-hästar med extra hög kvalité både
+              gällande hållbarhet och ridbarhet. Hästarna är väl uppföda på
+              stora kuperade ytor, röntgade och gås regelbundet igenom av
+              veterinär och equiterapeut.
+            </Body1>
+
+            <Button to={routes.HORSES}>Se alla våra hästar</Button>
+          </HorseContent>
         </MainGrid>
       </MainContainer>
     </Root>

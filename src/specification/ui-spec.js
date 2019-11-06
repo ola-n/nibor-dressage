@@ -52,8 +52,3 @@ export const zIndexDefinition = {
   popup: 3,
   aboveAll: 50,
 };
-
-// Timings in milliseconds
-export const animationTimings = {
-  navMenuAnimationTime: '300',
-};

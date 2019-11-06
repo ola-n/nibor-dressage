@@ -4,12 +4,8 @@ import { connect } from 'react-redux';
 import { Link } from 'gatsby';
 import styled from '@emotion/styled';
 
-import {
-  breakpoints,
-  navbarSpec,
-  zIndexDefinition,
-  animationTimings,
-} from '@spec/ui-spec';
+import { breakpoints, navbarSpec, zIndexDefinition } from '@spec/ui-spec';
+import { animationTimings } from '@spec/animations';
 import { colors, niborHorizontalGradient } from '@spec/colors/';
 import routes from '../../routes';
 

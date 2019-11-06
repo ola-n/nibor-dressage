@@ -7,6 +7,7 @@ export const colors = {
   primary_darkgrey: '#A1A1A5',
 
   secondary_blue: '#001350', // on text
+  button_blue: '#0F47F8', // on text
   tertiary_blue: '#001350', // smaller text
   secondary_yellow: '#FFD700',
   secondary_grey_200: '#E7E9EE', // used footer
