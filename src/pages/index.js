@@ -2,19 +2,41 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import styled from '@emotion/styled';
+import { graphql } from 'gatsby';
 
 import { setActivePage } from '@state/navigation/actions';
+import { niborHorizontalGradient, colors } from '@spec/colors/';
+import { spacing, breakpoints } from '@spec/ui-spec';
 import routes from '../routes';
 
 import Layout from '@components/layout';
 import SEO from '@components/seo';
 import { HeroSection } from '@components/sections/hero';
 import { HorsesSection } from '@components/sections/horses';
+import { Display1, Intro } from '@components/Typography';
 
 type Props = {
   setActivePage: typeof setActivePage,
   currentPage: string,
+  data: Object,
 };
+
+const Header = styled(Display1)({
+  maxWidth: 441,
+
+  '@media screen and (min-width: 1170px)': {
+    maxWidth: 'none',
+  },
+});
+
+const Lead = styled(Intro)({
+  minWidth: 'auto',
+
+  [breakpoints.desktopSmall]: {
+    minWidth: 441,
+  },
+});
 
 class LandingPage extends React.Component<Props> {
   componentDidMount() {
@@ -26,10 +48,29 @@ class LandingPage extends React.Component<Props> {
   }
 
   render() {
+    const { heroImageDesktop, heroImageMobile } = this.props.data;
+
     return (
       <Layout>
         <SEO title="Hem" />
-        <HeroSection />
+        <HeroSection
+          background={niborHorizontalGradient}
+          heroImageDesktop={heroImageDesktop}
+          heroImageMobile={heroImageMobile}
+        >
+          <div>
+            <Header mb={spacing.m} color={colors.primary_yellow}>
+              PRE med kvalitét
+            </Header>
+            <Lead>
+              Nibor Dressage PRE drivs av Mika Nordström som satsar på att få
+              fram konkurrenskraftiga PRE-hästar för dressyrsporten. Hästarna
+              har bästa möjliga blodslinjer framtagna för såväl hållbarhet som
+              gångarter och utstrålning.
+            </Lead>
+            <Lead mb={0}>Vår anläggning finns i Tygelsjö, utanför Malmö.</Lead>
+          </div>
+        </HeroSection>
         <HorsesSection />
       </Layout>
     );
@@ -54,3 +95,16 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(LandingPage);
+
+export const query = graphql`
+  query LandingPageQuery {
+    heroImageDesktop: file(relativePath: { eq: "hero-images/temp-hero.png" }) {
+      ...heroFragmentDesktop
+    }
+    heroImageMobile: file(
+      relativePath: { eq: "hero-images/decidido-low-res.jpg" }
+    ) {
+      ...heroFragmentMobile
+    }
+  }
+`;

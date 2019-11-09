@@ -9,19 +9,9 @@ export const colors = {
   secondary_blue: '#001350', // on text
   button_blue: '#0F47F8', // on text
   tertiary_blue: '#001350', // smaller text
-  secondary_yellow: '#FFD700',
+  secondary_white: '#F1F2F5', // hero section-bg
   secondary_grey_200: '#E7E9EE', // used footer
-  secondary_grey_300: '#7C808C',
-  secondary_grey_400: '#E1E6ED',
-  secondary_grey_500: '#BDBDBF',
-  secondary_grey_600: '#7D7D7D',
-  secondary_grey_700: '#6C7275',
   secondary_grey_800: '#7C808C', // footer grey text
-  secondary_red_500: '#BF0B0E',
-  secondary_red_600: '#FF383B',
-
-  link_color: '#E52427',
-  link_color_hover: '#CC2023',
 };
 
 export const niborHorizontalGradient =

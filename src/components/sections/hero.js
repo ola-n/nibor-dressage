@@ -1,22 +1,24 @@
 // @flow
 import React from 'react';
 import styled from '@emotion/styled';
-import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
-import { spacing, breakpoints } from '@spec/ui-spec';
-import { niborHorizontalGradient, colors } from '@spec/colors/';
+import { breakpoints } from '@spec/ui-spec';
+import { colors } from '@spec/colors/';
 //import routes from '../routes';
 
 import { Banner, MainContainer } from '@components/Grid/grid';
-import { Display1, Intro } from '@components/Typography';
 
-const HeroRoot = styled(Banner)({
-  background: niborHorizontalGradient,
-  color: colors.primary_white,
-  position: 'relative',
-  overflow: 'hidden',
-});
+const HeroRoot = styled(Banner)(
+  {
+    color: colors.primary_white,
+    position: 'relative',
+    overflow: 'hidden',
+  },
+  ({ background }) => !!background && { background: background },
+  ({ backgroundColor }) =>
+    !!backgroundColor && { backgroundColor: backgroundColor }
+);
 
 const HeroContent = styled(MainContainer)({
   display: 'flex',
@@ -31,6 +33,7 @@ const TextContainer = styled.div({
   paddingTop: 16,
   paddingBottom: 42,
   paddingRight: 8,
+  width: '100%',
 
   [breakpoints.desktopSmall]: {
     paddingTop: 32,
@@ -41,22 +44,6 @@ const TextContainer = styled.div({
   [breakpoints.desktopLarge]: {
     paddingTop: 64,
     maxWidth: 1160,
-  },
-});
-
-const Header = styled(Display1)({
-  maxWidth: 441,
-
-  '@media screen and (min-width: 1170px)': {
-    maxWidth: 'none',
-  },
-});
-
-const Lead = styled(Intro)({
-  minWidth: 'auto',
-
-  [breakpoints.desktopSmall]: {
-    minWidth: 441,
   },
 });
 
@@ -120,52 +107,32 @@ const MobileImage = styled(Img)({
   },
 });
 
-export const HeroSection = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      heroImage: file(relativePath: { eq: "hero-images/temp-hero.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 1100) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      heroImageMobile: file(
-        relativePath: { eq: "hero-images/decidido-low-res.jpg" }
-      ) {
-        childImageSharp {
-          fluid(maxWidth: 640) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `);
+type Props = {
+  background?: string,
+  backgroundColor?: string,
+  children: Object,
+  heroImageDesktop: Object,
+  heroImageMobile: Object,
+};
 
+export const HeroSection = ({
+  background,
+  backgroundColor,
+  heroImageDesktop,
+  heroImageMobile,
+  children,
+}: Props) => {
   return (
-    <HeroRoot>
+    <HeroRoot background={background} backgroundColor={backgroundColor}>
       <HeroContent>
-        <TextContainer>
-          <Header mb={spacing.m} color={colors.primary_yellow}>
-            PRE med kvalitét
-          </Header>
-          <Lead>
-            Nibor Dressage PRE drivs av Mika Nordström som satsar på att få fram
-            konkurrenskraftiga PRE-hästar för dressyrsporten. Hästarna har bästa
-            möjliga blodslinjer framtagna för såväl hållbarhet som gångarter och
-            utstrålning.
-          </Lead>
-          <Lead mb={0}>Vår anläggning finns i Tygelsjö, utanför Malmö.</Lead>
-        </TextContainer>
+        <TextContainer>{children}</TextContainer>
         <Spacer />
       </HeroContent>
 
-      <MobileImage
-        fluid={data.heroImageMobile.childImageSharp.fluid}
-      ></MobileImage>
+      <MobileImage fluid={heroImageMobile.childImageSharp.fluid}></MobileImage>
       <TildedImage
         imgStyle={{ objectPosition: 'left center' }}
-        fluid={data.heroImage.childImageSharp.fluid}
+        fluid={heroImageDesktop.childImageSharp.fluid}
       />
     </HeroRoot>
   );
