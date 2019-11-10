@@ -2,7 +2,6 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Link } from 'gatsby';
 
 import { setActivePage } from '@state/navigation/actions';
 import { spacing } from '@spec/ui-spec';
@@ -35,7 +34,7 @@ class TeamPage extends React.Component<Props> {
           <MainContainer py={spacing.m}>
             <SEO title="Teamet" />
             <Display2 color={colors.secondary_blue} style={{ maxWidth: 650 }}>
-              Här kommer info om teamet bakom nibor inom kort
+              Här kommer info om teamet bakom Nibor inom kort
             </Display2>
           </MainContainer>
         </Banner>
