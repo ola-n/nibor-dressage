@@ -9,6 +9,7 @@ export const routes = {
   SERVICES: '/tjanster/',
   CONTACT: '/kontakt/',
   COOKIES: '/cookies/',
+  DARNIT: '/404/',
 };
 
 export default routes;

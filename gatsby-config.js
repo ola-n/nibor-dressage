@@ -43,6 +43,14 @@ module.exports = {
     `gatsby-plugin-emotion`,
     `gatsby-plugin-netlify`,
     {
+      resolve: 'gatsby-plugin-mixpanel',
+      options: {
+        apiToken: 'bd878f39aa31b4e079ddfbc2861460bd',
+        enableOnDevMode: false, // if false mixpanel will be activated on NODE_ENV=production only
+        mixpanelConfig: null, // override specific config for mixpanel initialization https://github.com/mixpanel/mixpanel-js/blob/8b2e1f7b/src/mixpanel-core.js#L87-L110
+      },
+    },
+    {
       resolve: 'gatsby-plugin-alias-imports',
       options: {
         alias: {

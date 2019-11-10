@@ -28,7 +28,7 @@ class ContactPage extends React.Component<Props> {
 
   render() {
     return (
-      <Layout>
+      <Layout page={routes.CONTACT}>
         <Banner>
           <MainContainer py={spacing.m}>
             <SEO title="Kontakt" />

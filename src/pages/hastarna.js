@@ -52,7 +52,7 @@ class HorsesPage extends React.Component<Props> {
     const { heroImageDesktop, heroImageMobile } = this.props.data;
 
     return (
-      <Layout>
+      <Layout page={routes.HORSES}>
         <SEO title="Hästarna" />
         <HeroSection
           backgroundColor={colors.secondary_white}

@@ -28,7 +28,7 @@ class TeamPage extends React.Component<Props> {
 
   render() {
     return (
-      <Layout>
+      <Layout page={routes.TEAM}>
         <Banner>
           <MainContainer py={spacing.m}>
             <SEO title="Teamet" />

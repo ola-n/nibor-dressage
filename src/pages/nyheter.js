@@ -28,7 +28,7 @@ class NewsPage extends React.Component<Props> {
 
   render() {
     return (
-      <Layout>
+      <Layout page={routes.NEWS}>
         <Banner>
           <MainContainer py={spacing.m}>
             <SEO title="Nyheter" />

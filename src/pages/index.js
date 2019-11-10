@@ -51,7 +51,7 @@ class LandingPage extends React.Component<Props> {
     const { heroImageDesktop, heroImageMobile } = this.props.data;
 
     return (
-      <Layout>
+      <Layout page={routes.HOME}>
         <SEO title="Hem" />
         <HeroSection
           background={niborHorizontalGradient}

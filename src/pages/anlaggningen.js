@@ -59,7 +59,7 @@ class FacilitiesPage extends React.Component<Props> {
     const { heroImageDesktop, heroImageMobile } = this.props.data;
 
     return (
-      <Layout>
+      <Layout page={routes.FACILITY}>
         <SEO title="Anläggningen" />
         <HeroSection
           backgroundColor={colors.secondary_white}
