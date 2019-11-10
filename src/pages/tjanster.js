@@ -2,19 +2,42 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Link } from 'gatsby';
+import styled from '@emotion/styled';
+import { graphql } from 'gatsby';
 
 import { setActivePage } from '@state/navigation/actions';
-import { spacing } from '@spec/ui-spec';
+import { spacing, breakpoints } from '@spec/ui-spec';
+import { colors } from '@spec/colors/';
 import routes from '../routes';
 
 import Layout from '@components/layout';
 import SEO from '@components/seo';
-import { Banner, MainContainer } from '@components/Grid/grid';
+import { HeroSection } from '@components/sections/hero';
+import { Display1, Intro } from '@components/Typography';
+import { Button } from '@components/Button';
+
+const ContentWrap = styled.div({});
+
+const Header = styled(Display1)({
+  maxWidth: 441,
+
+  '@media screen and (min-width: 1170px)': {
+    maxWidth: 'none',
+  },
+});
+
+const Lead = styled(Intro)({
+  minWidth: 'auto',
+
+  [breakpoints.desktopSmall]: {
+    minWidth: 421,
+  },
+});
 
 type Props = {
   setActivePage: typeof setActivePage,
   currentPage: string,
+  data: Object,
 };
 
 class ServicesPage extends React.Component<Props> {
@@ -27,16 +50,29 @@ class ServicesPage extends React.Component<Props> {
   }
 
   render() {
+    const { heroImageDesktop, heroImageMobile } = this.props.data;
+
     return (
       <Layout page={routes.SERVICES}>
-        <Banner>
-          <MainContainer py={spacing.m}>
-            <SEO title="Tjänster" />
-            <h1>Hej från tjänster</h1>
-            <p>paragraf</p>
-            <Link to="/">Till landningssida</Link>
-          </MainContainer>
-        </Banner>
+        <SEO title="Tjänster" />
+        <HeroSection
+          backgroundColor={colors.secondary_white}
+          heroImageDesktop={heroImageDesktop}
+          heroImageMobile={heroImageMobile}
+        >
+          <ContentWrap>
+            <Header mb={spacing.m} mt={spacing.t} color={colors.primary_blue}>
+              Tjänster
+            </Header>
+            <Lead color={colors.primary_blue} mb={spacing.m}>
+              Vi erbjuder många typer av ställtjänster. Vi erbjuder många typer
+              av ställtjänster.Vi erbjuder många typer av ställtjänster.Vi
+              erbjuder många typer av ställtjänster.
+            </Lead>
+
+            <Button to={routes.CONTACT}>Kontakta oss för tidsbokning</Button>
+          </ContentWrap>
+        </HeroSection>
       </Layout>
     );
   }
@@ -60,3 +96,18 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(ServicesPage);
+
+export const query = graphql`
+  query ServicesPageQuery {
+    heroImageDesktop: file(
+      relativePath: { eq: "hero-images/temp-tjanster.png" }
+    ) {
+      ...heroFragmentDesktop
+    }
+    heroImageMobile: file(
+      relativePath: { eq: "hero-images/mobile-tjanster.jpg" }
+    ) {
+      ...heroFragmentMobile
+    }
+  }
+`;

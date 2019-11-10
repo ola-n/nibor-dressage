@@ -2,15 +2,16 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Link } from 'gatsby';
 
 import { setActivePage } from '@state/navigation/actions';
 import { spacing } from '@spec/ui-spec';
+import { colors } from '@spec/colors/';
 import routes from '../routes';
 
 import Layout from '@components/layout';
 import SEO from '@components/seo';
 import { Banner, MainContainer } from '@components/Grid/grid';
+import { Display2 } from '@components/Typography';
 
 type Props = {
   setActivePage: typeof setActivePage,
@@ -32,9 +33,9 @@ class NewsPage extends React.Component<Props> {
         <Banner>
           <MainContainer py={spacing.m}>
             <SEO title="Nyheter" />
-            <h1>Hej från nyheter</h1>
-            <p>paragraf</p>
-            <Link to="/">Till landningssida</Link>
+            <Display2 color={colors.secondary_blue}>
+              Här kommer en nyhetssektion inom kort
+            </Display2>
           </MainContainer>
         </Banner>
       </Layout>

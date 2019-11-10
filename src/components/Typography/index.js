@@ -175,7 +175,6 @@ const navMenuText = css({
 export const buttonTextCSS = css({
   fontSize: 14,
   cursor: 'pointer',
-  marginBottom: 6,
   lineHeight: 1.5,
   display: 'block',
   fontWeight: fontWeight.bold,
@@ -239,6 +238,7 @@ export const Intro = styled.p(
   intro,
   color,
   space,
+  ({ medium }) => !!medium && { fontWeight: `${fontWeight.medium} !important` },
   ({ bold }) => !!bold && { fontWeight: `${fontWeight.semiBold} !important` }
 );
 

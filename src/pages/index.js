@@ -16,11 +16,11 @@ import { HeroSection } from '@components/sections/hero';
 import { HorsesSection } from '@components/sections/horses';
 import { Display1, Intro } from '@components/Typography';
 
-type Props = {
-  setActivePage: typeof setActivePage,
-  currentPage: string,
-  data: Object,
-};
+const ContentWrap = styled.div({
+  [breakpoints.desktopSmall]: {
+    paddingBottom: 30,
+  },
+});
 
 const Header = styled(Display1)({
   maxWidth: 441,
@@ -37,6 +37,12 @@ const Lead = styled(Intro)({
     minWidth: 441,
   },
 });
+
+type Props = {
+  setActivePage: typeof setActivePage,
+  currentPage: string,
+  data: Object,
+};
 
 class LandingPage extends React.Component<Props> {
   componentDidMount() {
@@ -58,7 +64,7 @@ class LandingPage extends React.Component<Props> {
           heroImageDesktop={heroImageDesktop}
           heroImageMobile={heroImageMobile}
         >
-          <div>
+          <ContentWrap>
             <Header mb={spacing.m} color={colors.primary_yellow}>
               PRE med kvalitét
             </Header>
@@ -69,7 +75,7 @@ class LandingPage extends React.Component<Props> {
               gångarter och utstrålning.
             </Lead>
             <Lead mb={0}>Vår anläggning finns i Tygelsjö, utanför Malmö.</Lead>
-          </div>
+          </ContentWrap>
         </HeroSection>
         <HorsesSection />
       </Layout>

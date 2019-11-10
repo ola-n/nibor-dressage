@@ -37,7 +37,7 @@ const TextContainer = styled.div({
 
   [breakpoints.desktopSmall]: {
     paddingTop: 32,
-    paddingBottom: 112,
+    paddingBottom: 92,
     paddingRight: 0,
   },
 

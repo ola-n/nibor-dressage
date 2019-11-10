@@ -132,9 +132,7 @@ const FooterComponent = () => {
                 Kontakta oss
               </Display4>
               <Body2 color={colors.tertiary_blue} style={{ marginBottom: 2 }}>
-                <TextLink href="mailto:mika.nordstroem@gmail.com">
-                  mika.nordstroem@gmail.com
-                </TextLink>
+                <TextLink href="mailto:mika@nibor.se">mika@nibor.se</TextLink>
               </Body2>
               <Body2 color={colors.tertiary_blue} style={{ marginBottom: 2 }}>
                 <TextLink href="tel:+46707178917">0707 - 17 89 17</TextLink>

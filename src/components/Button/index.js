@@ -10,7 +10,7 @@ export const ButtonLink = styled.a(
   buttonTextCSS,
   {
     backgroundColor: colors.button_blue,
-    paddingTop: 14,
+    paddingTop: 15,
     paddingRight: 20,
     paddingLeft: 20,
     display: 'block',
