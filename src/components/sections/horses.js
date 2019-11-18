@@ -9,7 +9,7 @@ import { easeOut500 } from '@spec/animations';
 import { colors } from '@spec/colors/';
 import routes from '../../routes';
 
-import { Banner, MainContainer } from '@components/Grid/grid';
+import { Banner, MainContainer } from '@components/Grid';
 import { Display3, Body1 } from '@components/Typography';
 import { Button } from '../Button';
 

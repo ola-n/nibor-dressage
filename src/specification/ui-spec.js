@@ -52,3 +52,7 @@ export const zIndexDefinition = {
   popup: 3,
   aboveAll: 50,
 };
+
+export const articleWidth = {
+  maxWidth: 750,
+};

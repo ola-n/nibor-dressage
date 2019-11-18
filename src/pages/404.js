@@ -4,7 +4,7 @@ import routes from '../routes';
 
 import Layout from '@components/layout';
 import SEO from '@components/seo';
-import { MainContainer } from '@components/Grid/grid';
+import { MainContainer } from '@components/Grid';
 
 const NotFoundPage = () => (
   <Layout page={routes.DARNIT}>

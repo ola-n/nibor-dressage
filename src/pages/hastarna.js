@@ -6,14 +6,15 @@ import styled from '@emotion/styled';
 import { graphql } from 'gatsby';
 
 import { setActivePage } from '@state/navigation/actions';
-import { spacing, breakpoints } from '@spec/ui-spec';
+import { spacing, breakpoints, articleWidth } from '@spec/ui-spec';
 import { colors } from '@spec/colors/';
 import routes from '../routes';
 
 import Layout from '@components/layout';
 import SEO from '@components/seo';
 import { HeroSection } from '@components/sections/hero';
-import { Display1, Intro } from '@components/Typography';
+import { Banner, MainContainer } from '@components/Grid';
+import { Display1, Display3, Intro, Body2 } from '@components/Typography';
 
 const ContentWrap = styled.div({});
 
@@ -32,6 +33,8 @@ const Lead = styled(Intro)({
     minWidth: 421,
   },
 });
+
+const TextContainer = styled.div(articleWidth);
 
 type Props = {
   setActivePage: typeof setActivePage,
@@ -72,6 +75,54 @@ class HorsesPage extends React.Component<Props> {
             </Lead>
           </ContentWrap>
         </HeroSection>
+        <Banner>
+          <MainContainer py={spacing.l}>
+            <TextContainer>
+              <Display3 mb={spacing.s}>Varför PRE?</Display3>
+
+              <Body2 color={colors.secondary_blue} mb={spacing.s}>
+                Redan i den tidiga romerska epoken beskrev författare den
+                spanska hästen som vacker, lydig, arrogant och modig - perfekt
+                för krig och för de spel som var vanliga vid den tidseran.
+                PRE-hästarna användes mest till show medan den besläktade
+                Lusitanon mer användes vid tjurfäktning.
+              </Body2>
+              <Body2 color={colors.secondary_blue} mb={spacing.s}>
+                En PRE är intelligent, vänlig, modig, samabetsvillig och väldigt
+                lojal. Den är mångsidig och har lätt att anpassa sig i olika
+                situationer. Hästen är mycket lyhörd mot sin ryttare och vill
+                vara till lags. Vissa PRE-hästar är enmanshästar som väljer ut
+                &quot;sin&quot; människa som den gör allt för. De kan också var
+                skeptiska mot människor de inte känner men är alltid vänliga om
+                än vissa mer försiktiga än andra. Jag brukar säga att det inte
+                var fören jag fick min första PRE-häst som jag lärde mig rida på
+                riktigt. Alla mina hästar säger vänligt men bestämt till mig när
+                jag gör något fel och mycket självranskan krävs för att rida och
+                utbilda en riktigt bra PRE.
+              </Body2>
+              <Body2 color={colors.secondary_blue} mb={spacing.s}>
+                En PRE har ofta mjuka bekväma rörelser och är behaglig att sitta
+                på. De är också födda &quot;naturligt i form&quot; och du som
+                ryttare måste bevara denna mjukhet och medfödda bärighet.
+                Hästarna är lätta i handen och har ibland svårt att ta stöd på
+                bettet, men genom en mjuk och följsam hand, som går mot bettet,
+                kommer hästen tillsist att söka ett lätt stöd. Det brukar räcka
+                med några gram i handen, du ska aldrig tvinga en PRE till att ta
+                stöd.
+              </Body2>
+              <Body2 color={colors.secondary_blue}>
+                Man får ofta höra att PRE-hästen inte kan utföra en korrekt ökad
+                trav men det påståendet är inte sant. Många av dem kan dock inte
+                göra det naturligt i ung ålder utan måste genom uppbyggnad och
+                styrka lära sig att vila på steget och skapa mer kadens. Därför
+                är det viktigt att man inte stressar en PRE, då den enbart
+                kommer veva med frambenen, utan att man genom takt och bärighet
+                hittar och stärker hästens bakben. Med rätt ridning kan en häst
+                som &quot;går som en symaskin&quot; få en fantastisk trav!
+              </Body2>
+            </TextContainer>
+          </MainContainer>
+        </Banner>
       </Layout>
     );
   }

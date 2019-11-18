@@ -7,7 +7,7 @@ import { breakpoints } from '@spec/ui-spec';
 import { colors } from '@spec/colors/';
 //import routes from '../routes';
 
-import { Banner, MainContainer } from '@components/Grid/grid';
+import { Banner, MainContainer } from '@components/Grid';
 
 const HeroRoot = styled(Banner)(
   {

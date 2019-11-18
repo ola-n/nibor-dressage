@@ -10,7 +10,7 @@ import routes from '../routes';
 
 import Layout from '@components/layout';
 import SEO from '@components/seo';
-import { Banner, MainContainer } from '@components/Grid/grid';
+import { Banner, MainContainer } from '@components/Grid';
 import { Display2 } from '@components/Typography';
 
 type Props = {

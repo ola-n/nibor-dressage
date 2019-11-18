@@ -9,7 +9,7 @@ import { colors } from '@spec/colors/';
 import routes from '../../routes';
 
 import logo from '@images/logo/nibor-footer.svg';
-import { MainContainer } from '@components/Grid/grid';
+import { MainContainer } from '@components/Grid';
 import { Display4, Body2, Body3 } from '@components/Typography';
 
 const FooterRoot = styled.footer(

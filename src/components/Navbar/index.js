@@ -9,7 +9,7 @@ import { animationTimings } from '@spec/animations';
 import { colors, niborHorizontalGradient } from '@spec/colors/';
 import routes from '../../routes';
 
-import { Banner, MainContainer } from '@components/Grid/grid';
+import { Banner, MainContainer } from '@components/Grid';
 import { NavbarLink } from '@components/Typography';
 import Burger from './Burger';
 import Navmenu from './NavMenu';
