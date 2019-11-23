@@ -105,12 +105,12 @@ export default connect(
 export const query = graphql`
   query LandingPageQuery {
     heroImageDesktop: file(relativePath: { eq: "hero-images/temp-hero.png" }) {
-      ...heroFragmentDesktop
+      ...fragmentDesktop
     }
     heroImageMobile: file(
       relativePath: { eq: "hero-images/decidido-low-res.jpg" }
     ) {
-      ...heroFragmentMobile
+      ...fragmentMobile
     }
   }
 `;

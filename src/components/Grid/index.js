@@ -1,6 +1,7 @@
 // @flow
 import styled from '@emotion/styled';
 import { breakpoints, spacing } from '@spec/ui-spec';
+import { css } from '@emotion/core';
 import { space } from 'styled-system';
 
 export const Banner = styled.div(
@@ -46,6 +47,17 @@ export const MainContainer = styled.div(
   },
   space
 );
+
+export const resetStyle = css({
+  [breakpoints.onlySmallPhone]: {
+    marginRight: `${-spacing.sidePaddingPhoneSmall}px !important`,
+    marginLeft: `${-spacing.sidePaddingPhoneSmall}px !important`,
+  },
+  [breakpoints.onlyPhone]: {
+    marginRight: -spacing.sidePaddingPhone,
+    marginLeft: -spacing.sidePaddingPhone,
+  },
+});
 
 export const Grid = styled.div(
   {

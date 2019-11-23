@@ -3,6 +3,7 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import { graphql } from 'gatsby';
 
 import { setActivePage } from '@state/navigation/actions';
@@ -14,7 +15,8 @@ import Layout from '@components/layout';
 import SEO from '@components/seo';
 import { Banner, MainContainer, Grid } from '@components/Grid';
 import { HeroSection } from '@components/sections/hero';
-import { Display1, Display3, Intro, Body2 } from '@components/Typography';
+import { Display1, Intro, Body2 } from '@components/Typography';
+import ClippedImage from '@components/ClippedImage';
 
 const ContentWrap = styled.div({ width: '100%' });
 
@@ -48,7 +50,21 @@ const FacilityGrid = styled(Grid)({
 });
 
 const TextContainer = styled.div({});
-const ImageContainer = styled.div({});
+const ImageContainer = styled.div({
+  [breakpoints.tablet]: {
+    paddingBottom: 96,
+  },
+  [breakpoints.desktopLarge]: {
+    paddingLeft: 64,
+    paddingRight: 64,
+  },
+});
+
+const topImageStyle = css({
+  [breakpoints.tablet]: {
+    marginBottom: 64,
+  },
+});
 
 type Props = {
   setActivePage: typeof setActivePage,
@@ -66,7 +82,12 @@ class FacilitiesPage extends React.Component<Props> {
   }
 
   render() {
-    const { heroImageDesktop, heroImageMobile } = this.props.data;
+    const {
+      heroImageDesktop,
+      heroImageMobile,
+      losdrift,
+      ridhus,
+    } = this.props.data;
 
     return (
       <Layout page={routes.FACILITY}>
@@ -132,7 +153,22 @@ class FacilitiesPage extends React.Component<Props> {
                   vi nu har egenproducerat hö.
                 </Body2>
               </TextContainer>
-              <ImageContainer>asd2</ImageContainer>
+              <ImageContainer>
+                <ClippedImage
+                  image={losdrift}
+                  imgStyle={{ objectPosition: `80% center` }}
+                  desktopSquare
+                  paddingReset
+                  style={topImageStyle}
+                />
+                <ClippedImage
+                  image={ridhus}
+                  imgStyle={{ objectPosition: `80% center` }}
+                  desktopSquare
+                  paddingReset
+                  clipperPos={'br'}
+                />
+              </ImageContainer>
             </FacilityGrid>
           </MainContainer>
         </Banner>
@@ -165,12 +201,18 @@ export const query = graphql`
     heroImageDesktop: file(
       relativePath: { eq: "hero-images/temp-anlaggningen.png" }
     ) {
-      ...heroFragmentDesktop
+      ...fragmentDesktop
     }
     heroImageMobile: file(
       relativePath: { eq: "hero-images/mobile-anlaggningen.jpg" }
     ) {
-      ...heroFragmentMobile
+      ...fragmentMobile
+    }
+    losdrift: file(relativePath: { eq: "flygfoto/losdrift.jpg" }) {
+      ...fragmentMobile
+    }
+    ridhus: file(relativePath: { eq: "anlaggningen/ridhus.jpg" }) {
+      ...fragmentMobile
     }
   }
 `;

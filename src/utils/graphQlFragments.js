@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
 
-export const heroFragmentDesktop = graphql`
-  fragment heroFragmentDesktop on File {
+export const fragmentDesktop = graphql`
+  fragment fragmentDesktop on File {
     childImageSharp {
       fluid(maxWidth: 1100, quality: 100) {
         ...GatsbyImageSharpFluid
@@ -10,10 +10,10 @@ export const heroFragmentDesktop = graphql`
   }
 `;
 
-export const heroFragmentMobile = graphql`
-  fragment heroFragmentMobile on File {
+export const fragmentMobile = graphql`
+  fragment fragmentMobile on File {
     childImageSharp {
-      fluid(maxWidth: 640, quality: 100) {
+      fluid(maxWidth: 764, quality: 100) {
         ...GatsbyImageSharpFluid
       }
     }

@@ -112,12 +112,12 @@ export const query = graphql`
     heroImageDesktop: file(
       relativePath: { eq: "hero-images/temp-kontakt.png" }
     ) {
-      ...heroFragmentDesktop
+      ...fragmentDesktop
     }
     heroImageMobile: file(
       relativePath: { eq: "hero-images/mobile-kontakt.jpg" }
     ) {
-      ...heroFragmentMobile
+      ...fragmentMobile
     }
   }
 `;
