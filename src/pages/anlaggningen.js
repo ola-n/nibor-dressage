@@ -104,7 +104,9 @@ class FacilitiesPage extends React.Component<Props> {
             <Lead color={colors.primary_blue}>Gränskullavägen Tygelsjö</Lead>
             <Lead color={colors.primary_blue}>Grundad 2017</Lead>
             <Lead color={colors.primary_blue}>5ha hagar</Lead>
-            <Lead color={colors.primary_blue}>Ridhus med 8 boxar</Lead>
+            <Lead color={colors.primary_blue}>
+              Ridhus, stall med 8 boxar och lösdrift
+            </Lead>
             <Lead color={colors.primary_blue}>
               Ridbana med värmeslingor, fibersand & automatisk betvattning
             </Lead>
