@@ -108,7 +108,7 @@ class FacilitiesPage extends React.Component<Props> {
               Ridhus, stall med 8 boxar och lösdrift
             </Lead>
             <Lead color={colors.primary_blue}>
-              Ridbana med värmeslingor, fibersand & automatisk betvattning
+              Ridbana med värmeslingor, fibersand & automatisk bevattning
             </Lead>
           </ContentWrap>
         </HeroSection>
@@ -135,18 +135,19 @@ class FacilitiesPage extends React.Component<Props> {
                   mängder av experiment, där vi fyllde behållare med olika typer
                   av sand och tillsatte vatten för att se hur underlagets svikt,
                   konsistens och rörligthet blev. När vi hittat en kombination
-                  av sander som vi var nöjda med, bestämde vi oss för ett high
+                  av sander som vi var nöjda med, bestämde vi oss för ett high-
                   tide system där underlaget vattnas underifrån.
                 </Body2>
                 <Body2 color={colors.secondary_blue} mb={spacing.s}>
                   Givetvis var vår egen uppfinnarjocke Robin tvungen till att
-                  göra en del förbättbättringar av systemet vilket resulterade i
-                  att vi idag har en underlag med perfekt doserad vattenmängd
-                  jämt fördelat över ridbanans yta som är helt underhållsfri. I
-                  samband med ridhusbygget byggdes stallet ut till åtta boxar.
-                  Det blev ett luftigt stall med alla förnödenheter. Även
-                  solpaneler placerades på stallets tak, vilka idag försörjer
-                  både stall och ridhus med ström.
+                  göra en del förbättringar av systemet vilket resulterade i att
+                  vi idag har en underlag med perfekt doserad vattenmängd jämt
+                  fördelat över ridbanans yta. Själva systemet är nu i stort
+                  sett underhållsfritt. I samband med ridhusbygget byggdes
+                  stallet ut till åtta boxar. Det blev ett luftigt stall med
+                  alla förnödenheter. Även solpaneler placerades på stallets
+                  tak, vilka idag försörjer både stall och ridhus med
+                  elektricitet.
                 </Body2>
                 <Body2 color={colors.secondary_blue} mb={spacing.m}>
                   Det senaste projektet har varit att vi byggt en lösdrift för
