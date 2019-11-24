@@ -14,6 +14,27 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'blog-entries',
+        path: `${__dirname}/src/blog-entries`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'pages',
+        path: `${__dirname}/src/pages`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'src',
+        path: `${__dirname}/src/`,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-eslint',
       options: {
         test: /\.js$|\.jsx$/,
@@ -40,6 +61,7 @@ module.exports = {
         icon: 'src/images/logo/yellow-logo-no-text.svg', // This path is relative to the root of the site.
       },
     },
+    `gatsby-transformer-remark`,
     `gatsby-plugin-emotion`,
     `gatsby-plugin-netlify`,
     {

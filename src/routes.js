@@ -1,6 +1,6 @@
 // @flow
 
-export const routes = {
+module.exports = {
   HOME: '/',
   HORSES: '/hastarna/',
   NEWS: '/nyheter/',
@@ -11,5 +11,3 @@ export const routes = {
   COOKIES: '/cookies/',
   DARNIT: '/404/',
 };
-
-export default routes;
