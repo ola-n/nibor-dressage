@@ -133,6 +133,7 @@ export const HeroSection = ({
       <TildedImage
         imgStyle={{ objectPosition: 'left center' }}
         fluid={heroImageDesktop.childImageSharp.fluid}
+        loading="eager"
       />
     </HeroRoot>
   );
