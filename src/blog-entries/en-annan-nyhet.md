@@ -1,8 +1,8 @@
 ---
-title: 'En Nyhet'
-date: '2019-03-18'
-slug: 'en-nyhet'
-path: '/nyheter/en-nyhet/'
+title: 'Mycket mera nyheter'
+date: '2019-07-22'
+slug: 'en-annan-nyhet'
+path: '/nyheter/en-annan-nyhet/'
 layout: 'blog'
 intro: 'Mitt intro från frontmatter'
 ---

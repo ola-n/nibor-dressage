@@ -25,19 +25,23 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const result = await graphql(`
+  await graphql(`
     query {
-      blogPosts: allMarkdownRemark {
+      blogPosts: allMarkdownRemark(
+        filter: { frontmatter: { layout: { eq: "blog" } } }
+        sort: { order: DESC, fields: [frontmatter___date] }
+      ) {
         edges {
           node {
             id
             html
             frontmatter {
-              date
+              date: date(formatString: "YYYY-MM-DD")
               layout
               slug
               title
               path
+              intro
             }
             excerpt
             fields {
@@ -47,8 +51,7 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     }
-  `);
-  /*.then(({ data }) => {
+  `).then(({ data }) => {
     if (!data) {
       console.error('No data to create pages with');
       return;
@@ -81,26 +84,6 @@ exports.createPages = async ({ graphql, actions }) => {
           slug,
         },
       });
-    });
-  });
-  */
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    const blogTemplate = path.resolve(`./src/templates/blog-post.js`);
-    const {
-      fields: { slug },
-    } = node;
-
-    console.log('slug ', slug);
-    console.log('node.frontmatter.path ', node.frontmatter.path);
-    createPage({
-      path: node.frontmatter.path,
-      component: blogTemplate,
-      context: {
-        // Data passed to context is available
-        // in page queries as GraphQL variables.
-        ...node, // TODO: Remove!
-        slug,
-      },
     });
   });
 };
