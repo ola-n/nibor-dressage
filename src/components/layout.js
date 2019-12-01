@@ -67,8 +67,10 @@ const Layout = (props: Props) => {
     setOpen(!navMenuOpen);
   }
 
-  const pageUrl = `${siteUrl}${location.pathname || ''}`;
-  console.log('pageUrl ', pageUrl);
+  let pageUrl = '';
+  if (typeof window !== undefined) {
+    pageUrl = `${siteUrl}${location.pathname}`;
+  }
 
   return (
     <Root>
