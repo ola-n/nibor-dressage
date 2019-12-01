@@ -28,7 +28,6 @@ class BlogPost extends React.Component<Props> {
     const { frontmatter } = this.props.data.markdownRemark;
     const { title, intro } = this.props.data.markdownRemark.frontmatter;
     const image = frontmatter.image && frontmatter.image.childImageSharp;
-    console.log('image ', image);
 
     return (
       <Layout>
@@ -50,6 +49,8 @@ class BlogPost extends React.Component<Props> {
               <Display2>{title}</Display2>
               <Subhead mb={spacing.m}>{intro}</Subhead>
               <div dangerouslySetInnerHTML={{ __html: html }}></div>
+              <p>Image from markdown:</p>
+              <Image fluid={image.fluid}></Image>
             </div>
           </MainContainer>
         </Banner>

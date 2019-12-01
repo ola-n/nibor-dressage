@@ -1,5 +1,3 @@
-const path = require('path');
-
 module.exports = {
   siteMetadata: {
     title: 'Nibor Dressage PRE',
@@ -36,20 +34,7 @@ module.exports = {
         path: `${__dirname}/src/`,
       },
     },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'imageuploads',
-        path: `${__dirname}/static/assets/blog/`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: path.join(__dirname, 'static', 'assets', 'blog'),
-        name: 'assets',
-      },
-    },
+
     {
       resolve: 'gatsby-plugin-eslint',
       options: {
@@ -85,6 +70,7 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 1200,
+              linkImagesToOriginal: true,
             },
           },
         ],
@@ -92,7 +78,21 @@ module.exports = {
     },
     `gatsby-plugin-emotion`,
     `gatsby-plugin-netlify`,
-    'gatsby-remark-copy-linked-files',
+    {
+      resolve: 'gatsby-remark-copy-linked-files',
+      options: {
+        // 'ignoreFileExtensions' defaults to ['png', 'jpg', 'jpeg', 'bmp', 'tiff']
+        // as we assume you'll use gatsby-remark-images to handle
+        // images in markdown as it automatically creates responsive
+        // versions of images.
+        //
+        // If you'd like to not use gatsby-remark-images and just copy your
+        // original images to the public directory, set
+        // 'ignoreFileExtensions' to an empty array.
+        destinationDir: 'assets',
+        ignoreFileExtensions: ['png', 'jpg', 'jpeg'],
+      },
+    },
     {
       resolve: 'gatsby-plugin-mixpanel',
       options: {
