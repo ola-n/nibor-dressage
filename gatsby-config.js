@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   siteMetadata: {
     title: 'Nibor Dressage PRE',
@@ -11,6 +13,41 @@ module.exports = {
       options: {
         name: 'images',
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'blog-entries',
+        path: `${__dirname}/src/blog-entries`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'pages',
+        path: `${__dirname}/src/pages`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'src',
+        path: `${__dirname}/src/`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'imageuploads',
+        path: `${__dirname}/static/assets/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: path.join(__dirname, 'static', 'assets'),
+        name: 'assets',
       },
     },
     {
@@ -38,6 +75,17 @@ module.exports = {
         theme_color: '#FFA62D',
         display: 'browser', // test different values here and see what it looks like on a mobile device
         icon: 'src/images/logo/yellow-logo-no-text.svg', // This path is relative to the root of the site.
+      },
+    },
+    `gatsby-transformer-remark`,
+    `gatsby-plugin-emotion`,
+    `gatsby-plugin-netlify`,
+    {
+      resolve: 'gatsby-plugin-mixpanel',
+      options: {
+        apiToken: 'bd878f39aa31b4e079ddfbc2861460bd',
+        enableOnDevMode: false, // if false mixpanel will be activated on NODE_ENV=production only
+        mixpanelConfig: null, // override specific config for mixpanel initialization https://github.com/mixpanel/mixpanel-js/blob/8b2e1f7b/src/mixpanel-core.js#L87-L110
       },
     },
     {
