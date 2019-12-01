@@ -68,7 +68,7 @@ const Layout = (props: Props) => {
   }
 
   let pageUrl = '';
-  if (typeof window !== undefined) {
+  if (typeof window !== 'undefined' && window) {
     pageUrl = `${siteUrl}${location.pathname}`;
   }
 
