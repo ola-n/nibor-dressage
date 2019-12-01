@@ -5,7 +5,7 @@ slug: 'en-annan-nyhet'
 path: '/nyheter/en-annan-nyhet/'
 layout: 'blog'
 intro: 'Mitt intro från frontmatter'
-image: 'images/damocha2019.jpg'
+image: 'blog/damocha2019.jpg'
 ---
 
 ## Jag ska bli h2

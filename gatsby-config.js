@@ -40,16 +40,16 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'imageuploads',
-        path: `${__dirname}/static/assets/`,
+        path: `${__dirname}/static/assets/blog/`,
       },
     },
-    /*'{
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: path.join(__dirname, 'static', 'assets'),
+        path: path.join(__dirname, 'static', 'assets', 'blog'),
         name: 'assets',
       },
-    },*/
+    },
     {
       resolve: 'gatsby-plugin-eslint',
       options: {
@@ -92,6 +92,7 @@ module.exports = {
     },
     `gatsby-plugin-emotion`,
     `gatsby-plugin-netlify`,
+    'gatsby-remark-copy-linked-files',
     {
       resolve: 'gatsby-plugin-mixpanel',
       options: {

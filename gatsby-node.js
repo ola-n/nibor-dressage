@@ -47,6 +47,7 @@ exports.createPages = async ({ graphql, actions }) => {
               title
               path
               intro
+              image
             }
             excerpt
             fields {
