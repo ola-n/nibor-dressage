@@ -8,10 +8,12 @@ import { Global, css } from '@emotion/core';
 // import { useStaticQuery, graphql } from 'gatsby';
 
 import { getScrollBarWidth } from '../utils/getScrollBarWidth';
+import config, { siteUrl } from '../config/siteConfig';
 
 /* Components */
 import Navbar from './Navbar';
 import Footer from './Footer';
+import niborPreview from '../images/common/colored-log.png';
 
 /* CSS */
 import '../styling/normalize.css';
@@ -65,6 +67,9 @@ const Layout = (props: Props) => {
     setOpen(!navMenuOpen);
   }
 
+  const pageUrl = `${siteUrl}${location.pathname || ''}`;
+  console.log('pageUrl ', pageUrl);
+
   return (
     <Root>
       <Helmet>
@@ -73,6 +78,17 @@ const Layout = (props: Props) => {
           rel="stylesheet"
         />
         <body className={navMenuOpen ? 'no-scroll' : ''} />
+        <meta
+          property="og:title"
+          content="Försäljning, träning och inridning av hästar"
+        />
+        <meta property="og:image" content={`${siteUrl}${niborPreview}`} />
+        <meta property="og:description" content={config.siteDescription} />
+        <html lang={config.siteLang} />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content={config.siteLocale} />
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:site_name" content={config.siteName} />
       </Helmet>
       <Global styles={globalStyles} />
       <Navbar navMenuOpen={navMenuOpen} setOpen={toggleNavMenu} />
