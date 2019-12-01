@@ -14,39 +14,12 @@ export const appReducer = (
   action: Action
 ): AppState => {
   switch (action.type) {
-    case TOGGLE_DARKMODE:
+    case TOGGLE_DARKMODE: {
       const { isDarkMode } = action.payload || {};
-      return { ...state, isDarkMode: isDarkMode };
 
-    default:
-      return state;
-  }
-};
-
-/*
-const appReducer2 = (
-  state: AppState = initialState,
-  action: Action
-): AppState => {
-  switch (action.type) {
-    case actions.APP_READY: {
       return {
         ...state,
-        ready: true,
-      };
-    }
-
-    case EXPERIMENTS_REQUEST_SUCCESS: {
-      return {
-        ...state,
-        apiError: false,
-      };
-    }
-    case EXPERIMENTS_REQUEST_ERROR: {
-      console.warn('state.app.apiError: true');
-      return {
-        ...state,
-        apiError: true,
+        isDarkMode: isDarkMode,
       };
     }
 
@@ -54,6 +27,5 @@ const appReducer2 = (
       return state;
   }
 };
-*/
 
 export default appReducer;

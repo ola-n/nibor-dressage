@@ -1,7 +1,6 @@
 const path = require(`path`);
 const slugify = require('slugify');
 const { createFilePath } = require('gatsby-source-filesystem');
-const remarkImagesToRelative = require('./src/utils/remarkImagesToRelative');
 // const routes = require('./src/routes');
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
@@ -13,10 +12,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     console.log('node.frontmatter.slug ', node.frontmatter.slug);
     if (!node.frontmatter.slug) {
       node.frontmatter.slug = slugify(slug, { lower: true });
-    }
-
-    if (!node.frontmatter.layout || node.frontmatter.layout === 'blog') {
-      remarkImagesToRelative(node);
     }
 
     createNodeField({

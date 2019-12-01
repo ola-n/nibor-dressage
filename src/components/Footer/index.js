@@ -2,14 +2,14 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
 import { space } from 'styled-system';
 
 import { spacing, breakpoints } from '@spec/ui-spec';
 import { colors } from '@spec/colors/';
+import routes from '../../routes';
 
 import logo from '@images/logo/nibor-footer.svg';
-import { MainContainer } from '@components/Grid/grid';
+import { MainContainer } from '@components/Grid';
 import { Display4, Body2, Body3 } from '@components/Typography';
 
 const FooterRoot = styled.footer(
@@ -54,14 +54,16 @@ const Row2 = styled.div(
   space
 );
 
-const LeftSideRow = styled.div(
-  {
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+const NavigationRow = styled.div({
+  display: 'flex',
+  flexDirection: 'row',
+  flexWrap: 'wrap',
+  marginBottom: 16,
+
+  [breakpoints.tablet]: {
+    marginBottom: 0,
   },
-  space
-);
+});
 
 const ContactCol = styled.div({
   display: 'flex',
@@ -93,9 +95,14 @@ const FooterLink = styled(Link)(
     textDecoration: 'none',
     marginRight: 16,
     lineHeight: '24px',
+    fontSize: 12,
 
     '&:hover': {
       color: colors.primary_yellow,
+    },
+
+    [breakpoints.desktopSmall]: {
+      fontSize: 14,
     },
   },
   space
@@ -125,9 +132,7 @@ const FooterComponent = () => {
                 Kontakta oss
               </Display4>
               <Body2 color={colors.tertiary_blue} style={{ marginBottom: 2 }}>
-                <TextLink href="mailto:mika.nordstroem@gmail.com">
-                  mika.nordstroem@gmail.com
-                </TextLink>
+                <TextLink href="mailto:mika@nibor.se">mika@nibor.se</TextLink>
               </Body2>
               <Body2 color={colors.tertiary_blue} style={{ marginBottom: 2 }}>
                 <TextLink href="tel:+46707178917">0707 - 17 89 17</TextLink>
@@ -157,15 +162,15 @@ const FooterComponent = () => {
         </Row>
 
         <Row2>
-          <LeftSideRow mb={spacing.s}>
-            <FooterLink to={'/hastarna/'}>Hästarna</FooterLink>
-            <FooterLink to={'/nyheter/'}>Nyheter</FooterLink>
-            <FooterLink to={'/anlaggningen/'}>Anläggningen</FooterLink>
-            <FooterLink to={'/teamet/'}>Teamet</FooterLink>
-            <FooterLink to={'/tjanster/'}>Tjänster</FooterLink>
-            <FooterLink to={'/kontakt/'}>Kontakt</FooterLink>
-            <FooterLink to={'/cookies/'}>Cookies</FooterLink>
-          </LeftSideRow>
+          <NavigationRow>
+            <FooterLink to={routes.HORSES}>Hästarna</FooterLink>
+            <FooterLink to={routes.NEWS}>Nyheter</FooterLink>
+            <FooterLink to={routes.FACILITY}>Anläggningen</FooterLink>
+            <FooterLink to={routes.TEAM}>Teamet</FooterLink>
+            <FooterLink to={routes.SERVICES}>Tjänster</FooterLink>
+            <FooterLink to={routes.CONTACT}>Kontakt</FooterLink>
+            <FooterLink to={routes.COOKIES}>Cookies</FooterLink>
+          </NavigationRow>
           <Column>
             <Body3 color={colors.secondary_grey_800}>
               © {new Date().getFullYear()} Alla rättigheter förbehållna.

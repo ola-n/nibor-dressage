@@ -25,6 +25,7 @@ export const breakpointValues = {
   tablet: 767,
   desktopSmall: 991,
   desktopLarge: 1281,
+  desktopHuge: 1700,
 };
 export const breakpoints = {
   smallPhone: `@media screen and (min-width: ${breakpointValues.smallPhone}px)`,
@@ -33,12 +34,25 @@ export const breakpoints = {
   tablet: `@media screen and (min-width: ${breakpointValues.tablet}px)`,
   desktopSmall: `@media screen and (min-width: ${breakpointValues.desktopSmall}px)`,
   desktopLarge: `@media screen and (min-width: ${breakpointValues.desktopLarge}px)`,
+  desktopHuge: `@media screen and (min-width: ${breakpointValues.desktopHuge}px)`,
   onlySmallPhone: `@media screen and (max-width: ${breakpointValues.regularPhone}px)`,
   onlyPhone: `@media screen and (max-width: ${breakpointValues.tablet}px)`,
   onlyMobile: `@media screen and (max-width: ${breakpointValues.desktopSmall}px)`,
+  onlyBelowMaxWidth: `@media screen and (max-width: ${spacing.maxWidthDesktopLarge}px)`,
 };
 
 export const navbarSpec = {
   heightSmall: 76,
   heightLarge: 90,
+};
+
+export const zIndexDefinition = {
+  content: 1,
+  navbar: 2,
+  popup: 3,
+  aboveAll: 50,
+};
+
+export const articleWidth = {
+  maxWidth: 750,
 };
