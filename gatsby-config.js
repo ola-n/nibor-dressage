@@ -43,13 +43,13 @@ module.exports = {
         path: `${__dirname}/static/assets/`,
       },
     },
-    {
+    /*'{
       resolve: `gatsby-source-filesystem`,
       options: {
         path: path.join(__dirname, 'static', 'assets'),
         name: 'assets',
       },
-    },
+    },*/
     {
       resolve: 'gatsby-plugin-eslint',
       options: {
@@ -77,7 +77,19 @@ module.exports = {
         icon: 'src/images/logo/yellow-logo-no-text.svg', // This path is relative to the root of the site.
       },
     },
-    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1200,
+            },
+          },
+        ],
+      },
+    },
     `gatsby-plugin-emotion`,
     `gatsby-plugin-netlify`,
     {

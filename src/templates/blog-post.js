@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
-
+import Image from 'gatsby-image';
 import { graphql } from 'gatsby';
+
 import { spacing } from '@spec/ui-spec';
 import { colors } from '@spec/colors/';
 
@@ -24,8 +25,10 @@ type Props = {
 class BlogPost extends React.Component<Props> {
   render() {
     const { html } = this.props.data.markdownRemark;
+    const { frontmatter } = this.props.data.markdownRemark;
     const { title, intro } = this.props.data.markdownRemark.frontmatter;
-    console.log('data ', this.props.data.markdownRemark);
+    const image = frontmatter.image && frontmatter.image.childImageSharp;
+    console.log('image ', image);
 
     return (
       <Layout>
@@ -70,6 +73,13 @@ export const query = graphql`
         path
         layout
         intro
+        image {
+          childImageSharp {
+            fluid(maxWidth: 1280, maxHeight: 720) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }
