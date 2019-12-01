@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   siteMetadata: {
     title: 'Nibor Dressage PRE',
@@ -32,6 +34,20 @@ module.exports = {
       options: {
         name: 'src',
         path: `${__dirname}/src/`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'imageuploads',
+        path: `${__dirname}/static/assets/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: path.join(__dirname, 'static', 'assets'),
+        name: 'assets',
       },
     },
     {
