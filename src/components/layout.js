@@ -80,19 +80,6 @@ const Layout = (props: Props) => {
           rel="stylesheet"
         />
         <body className={navMenuOpen ? 'no-scroll' : ''} />
-        <meta
-          property="og:title"
-          content="Försäljning, träning och inridning av hästar"
-        />
-        <meta property="og:image" content={`${siteUrl}${niborPreview}`} />
-        <meta property="og:description" content={config.siteDescription} />
-        <html lang={config.siteLang} />
-        <meta property="og:type" content="website" />
-        <meta property="og:locale" content={config.siteLocale} />
-        <meta property="og:url" content={pageUrl} />
-        <meta property="og:site_name" content={config.siteName} />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
       </Helmet>
       <Global styles={globalStyles} />
       <Navbar navMenuOpen={navMenuOpen} setOpen={toggleNavMenu} />
