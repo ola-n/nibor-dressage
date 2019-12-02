@@ -80,6 +80,7 @@ const Layout = (props: Props) => {
           rel="stylesheet"
         />
         <body className={navMenuOpen ? 'no-scroll' : ''} />
+        <html lang={config.siteLang} />
       </Helmet>
       <Global styles={globalStyles} />
       <Navbar navMenuOpen={navMenuOpen} setOpen={toggleNavMenu} />
