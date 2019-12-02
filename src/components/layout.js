@@ -92,7 +92,7 @@ const Layout = (props: Props) => {
         <meta property="og:url" content={pageUrl} />
         <meta property="og:site_name" content={config.siteName} />
         <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="472" />
+        <meta property="og:image:height" content="630" />
       </Helmet>
       <Global styles={globalStyles} />
       <Navbar navMenuOpen={navMenuOpen} setOpen={toggleNavMenu} />
