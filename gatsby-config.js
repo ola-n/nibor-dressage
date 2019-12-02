@@ -1,8 +1,11 @@
 module.exports = {
   siteMetadata: {
     title: 'Nibor Dressage PRE',
-    description: 'Hem för Nibor Dressafe PRE',
+    description: 'Försäljning, träning och inridning av hästar',
     author: '@ola',
+    siteLang: 'sv',
+    siteLocale: 'sv_SE',
+    siteName: `Nibor Dressage PRE`,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
