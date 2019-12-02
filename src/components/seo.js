@@ -10,8 +10,6 @@ import React from "react"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-import { siteUrl } from '../config/siteConfig';
-
 import niborPreview from '../images/common/colored-log.png';
 
 type Props = {
@@ -41,7 +39,7 @@ function SEO({ description, lang = `en`, meta = [], title = `` }: Props) {
 
   const metaDescription = description || site.siteMetadata.description
   
-  console.log('`${siteUrl}${niborPreview}`', `${siteUrl}${niborPreview}`);
+  console.log('`https://www.nibor.se/${niborPreview}`', `https://www.nibor.se/${niborPreview}`);
 
   return (
     <Helmet
@@ -77,7 +75,7 @@ function SEO({ description, lang = `en`, meta = [], title = `` }: Props) {
         },
         {
           property: `og:image`,
-          content: `${siteUrl}${niborPreview}`,
+          content: `https://www.nibor.se/${niborPreview}`,
         },
         {
           property: `og:image:width`,
