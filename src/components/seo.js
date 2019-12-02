@@ -5,12 +5,23 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
+// @flow
 import React from "react"
-import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-function SEO({ description, lang, meta, title }) {
+import { siteUrl } from '../config/siteConfig';
+
+import niborPreview from '../images/common/colored-log.png';
+
+type Props = {
+  description?: string,
+  lang?: string,
+  meta?: Array<Object>,
+  title: string,
+};
+
+function SEO({ description, lang = `en`, meta = [], title = `` }: Props) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -19,6 +30,9 @@ function SEO({ description, lang, meta, title }) {
             title
             description
             author
+            siteLang
+            siteLocale
+            siteName
           }
         }
       }
@@ -26,6 +40,8 @@ function SEO({ description, lang, meta, title }) {
   )
 
   const metaDescription = description || site.siteMetadata.description
+  
+  console.log('`${siteUrl}${niborPreview}`', `${siteUrl}${niborPreview}`);
 
   return (
     <Helmet
@@ -52,6 +68,26 @@ function SEO({ description, lang, meta, title }) {
           content: `website`,
         },
         {
+          property: `og:locale`,
+          content: site.siteMetadata.siteLocale,
+        },
+        {
+          property: `og:site_name`,
+          content: site.siteMetadata.siteName,
+        },
+        {
+          property: `og:image`,
+          content: `${siteUrl}${niborPreview}`,
+        },
+        {
+          property: `og:image:width`,
+          content: '1200',
+        },
+        {
+          property: `og:image:height`,
+          content: '630',
+        },
+        {
           name: `twitter:card`,
           content: `summary`,
         },
@@ -70,19 +106,6 @@ function SEO({ description, lang, meta, title }) {
       ].concat(meta)}
     />
   )
-}
-
-SEO.defaultProps = {
-  lang: `en`,
-  meta: [],
-  description: ``,
-}
-
-SEO.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
 }
 
 export default SEO
