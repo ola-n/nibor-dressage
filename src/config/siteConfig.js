@@ -1,4 +1,4 @@
-export const siteUrl = process.env.GATSBY_WEB_URL || 'https://www.nibor.se';
+const siteUrl = process.env.GATSBY_WEB_URL || 'https://www.nibor.se';
 
 module.exports = {
   siteLang: 'sv',
