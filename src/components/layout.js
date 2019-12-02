@@ -5,15 +5,13 @@ import { useState } from 'react';
 import Helmet from 'react-helmet';
 import styled from '@emotion/styled';
 import { Global, css } from '@emotion/core';
-// import { useStaticQuery, graphql } from 'gatsby';
 
 import { getScrollBarWidth } from '../utils/getScrollBarWidth';
-import config, { siteUrl } from '../config/siteConfig';
+import config from '../config/siteConfig';
 
 /* Components */
 import Navbar from './Navbar';
 import Footer from './Footer';
-import niborPreview from '../images/common/colored-log.png';
 
 /* CSS */
 import '../styling/normalize.css';
@@ -46,18 +44,6 @@ type Props = {
 };
 
 const Layout = (props: Props) => {
-  /*
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
-  */
-
   const { children } = props;
   const [navMenuOpen, setOpen] = useState(false);
   //const mixpanel = useMixpanel();
@@ -65,11 +51,6 @@ const Layout = (props: Props) => {
 
   function toggleNavMenu() {
     setOpen(!navMenuOpen);
-  }
-
-  let pageUrl = '';
-  if (typeof window !== 'undefined' && window) {
-    pageUrl = `${siteUrl}${location.pathname}`;
   }
 
   return (

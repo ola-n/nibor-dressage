@@ -45,9 +45,17 @@ class NewsPage extends React.Component<Props> {
 
     return (
       <Layout page={routes.NEWS}>
+        <SEO
+          title="Nyheter"
+          meta={[
+            {
+              name: `og:url`,
+              content: `https://www.nibor.se${routes.NEWS}`,
+            },
+          ]}
+        />
         <Banner>
           <MainContainer py={spacing.m}>
-            <SEO title="Nyheter" />
             <Display2 color={colors.secondary_blue} mb={spacing.l}>
               Här kommer en nyhetssektion inom kort
             </Display2>

@@ -56,7 +56,15 @@ class HorsesPage extends React.Component<Props> {
 
     return (
       <Layout page={routes.HORSES}>
-        <SEO title="Hästarna" />
+        <SEO
+          title="Hästarna"
+          meta={[
+            {
+              name: `og:url`,
+              content: `https://www.nibor.se${routes.HORSES}`,
+            },
+          ]}
+        />
         <HeroSection
           backgroundColor={colors.secondary_white}
           heroImageDesktop={heroImageDesktop}

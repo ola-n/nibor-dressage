@@ -6,9 +6,9 @@
  */
 
 // @flow
-import React from "react"
-import Helmet from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
+import React from 'react';
+import Helmet from 'react-helmet';
+import { useStaticQuery, graphql } from 'gatsby';
 
 import { siteUrl } from '../config/siteConfig';
 import niborPreview from '../images/common/colored-log.png';
@@ -36,11 +36,9 @@ function SEO({ description, lang = `en`, meta = [], title = `` }: Props) {
         }
       }
     `
-  )
+  );
 
-  const metaDescription = description || site.siteMetadata.description
-  
-  console.log('`${siteUrl}${niborPreview}`', `${siteUrl}${niborPreview}`);
+  const metaDescription = description || site.siteMetadata.description;
 
   return (
     <Helmet
@@ -104,7 +102,7 @@ function SEO({ description, lang = `en`, meta = [], title = `` }: Props) {
         },
       ].concat(meta)}
     />
-  )
+  );
 }
 
-export default SEO
+export default SEO;

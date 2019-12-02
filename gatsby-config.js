@@ -1,8 +1,9 @@
 module.exports = {
   siteMetadata: {
     title: 'Nibor Dressage PRE',
-    description: 'Försäljning, träning och inridning av hästar',
-    author: '@ola',
+    description:
+      'Hästar med bästa möjliga blodslinjer framtagna för såväl hållbarhet som gångarter och utstrålning.',
+    author: 'mika@nibor.se',
     siteLang: 'sv',
     siteLocale: 'sv_SE',
     siteName: `Nibor Dressage PRE`,
