@@ -22,6 +22,11 @@ const Root = styled.div({
   '& #hero-text': {
     paddingTop: 16,
     paddingBottom: 16,
+
+    [breakpoints.desktopSmall]: {
+      paddingTop: 56,
+      paddingBottom: 92,
+    },
   },
 });
 

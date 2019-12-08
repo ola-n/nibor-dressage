@@ -10,7 +10,6 @@ import { Display2, Subhead } from '@components/Typography';
 import ClippedImage from '@components/ClippedImage';
 
 const Root = styled(Banner)({
-  //backgroundColor: colors.primary_white,
   color: colors.primary_blue,
   position: 'relative',
 });
