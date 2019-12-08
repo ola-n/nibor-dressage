@@ -4,14 +4,13 @@ import { graphql, Link } from 'gatsby';
 
 import routes from '../routes';
 import { colors } from '@spec/colors/';
-import { spacing } from '@spec/ui-spec';
 import { breakpoints } from '@spec/ui-spec';
 
 import Layout from '@components/layout';
 import SEO from '@components/seo';
 import { HeroSection } from '@components/sections/hero';
 import BlogEntry from '@components/blog/BlogEntry';
-import { Display1, Subhead } from '@components/Typography';
+import { Subhead } from '@components/Typography';
 import ArrowNav from '@components/ArrowNav';
 
 const Root = styled.div({
@@ -19,6 +18,10 @@ const Root = styled.div({
     [breakpoints.desktopSmall]: {
       minHeight: 500,
     },
+  },
+  '& #hero-text': {
+    paddingTop: 16,
+    paddingBottom: 16,
   },
 });
 

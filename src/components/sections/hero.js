@@ -129,7 +129,7 @@ export const HeroSection = ({
       backgroundColor={backgroundColor}
     >
       <HeroContent>
-        <TextContainer>{children}</TextContainer>
+        <TextContainer id={'hero-text'}>{children}</TextContainer>
         <Spacer />
       </HeroContent>
 

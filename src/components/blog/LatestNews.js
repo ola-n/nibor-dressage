@@ -1,18 +1,14 @@
 // @flow
 import React from 'react';
 import styled from '@emotion/styled';
-import { Link } from 'gatsby';
 
-import { breakpoints, spacing } from '@spec/ui-spec';
+import { spacing } from '@spec/ui-spec';
 import { colors } from '@spec/colors/';
-import routes from '../../routes';
 
 import { Banner, MainContainer } from '@components/Grid';
-import { Display2, Subhead, Body1 } from '@components/Typography';
-import ClippedImage from '@components/ClippedImage';
+import { Display2, Subhead } from '@components/Typography';
 
 const Root = styled(Banner)({
-  //backgroundColor: colors.primary_white,
   color: colors.primary_blue,
   position: 'relative',
 });
@@ -22,9 +18,7 @@ type Props = {
 };
 
 export const LatestNews = ({ latestNews }: Props) => {
-  //const { image, title, date } = latestEntry.frontmatter;
-
-  console.log('props ', latestNews);
+  console.log('latestNews ', latestNews);
   return (
     <Root color={colors.secondary_white} py={spacing.l}>
       <MainContainer>

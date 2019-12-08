@@ -2,7 +2,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import styled from '@emotion/styled';
 
 import { setActivePage } from '@state/navigation/actions';
@@ -13,20 +13,10 @@ import routes from '../routes';
 import Layout from '@components/layout';
 import SEO from '@components/seo';
 import { HeroSection } from '@components/sections/hero';
-import { Banner, MainContainer } from '@components/Grid';
-import { Display1, Display2, Subhead } from '@components/Typography';
+import { Display1 } from '@components/Typography';
 import BlogEntry from '@components/blog/BlogEntry';
 import LatestNews from '@components/blog/LatestNews';
 import AllNews from '@components/blog/AllNews';
-
-const TestLink = styled(Link)({
-  color: colors.primary_blue,
-  textDecoration: 'none',
-
-  '&:hover': {
-    color: colors.primary_yellow,
-  },
-});
 
 const Root = styled.div({
   '& #hero-root': {

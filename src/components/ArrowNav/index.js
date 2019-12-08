@@ -29,6 +29,7 @@ const ArrowText = styled(Subhead)({
   '& h3': {
     fontSize: 16,
     display: 'inline',
+    //marginBottom: 0,
 
     [breakpoints.desktopSmall]: { fontSize: 17 },
     [breakpoints.desktopLarge]: { fontSize: 20 },
@@ -47,7 +48,7 @@ class ArrowNav extends React.Component<Props> {
     return (
       <Nav>
         <Nav my={spacing.m}>
-          <ArrowText color={colors.primary_blue}>
+          <ArrowText color={colors.primary_blue} mb={0}>
             {items &&
               items.map((item, i) => {
                 console.log('item ', item.props);

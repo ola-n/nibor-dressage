@@ -1,15 +1,12 @@
 // @flow
 import React from 'react';
 import styled from '@emotion/styled';
-import { Link, useStaticQuery, graphql } from 'gatsby';
 
 import { breakpoints, spacing, articleWidth } from '@spec/ui-spec';
-import { easeOut500 } from '@spec/animations';
 import { colors } from '@spec/colors/';
-import routes from '../../routes';
 
 import { Banner, MainContainer } from '@components/Grid';
-import { Display2, Subhead, Body1 } from '@components/Typography';
+import { Display2, Subhead } from '@components/Typography';
 import ClippedImage from '@components/ClippedImage';
 
 const Root = styled(Banner)({

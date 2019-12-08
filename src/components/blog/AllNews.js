@@ -31,7 +31,7 @@ type Props = {
 
 export const BlogEntry = ({ allNews }: Props) => {
   return (
-    <Root py={spacing.m}>
+    <Root pt={spacing.l} pb={spacing.m}>
       <MainContainer>
         <Display3>Alla nyheter</Display3>
         <List>
@@ -45,6 +45,7 @@ export const BlogEntry = ({ allNews }: Props) => {
           ))}
         </List>
       </MainContainer>
+      <div style={{ height: 4 }} />
     </Root>
   );
 };
