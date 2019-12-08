@@ -20,4 +20,4 @@ På söndagen var det dags för ridprov. Även här var Valle först ut och han 
 
 Det blev många priser denna helg. NR Jaranero blev bästa gångartshäst och båda hästarna fick pris för bästa 4-års- respektive 5-årshingst. Jag själv fick pris för bästa handler - tänk så mycket man lär sig på Youtube…
 
-En mycket lyckad helg helt enkelt men två fantastiska hästar.
+En mycket lyckad helg helt enkelt med två fantastiska hästar.
