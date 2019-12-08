@@ -31,7 +31,7 @@ const HeroContent = styled(MainContainer)({
 
 const TextContainer = styled.div({
   paddingTop: 16,
-  paddingBottom: 42,
+  paddingBottom: 32,
   paddingRight: 8,
   width: '100%',
 
@@ -112,7 +112,7 @@ type Props = {
   backgroundColor?: string,
   children: Object,
   heroImageDesktop: Object,
-  heroImageMobile: Object,
+  heroImageMobile?: Object,
 };
 
 export const HeroSection = ({
@@ -123,13 +123,21 @@ export const HeroSection = ({
   children,
 }: Props) => {
   return (
-    <HeroRoot background={background} backgroundColor={backgroundColor}>
+    <HeroRoot
+      id={'hero-root'}
+      background={background}
+      backgroundColor={backgroundColor}
+    >
       <HeroContent>
         <TextContainer>{children}</TextContainer>
         <Spacer />
       </HeroContent>
 
-      <MobileImage fluid={heroImageMobile.childImageSharp.fluid}></MobileImage>
+      {!!heroImageMobile && (
+        <MobileImage
+          fluid={heroImageMobile.childImageSharp.fluid}
+        ></MobileImage>
+      )}
       <TildedImage
         imgStyle={{ objectPosition: 'left center' }}
         fluid={heroImageDesktop.childImageSharp.fluid}

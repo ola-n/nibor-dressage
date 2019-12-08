@@ -29,3 +29,12 @@ body {
 #___gatsby > #gatsby-focus-wrapper {
   height: 100%;
 }
+
+a {
+  color: #000f3e;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ffa62d;
+}

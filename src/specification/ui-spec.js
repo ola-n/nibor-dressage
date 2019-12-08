@@ -56,3 +56,7 @@ export const zIndexDefinition = {
 export const articleWidth = {
   maxWidth: 750,
 };
+
+export const articleWide = {
+  maxWidth: 842,
+};

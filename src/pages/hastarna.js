@@ -74,7 +74,7 @@ class HorsesPage extends React.Component<Props> {
             <Header mb={spacing.m} mt={spacing.t} color={colors.primary_blue}>
               Hästarna
             </Header>
-            <Lead color={colors.primary_blue} mb={0}>
+            <Lead color={colors.primary_blue} mb={spacing.t}>
               Vi har valt att satsa på PRE-hästar med extra hög kvalité både
               gällande hållbarhet och ridbarhet. Hästarna är väl uppföda på
               stora kuperade ytor, röntgade och gås regelbundet igenom av

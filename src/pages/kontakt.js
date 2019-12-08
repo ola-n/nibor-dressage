@@ -2,6 +2,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { space } from 'styled-system';
 import styled from '@emotion/styled';
 import { graphql } from 'gatsby';
 
@@ -15,7 +16,7 @@ import SEO from '@components/seo';
 import { HeroSection } from '@components/sections/hero';
 import { Display1, Title1, Intro } from '@components/Typography';
 
-const ContentWrap = styled.div({});
+const HeroContent = styled.div({});
 
 const Header = styled(Display1)({
   maxWidth: 441,
@@ -25,23 +26,26 @@ const Header = styled(Display1)({
   },
 });
 
-const Lead = styled(Intro)({
-  minWidth: 'auto',
-  marginBottom: 0,
+const Lead = styled(Intro)(
+  {
+    minWidth: 'auto',
+    marginBottom: 0,
 
-  [breakpoints.desktopSmall]: {
-    minWidth: 421,
-  },
+    [breakpoints.desktopSmall]: {
+      minWidth: 421,
+    },
 
-  '& a': {
-    textDecoration: 'none',
-    color: colors.primary_blue,
+    '& a': {
+      textDecoration: 'none',
+      color: colors.primary_blue,
 
-    '&:hover': {
-      color: colors.primary_yellow,
+      '&:hover': {
+        color: colors.primary_yellow,
+      },
     },
   },
-});
+  space
+);
 
 type Props = {
   setActivePage: typeof setActivePage,
@@ -69,7 +73,7 @@ class ContactPage extends React.Component<Props> {
           heroImageDesktop={heroImageDesktop}
           heroImageMobile={heroImageMobile}
         >
-          <ContentWrap>
+          <HeroContent>
             <Header mb={spacing.m} mt={spacing.t} color={colors.primary_blue}>
               Kontakt
             </Header>
@@ -78,10 +82,10 @@ class ContactPage extends React.Component<Props> {
             </Title1>
             <Lead color={colors.primary_blue}>Gränskullavägen 7</Lead>
             <Lead color={colors.primary_blue}>218 75 Tygelsjö</Lead>
-            <Lead color={colors.primary_blue}>
+            <Lead color={colors.primary_blue} mb={spacing.t}>
               <a href="mailto:mika@nibor.se">mika@nibor.se</a>
             </Lead>
-          </ContentWrap>
+          </HeroContent>
         </HeroSection>
       </Layout>
     );

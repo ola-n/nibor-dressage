@@ -6,20 +6,18 @@ import { graphql, Link } from 'gatsby';
 import styled from '@emotion/styled';
 
 import { setActivePage } from '@state/navigation/actions';
-import { spacing } from '@spec/ui-spec';
+import { spacing, breakpoints } from '@spec/ui-spec';
 import { colors } from '@spec/colors/';
 import routes from '../routes';
 
 import Layout from '@components/layout';
 import SEO from '@components/seo';
+import { HeroSection } from '@components/sections/hero';
 import { Banner, MainContainer } from '@components/Grid';
-import { Display2, Subhead } from '@components/Typography';
-
-type Props = {
-  setActivePage: typeof setActivePage,
-  currentPage: string,
-  data: Object,
-};
+import { Display1, Display2, Subhead } from '@components/Typography';
+import BlogEntry from '@components/blog/BlogEntry';
+import LatestNews from '@components/blog/LatestNews';
+import AllNews from '@components/blog/AllNews';
 
 const TestLink = styled(Link)({
   color: colors.primary_blue,
@@ -29,6 +27,30 @@ const TestLink = styled(Link)({
     color: colors.primary_yellow,
   },
 });
+
+const Root = styled.div({
+  '& #hero-root': {
+    [breakpoints.desktopSmall]: {
+      minHeight: 500,
+    },
+  },
+});
+
+const HeroContent = styled.div({});
+
+const Header = styled(Display1)({
+  maxWidth: 441,
+
+  '@media screen and (min-width: 1170px)': {
+    maxWidth: 'none',
+  },
+});
+
+type Props = {
+  setActivePage: typeof setActivePage,
+  currentPage: string,
+  data: Object,
+};
 
 class NewsPage extends React.Component<Props> {
   componentDidMount() {
@@ -41,7 +63,10 @@ class NewsPage extends React.Component<Props> {
 
   render() {
     const { edges } = this.props.data.allMarkdownRemark;
-    console.log('data ', this.props.data.allMarkdownRemark);
+    const { heroImageDesktop } = this.props.data;
+    const latestEntry = edges[0].node;
+    const latestNews = edges.slice(1, 9);
+    console.log('edges ', edges);
 
     return (
       <Layout page={routes.NEWS}>
@@ -54,24 +79,21 @@ class NewsPage extends React.Component<Props> {
             },
           ]}
         />
-        <Banner>
-          <MainContainer py={spacing.m}>
-            <Display2 color={colors.secondary_blue} mb={spacing.l}>
-              Här kommer en nyhetssektion inom kort
-            </Display2>
-            {!!edges &&
-              edges.map((edge, key) => {
-                console.log('hallå ellor ', edge.node.frontmatter.path);
-                return (
-                  <Subhead key={key}>
-                    <TestLink to={edge.node.frontmatter.path}>
-                      {`${edge.node.frontmatter.title}`}
-                    </TestLink>
-                  </Subhead>
-                );
-              })}
-          </MainContainer>
-        </Banner>
+        <Root>
+          <HeroSection
+            backgroundColor={colors.secondary_white}
+            heroImageDesktop={heroImageDesktop}
+          >
+            <HeroContent>
+              <Header mb={0} mt={spacing.t} color={colors.primary_blue}>
+                Nyheter
+              </Header>
+            </HeroContent>
+          </HeroSection>
+          <BlogEntry latestEntry={latestEntry} />
+          <LatestNews latestNews={latestNews} />
+          <AllNews allNews={edges} />
+        </Root>
       </Layout>
     );
   }
@@ -97,7 +119,12 @@ export default connect(
 )(NewsPage);
 
 export const query = graphql`
-  {
+  query NewsPageQuery {
+    heroImageDesktop: file(
+      relativePath: { eq: "hero-images/single-colored.png" }
+    ) {
+      ...fragmentDesktop
+    }
     allMarkdownRemark(
       filter: { frontmatter: { layout: { eq: "blog" } } }
       sort: { order: DESC, fields: [frontmatter___date] }
@@ -105,11 +132,22 @@ export const query = graphql`
       edges {
         node {
           id
+          html
+          excerpt
           frontmatter {
-            date
-            path
-            slug
             title
+            date
+            slug
+            path
+            layout
+            intro
+            image {
+              childImageSharp {
+                fluid(maxWidth: 1280, maxHeight: 720) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }

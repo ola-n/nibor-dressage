@@ -2,6 +2,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { space } from 'styled-system';
 import styled from '@emotion/styled';
 import { graphql } from 'gatsby';
 
@@ -16,7 +17,7 @@ import { HeroSection } from '@components/sections/hero';
 import { HorsesSection } from '@components/sections/horses';
 import { Display1, Intro } from '@components/Typography';
 
-const ContentWrap = styled.div({
+const HeroContent = styled.div({
   [breakpoints.desktopSmall]: {
     paddingBottom: 30,
   },
@@ -30,13 +31,16 @@ const Header = styled(Display1)({
   },
 });
 
-const Lead = styled(Intro)({
-  minWidth: 'auto',
+const Lead = styled(Intro)(
+  {
+    minWidth: 'auto',
 
-  [breakpoints.desktopSmall]: {
-    minWidth: 441,
+    [breakpoints.desktopSmall]: {
+      minWidth: 441,
+    },
   },
-});
+  space
+);
 
 type Props = {
   setActivePage: typeof setActivePage,
@@ -64,7 +68,7 @@ class LandingPage extends React.Component<Props> {
           heroImageDesktop={heroImageDesktop}
           heroImageMobile={heroImageMobile}
         >
-          <ContentWrap>
+          <HeroContent>
             <Header mb={spacing.m} color={colors.primary_yellow}>
               PRE med kvalitét
             </Header>
@@ -74,8 +78,10 @@ class LandingPage extends React.Component<Props> {
               har bästa möjliga blodslinjer framtagna för såväl hållbarhet som
               gångarter och utstrålning.
             </Lead>
-            <Lead mb={0}>Vår anläggning finns i Tygelsjö, utanför Malmö.</Lead>
-          </ContentWrap>
+            <Lead mb={spacing.t}>
+              Vår anläggning finns i Tygelsjö, utanför Malmö.
+            </Lead>
+          </HeroContent>
         </HeroSection>
         <HorsesSection />
       </Layout>

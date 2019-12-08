@@ -1,22 +1,28 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import Image from 'gatsby-image';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 
-import { spacing } from '@spec/ui-spec';
+import routes from '../routes';
 import { colors } from '@spec/colors/';
+import { spacing } from '@spec/ui-spec';
+import { breakpoints } from '@spec/ui-spec';
 
 import Layout from '@components/layout';
 import SEO from '@components/seo';
-import { Banner, MainContainer } from '@components/Grid';
-import { Display2, Subhead } from '@components/Typography';
+import { HeroSection } from '@components/sections/hero';
+import BlogEntry from '@components/blog/BlogEntry';
+import { Display1, Subhead } from '@components/Typography';
+import ArrowNav from '@components/ArrowNav';
 
-const TempLink = styled('a')({
-  cursor: 'pointer',
-  color: colors.primary_blue,
-
-  '&:hover': { color: colors.primary_yellow },
+const Root = styled.div({
+  '& #hero-root': {
+    [breakpoints.desktopSmall]: {
+      minHeight: 500,
+    },
+  },
 });
+
+const HeroContent = styled.div({});
 
 type Props = {
   data: Object,
@@ -24,45 +30,51 @@ type Props = {
 
 class BlogPost extends React.Component<Props> {
   render() {
-    const { html } = this.props.data.markdownRemark;
-    const { frontmatter } = this.props.data.markdownRemark;
-    const { title, intro } = this.props.data.markdownRemark.frontmatter;
-    const image = frontmatter.image && frontmatter.image.childImageSharp;
+    const { markdownRemark } = this.props.data;
+    const { title } = markdownRemark.frontmatter;
+    const { heroImageDesktop } = this.props.data;
 
     return (
       <Layout>
-        <SEO title={`${title} ${intro}`} />
-        <Banner>
-          <MainContainer>
-            <br />
-            <TempLink
-              onClick={() => {
-                typeof history !== 'undefined' && history.go(-1);
-              }}
-            >
-              {'Tillbaks'}
-            </TempLink>
-            <br />
-            <br />
-            <br />
-            <div style={{ maxWidth: 1000, margin: '0 auto' }}>
-              <Display2>{title}</Display2>
-              <Subhead mb={spacing.m}>{intro}</Subhead>
-              <div dangerouslySetInnerHTML={{ __html: html }}></div>
-              <p>Image from markdown:</p>
-              <Image fluid={image.fluid}></Image>
-            </div>
-          </MainContainer>
-        </Banner>
+        <SEO title={`${title}`} />
+        <Root>
+          <HeroSection
+            backgroundColor={colors.secondary_white}
+            heroImageDesktop={heroImageDesktop}
+          >
+            <HeroContent>
+              <ArrowNav
+                items={[
+                  <Link key="blog-home" to={routes.NEWS}>
+                    Nyheter
+                  </Link>,
+                  <Link key="blog-category">{'category.name'}</Link>,
+                  <Subhead key="blog-entry" color={colors.primary_yellow}>
+                    {title}
+                  </Subhead>,
+                ]}
+              />
+            </HeroContent>
+          </HeroSection>
+          <BlogEntry latestEntry={markdownRemark} />
+          <div style={{ height: 12 }}></div>
+        </Root>
       </Layout>
     );
   }
 }
 
+// to={`${routes.BLOG_CATEGORY}${category.id}/`}
+
 export default BlogPost;
 
 export const query = graphql`
   query BlogPostQuery($slug: String!) {
+    heroImageDesktop: file(
+      relativePath: { eq: "hero-images/single-colored.png" }
+    ) {
+      ...fragmentDesktop
+    }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       html

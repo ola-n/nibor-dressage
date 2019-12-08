@@ -45,6 +45,19 @@ const Clipper = styled.div(
         },
       };
     }
+    if (clipperPos === 'tr') {
+      return {
+        top: -149,
+        right: 0,
+        transform: 'rotate(135deg) translateY(-106px)',
+
+        [breakpoints.tablet]: {
+          top: 0,
+          left: 0,
+          transform: 'rotate(45deg) translateX(-106px)',
+        },
+      };
+    }
   }
 );
 

@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { graphql } from 'gatsby';
+import { space } from 'styled-system';
 
 import { setActivePage } from '@state/navigation/actions';
 import { spacing, breakpoints } from '@spec/ui-spec';
@@ -18,7 +19,7 @@ import { HeroSection } from '@components/sections/hero';
 import { Display1, Intro, Body2 } from '@components/Typography';
 import ClippedImage from '@components/ClippedImage';
 
-const ContentWrap = styled.div({ width: '100%' });
+const HeroContent = styled.div({ width: '100%' });
 
 const Header = styled(Display1)({
   maxWidth: 441,
@@ -28,20 +29,23 @@ const Header = styled(Display1)({
   },
 });
 
-const Lead = styled(Intro)({
-  minWidth: 'auto',
-  marginBottom: 4,
+const Lead = styled(Intro)(
+  {
+    minWidth: 'auto',
+    marginBottom: 4,
 
-  [breakpoints.desktopSmall]: {
-    width: '100%',
-    maxWidth: 421,
-    marginBottom: 8,
+    [breakpoints.desktopSmall]: {
+      width: '100%',
+      maxWidth: 421,
+      marginBottom: 8,
+    },
+    [breakpoints.desktopLarge]: {
+      width: '100%',
+      maxWidth: 688,
+    },
   },
-  [breakpoints.desktopLarge]: {
-    width: '100%',
-    maxWidth: 688,
-  },
-});
+  space
+);
 
 const FacilityGrid = styled(Grid)({
   [breakpoints.tablet]: {
@@ -97,7 +101,7 @@ class FacilitiesPage extends React.Component<Props> {
           heroImageDesktop={heroImageDesktop}
           heroImageMobile={heroImageMobile}
         >
-          <ContentWrap>
+          <HeroContent>
             <Header mb={spacing.m} mt={spacing.t} color={colors.primary_blue}>
               Anläggningen
             </Header>
@@ -107,10 +111,10 @@ class FacilitiesPage extends React.Component<Props> {
             <Lead color={colors.primary_blue}>
               Ridhus, stall med 8 boxar och lösdrift
             </Lead>
-            <Lead color={colors.primary_blue}>
+            <Lead color={colors.primary_blue} mb={spacing.t}>
               Ridbana med värmeslingor, fibersand & automatisk bevattning
             </Lead>
-          </ContentWrap>
+          </HeroContent>
         </HeroSection>
         <Banner>
           <MainContainer pt={spacing.m}>

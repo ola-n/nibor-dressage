@@ -16,7 +16,7 @@ import { HeroSection } from '@components/sections/hero';
 import { Display1, Intro } from '@components/Typography';
 import { Button } from '@components/Button';
 
-const ContentWrap = styled.div({});
+const HeroContent = styled.div({});
 
 const Header = styled(Display1)({
   maxWidth: 441,
@@ -60,7 +60,7 @@ class ServicesPage extends React.Component<Props> {
           heroImageDesktop={heroImageDesktop}
           heroImageMobile={heroImageMobile}
         >
-          <ContentWrap>
+          <HeroContent>
             <Header mb={spacing.m} mt={spacing.t} color={colors.primary_blue}>
               Tjänster
             </Header>
@@ -70,8 +70,10 @@ class ServicesPage extends React.Component<Props> {
               erbjuder många typer av ställtjänster.
             </Lead>
 
-            <Button to={routes.CONTACT}>Kontakta oss för tidsbokning</Button>
-          </ContentWrap>
+            <Button to={routes.CONTACT} mb={spacing.t}>
+              Kontakta oss för tidsbokning
+            </Button>
+          </HeroContent>
         </HeroSection>
       </Layout>
     );
