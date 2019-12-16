@@ -6,6 +6,7 @@ path: '/nyheter/damocha-2019/'
 layout: 'blog'
 intro: 'Mitt intro från frontmatter'
 image: '../images/blog/damocha2019.jpg'
+category: 'Tävling'
 ---
 
 ### Lördag

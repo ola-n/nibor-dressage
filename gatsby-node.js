@@ -42,6 +42,7 @@ exports.createPages = async ({ graphql, actions }) => {
               title
               path
               intro
+              category
             }
             excerpt
             fields {
@@ -60,6 +61,19 @@ exports.createPages = async ({ graphql, actions }) => {
     const blogTemplate = path.resolve(`./src/templates/blog-post.js`);
 
     const blogPosts = data.blogPosts.edges;
+
+    //console.log('blogPosts ', blogPosts);
+
+    const categories = blogPosts.reduce(
+      (acc, current) => {
+        acc.push(current.node.frontmatter.category);
+        return acc;
+      },
+      [] // initial value
+    );
+
+    console.log('categories ', categories);
+
     blogPosts.forEach(({ node }, index) => {
       const {
         fields: { slug },
