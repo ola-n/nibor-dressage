@@ -39,7 +39,7 @@ type Props = {
 class BlogPost extends React.Component<Props> {
   render() {
     const { markdownRemark } = this.props.data;
-    const { title } = markdownRemark.frontmatter;
+    const { title, categoryLabel, categorySlug } = markdownRemark.frontmatter;
     const { heroImageDesktop } = this.props.data;
 
     return (
@@ -56,7 +56,12 @@ class BlogPost extends React.Component<Props> {
                   <Link key="blog-home" to={routes.NEWS}>
                     Nyheter
                   </Link>,
-                  <Link key="blog-category">{'category.name'}</Link>,
+                  <Link
+                    to={`${routes.NEWS}${categorySlug}`}
+                    key="blog-category"
+                  >
+                    {categoryLabel}
+                  </Link>,
                   <Subhead key="blog-entry" color={colors.primary_yellow}>
                     {title}
                   </Subhead>,
@@ -94,6 +99,8 @@ export const query = graphql`
         path
         layout
         intro
+        categoryLabel
+        categorySlug
         image {
           childImageSharp {
             fluid(maxWidth: 1280, maxHeight: 720) {

@@ -52,11 +52,11 @@ class NewsPage extends React.Component<Props> {
   }
 
   render() {
-    const { edges } = this.props.data.allMarkdownRemark;
+    const { edges } = this.props.data.articles;
     const { heroImageDesktop } = this.props.data;
     const latestEntry = edges[0].node;
     const latestNews = edges.slice(1, 9);
-    console.log('edges ', edges);
+    console.log('this.props.data.categories ', this.props.data.categories);
 
     return (
       <Layout page={routes.NEWS}>
@@ -81,7 +81,7 @@ class NewsPage extends React.Component<Props> {
             </HeroContent>
           </HeroSection>
           <BlogEntry latestEntry={latestEntry} />
-          <LatestNews latestNews={latestNews} />
+          {!!latestNews && <LatestNews latestNews={latestNews} />}
           <AllNews allNews={edges} />
         </Root>
       </Layout>
@@ -115,7 +115,7 @@ export const query = graphql`
     ) {
       ...fragmentDesktop
     }
-    allMarkdownRemark(
+    articles: allMarkdownRemark(
       filter: { frontmatter: { layout: { eq: "blog" } } }
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {
@@ -131,6 +131,8 @@ export const query = graphql`
             path
             layout
             intro
+            categoryLabel
+            categorySlug
             image {
               childImageSharp {
                 fluid(maxWidth: 1280, maxHeight: 720) {
@@ -140,6 +142,12 @@ export const query = graphql`
             }
           }
         }
+      }
+    }
+    categories: allMarkdownRemark {
+      group(field: frontmatter___categorySlug) {
+        tag: fieldValue
+        totalCount
       }
     }
   }

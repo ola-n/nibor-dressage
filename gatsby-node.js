@@ -1,7 +1,7 @@
 const path = require(`path`);
 const slugify = require('slugify');
 const { createFilePath } = require('gatsby-source-filesystem');
-// const routes = require('./src/routes');
+const routes = require('./src/routes');
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
@@ -9,7 +9,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   if (node.internal.type === `MarkdownRemark`) {
     // Create slugs for blog entries if there are non in the md-file
     let slug = createFilePath({ node, getNode, basePath: 'pages' });
-    console.log('node.frontmatter.slug ', node.frontmatter.slug);
+    let categorySlug = node.frontmatter.categorySlug;
     if (!node.frontmatter.slug) {
       node.frontmatter.slug = slugify(slug, { lower: true });
     }
@@ -18,6 +18,12 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       node,
       name: `slug`,
       value: slugify(slug, { lower: true }),
+    });
+
+    createNodeField({
+      node,
+      name: `categorySlug`,
+      value: slugify(categorySlug, { lower: true }),
     });
   }
 };
@@ -42,7 +48,8 @@ exports.createPages = async ({ graphql, actions }) => {
               title
               path
               intro
-              category
+              categoryLabel
+              categorySlug
             }
             excerpt
             fields {
@@ -58,21 +65,9 @@ exports.createPages = async ({ graphql, actions }) => {
       return;
     }
 
+    /************  Create news-pages ************/
     const blogTemplate = path.resolve(`./src/templates/blog-post.js`);
-
     const blogPosts = data.blogPosts.edges;
-
-    //console.log('blogPosts ', blogPosts);
-
-    const categories = blogPosts.reduce(
-      (acc, current) => {
-        acc.push(current.node.frontmatter.category);
-        return acc;
-      },
-      [] // initial value
-    );
-
-    console.log('categories ', categories);
 
     blogPosts.forEach(({ node }, index) => {
       const {
@@ -84,8 +79,6 @@ exports.createPages = async ({ graphql, actions }) => {
       const prev =
         index === blogPosts.length - 1 ? null : blogPosts[index + 1].node;
 
-      console.log('slug ', slug);
-      console.log('node.frontmatter.path ', node.frontmatter.path);
       createPage({
         path: node.frontmatter.path,
         component: blogTemplate,
@@ -96,6 +89,28 @@ exports.createPages = async ({ graphql, actions }) => {
           prev,
           next,
           slug,
+        },
+      });
+    });
+
+    /************  Create category-pages ************/
+    const blogCategoryTemplate = path.resolve(
+      `./src/templates/blog-category-view.js`
+    );
+    const categories = blogPosts.reduce(
+      (acc, current) => {
+        acc.push(current.node.frontmatter.categorySlug);
+        return acc;
+      },
+      [] // initial value
+    );
+
+    categories.forEach(category => {
+      createPage({
+        path: `${routes.NEWS}${category}`,
+        component: blogCategoryTemplate,
+        context: {
+          categorySlug: category,
         },
       });
     });

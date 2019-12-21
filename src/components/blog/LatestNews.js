@@ -5,12 +5,11 @@ import styled from '@emotion/styled';
 import { spacing } from '@spec/ui-spec';
 import { colors } from '@spec/colors/';
 
-import { Banner, MainContainer } from '@components/Grid';
-import { Display2, Subhead } from '@components/Typography';
+import { Banner, MainContainer, Grid } from '@components/Grid';
+import NewsCard from '@components/blog/NewsCard';
 
 const Root = styled(Banner)({
   color: colors.primary_blue,
-  position: 'relative',
 });
 
 type Props = {
@@ -18,13 +17,37 @@ type Props = {
 };
 
 export const LatestNews = ({ latestNews }: Props) => {
-  console.log('latestNews ', latestNews);
   return (
     <Root color={colors.secondary_white} py={spacing.l}>
       <MainContainer>
-        <Display2>Work in progress </Display2>
-        <Subhead>Sektion för de 10 senaste nyheterna</Subhead>
-        Teaser Bild/titel/datum
+        <Grid numberColumns={2}>
+          {!!latestNews &&
+            latestNews.map((article, key) => {
+              const {
+                date,
+                title,
+                image,
+                slug,
+                categoryLabel,
+                categorySlug,
+              } = article.node.frontmatter;
+              console.log(
+                'article.node.frontmatter ',
+                article.node.frontmatter
+              );
+              return (
+                <NewsCard
+                  key={key}
+                  title={title}
+                  image={image}
+                  slug={slug}
+                  date={date}
+                  category={categoryLabel}
+                  categorySlug={categorySlug}
+                ></NewsCard>
+              );
+            })}
+        </Grid>
       </MainContainer>
     </Root>
   );
