@@ -69,17 +69,35 @@ export const ButtonLink = styled.a(
   ({ type }) => {
     if (type === 'ghost') {
       return {
-        color: colors.secondary_grey_700,
+        color: colors.primary_blue,
         backgroundColor: 'transparent',
         border: '1px solid #283D46',
 
         [':hover:not(:disabled)']: {
-          color: colors.secondary_grey_700,
+          color: colors.primary_yellow,
           backgroundColor: colors.primary_coolgrey,
+
+          ' &::before': {
+            transform: 'scaleX(1)',
+          },
         },
         '& a': {
           // gatsby link
-          color: colors.secondary_grey_700,
+          color: colors.primary_blue,
+        },
+
+        '&::before': {
+          display: 'block',
+          position: 'absolute',
+          content: `''`,
+          top: 0,
+          left: 0,
+          zIndex: -1,
+          width: '100%',
+          height: '100%',
+          background: 'hsl(120, 100%, 41%)',
+          transform: 'scaleX(0)',
+          transition: '0.25s',
         },
       };
     }
@@ -129,3 +147,66 @@ export const FormButton = styled(ButtonForForms)({
 
 // Link that looks like a button used for internal navigation
 export const Button = ButtonLink.withComponent(Link);
+
+export const CategoryButton = styled(Link)({
+  position: 'relative',
+  paddingTop: 16,
+  paddingRight: 22,
+  paddingBottom: 12,
+  paddingLeft: 30,
+  fontSize: '14px',
+  color: colors.primary_blue,
+  letterSpacing: '6px',
+  textTransform: 'uppercase',
+  transition: 'all 600ms cubic-bezier(0.77, 0, 0.175, 1)',
+  cursor: 'pointer',
+  userSelect: 'none',
+
+  '&:hover': {
+    color: colors.primary_yellow,
+    transitionDelay: '.6s',
+  },
+
+  '& > span': {
+    zIndex: 1,
+  },
+
+  '&::before': {
+    content: '""',
+    position: 'absolute',
+    transition: 'inherit',
+    zIndex: 0,
+    top: 0,
+    width: 0,
+    height: '100%',
+    right: 0,
+    border: `1px solid ${colors.primary_blue}`,
+    borderLeft: 0,
+    borderRight: 0,
+    display: 'inline-block',
+  },
+
+  '&:hover::before': {
+    transitionDelay: '0s',
+    width: '100%',
+  },
+
+  '&::after': {
+    content: '""',
+    position: 'absolute',
+    transition: 'inherit',
+    zIndex: 0,
+    top: 2,
+    width: 0,
+    height: 'calc(100% - 2px);',
+    left: 0,
+    display: 'inline-block',
+  },
+  '&:hover::after': {
+    background: colors.primary_blue,
+    transitionDelay: '.4s',
+    width: '100%',
+  },
+});
+
+export default Button;

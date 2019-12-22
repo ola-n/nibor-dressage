@@ -12,13 +12,9 @@ import { easeOut500 } from '@spec/animations';
 
 import { Display3, Body3 } from '@components/Typography';
 
-const Root = styled(Link)({
+const Root = styled('div')({
   backgroundColor: colors.primary_white,
   boxShadow: '3px 1px 7px 0 rgba(0, 0, 0, 0.1)',
-
-  '&:hover': {
-    color: colors.primary_blue,
-  },
 });
 
 const ImageWrap = styled('div')({
@@ -71,12 +67,18 @@ export const NewsCard = ({
   date,
 }: Props) => {
   return (
-    <Root to={`${routes.NEWS}${slug}`}>
-      <ImageWrap>
-        <Image fluid={image.childImageSharp.fluid}></Image>
-      </ImageWrap>
+    <Root>
+      <Link to={`${routes.NEWS}${slug}`}>
+        <ImageWrap>
+          <Image fluid={image.childImageSharp.fluid}></Image>
+        </ImageWrap>
+      </Link>
       <Text pt={spacing.s} pb={spacing.t} px={spacing.s}>
-        <Display3 mb={spacing.t}>{title}</Display3>
+        <Link to={`${routes.NEWS}${slug}`}>
+          <Display3 style={{ display: 'inline-block' }} mb={spacing.t}>
+            {title}
+          </Display3>
+        </Link>
         <CardFooter>
           <Link to={`${routes.NEWS}${categorySlug}`}>
             <CategoryText>{category}</CategoryText>

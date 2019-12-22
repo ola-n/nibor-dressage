@@ -1,34 +1,13 @@
 import React from 'react';
-import styled from '@emotion/styled';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 
-import routes from '../routes';
-import { colors } from '@spec/colors/';
-import { breakpoints } from '@spec/ui-spec';
+import { spacing } from '@spec/ui-spec';
 
 import Layout from '@components/layout';
 import SEO from '@components/seo';
-import { HeroSection } from '@components/sections/hero';
-import BlogEntry from '@components/blog/BlogEntry';
-import { Subhead } from '@components/Typography';
-import ArrowNav from '@components/ArrowNav';
-
-const Root = styled.div({
-  '& #hero-root': {
-    [breakpoints.desktopSmall]: {
-      minHeight: 500,
-    },
-  },
-  '& #hero-text': {
-    paddingTop: 16,
-    paddingBottom: 16,
-
-    [breakpoints.desktopSmall]: {
-      paddingTop: 56,
-      paddingBottom: 92,
-    },
-  },
-});
+import { Banner, MainContainer, Grid } from '@components/Grid';
+import CategoryPicker from '@components/blog/CategoryPicker';
+import NewsCard from '@components/blog/NewsCard';
 
 type Props = {
   data: Object,
@@ -36,13 +15,57 @@ type Props = {
 
 class BlogCategoryView extends React.Component<Props> {
   render() {
-    //const { markdownRemark } = this.props.data;
-    console.log('this.props.data ', this.props.data);
+    const { posts } = this.props.data;
+    const cats = [
+      {
+        slug: '',
+        totalCount: 1337, // check length of arrays
+        edges: [
+          {
+            node: {
+              frontmatter: {
+                categoryLabel: 'alla kategorier',
+                categorySlug: '',
+              },
+            },
+          },
+        ],
+      },
+    ].concat(this.props.data.allCategories.group);
 
     return (
       <Layout>
-        <SEO title={`${'title'}`} />
-        <Root>Category view</Root>
+        <SEO title={'Kategorisida'} />
+        <Banner>
+          <MainContainer py={spacing.l}>
+            <CategoryPicker categories={cats} />
+            <Grid numberColumns={2}>
+              {!!posts.edges &&
+                posts.edges.map((article, key) => {
+                  const {
+                    date,
+                    title,
+                    image,
+                    slug,
+                    categoryLabel,
+                    categorySlug,
+                  } = article.node.frontmatter;
+
+                  return (
+                    <NewsCard
+                      key={key}
+                      title={title}
+                      image={image}
+                      slug={slug}
+                      date={date}
+                      category={categoryLabel}
+                      categorySlug={categorySlug}
+                    ></NewsCard>
+                  );
+                })}
+            </Grid>
+          </MainContainer>
+        </Banner>
       </Layout>
     );
   }
@@ -52,7 +75,7 @@ export default BlogCategoryView;
 
 export const query = graphql`
   query BlogCategoryQuery($categorySlug: String!) {
-    categories: allMarkdownRemark(
+    posts: allMarkdownRemark(
       filter: { frontmatter: { categorySlug: { eq: $categorySlug } } }
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {
@@ -69,10 +92,30 @@ export const query = graphql`
             intro
             categoryLabel
             categorySlug
+            image {
+              childImageSharp {
+                fluid(maxWidth: 1280, maxHeight: 720) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
           excerpt
           fields {
             slug
+          }
+        }
+      }
+    }
+    allCategories: allMarkdownRemark {
+      group(field: frontmatter___categorySlug) {
+        slug: fieldValue
+        totalCount
+        edges {
+          node {
+            frontmatter {
+              categoryLabel
+            }
           }
         }
       }

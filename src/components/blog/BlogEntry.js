@@ -48,7 +48,6 @@ export const BlogEntry = ({ latestEntry }: Props) => {
   const { image, title, date } = latestEntry.frontmatter;
   const { html } = latestEntry;
 
-  console.log('props ', latestEntry);
   return (
     <Root>
       <MainContainer pb={spacing.l}>

@@ -56,7 +56,22 @@ class NewsPage extends React.Component<Props> {
     const { heroImageDesktop } = this.props.data;
     const latestEntry = edges[0].node;
     const latestNews = edges.slice(1, 9);
-    console.log('this.props.data.categories ', this.props.data.categories);
+    const cats = [
+      {
+        slug: '',
+        totalCount: 1337, // TODO: Add totalCount from each child
+        edges: [
+          {
+            node: {
+              frontmatter: {
+                categoryLabel: 'alla kategorier',
+                categorySlug: '',
+              },
+            },
+          },
+        ],
+      },
+    ].concat(this.props.data.categories.group);
 
     return (
       <Layout page={routes.NEWS}>
@@ -81,7 +96,9 @@ class NewsPage extends React.Component<Props> {
             </HeroContent>
           </HeroSection>
           <BlogEntry latestEntry={latestEntry} />
-          {!!latestNews && <LatestNews latestNews={latestNews} />}
+          {!!latestNews && (
+            <LatestNews latestNews={latestNews} categories={cats} />
+          )}
           <AllNews allNews={edges} />
         </Root>
       </Layout>
@@ -146,8 +163,15 @@ export const query = graphql`
     }
     categories: allMarkdownRemark {
       group(field: frontmatter___categorySlug) {
-        tag: fieldValue
+        slug: fieldValue
         totalCount
+        edges {
+          node {
+            frontmatter {
+              categoryLabel
+            }
+          }
+        }
       }
     }
   }

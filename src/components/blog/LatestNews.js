@@ -7,6 +7,7 @@ import { colors } from '@spec/colors/';
 
 import { Banner, MainContainer, Grid } from '@components/Grid';
 import NewsCard from '@components/blog/NewsCard';
+import CategoryPicker from '@components/blog/CategoryPicker';
 
 const Root = styled(Banner)({
   color: colors.primary_blue,
@@ -14,12 +15,14 @@ const Root = styled(Banner)({
 
 type Props = {
   latestNews: Array<Object>,
+  categories: Array<Object>,
 };
 
-export const LatestNews = ({ latestNews }: Props) => {
+export const LatestNews = ({ latestNews, categories }: Props) => {
   return (
-    <Root color={colors.secondary_white} py={spacing.l}>
+    <Root color={colors.secondary_white} pt={spacing.s} pb={spacing.l}>
       <MainContainer>
+        <CategoryPicker categories={categories} />
         <Grid numberColumns={2}>
           {!!latestNews &&
             latestNews.map((article, key) => {
@@ -31,10 +34,7 @@ export const LatestNews = ({ latestNews }: Props) => {
                 categoryLabel,
                 categorySlug,
               } = article.node.frontmatter;
-              console.log(
-                'article.node.frontmatter ',
-                article.node.frontmatter
-              );
+
               return (
                 <NewsCard
                   key={key}

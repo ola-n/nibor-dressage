@@ -97,6 +97,8 @@ const ClippedImage = (props: Props) => {
     style,
   } = props;
 
+  console.log('imgStyle ', imgStyle);
+
   return (
     <Root {...props}>
       <Image

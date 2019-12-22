@@ -51,7 +51,6 @@ class ArrowNav extends React.Component<Props> {
           <ArrowText color={colors.primary_blue} mb={0}>
             {items &&
               items.map((item, i) => {
-                console.log('item ', item.props);
                 return (
                   <span key={'link-' + i}>
                     <item.type {...item.props} />

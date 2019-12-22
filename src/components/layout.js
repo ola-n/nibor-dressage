@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import { useState } from 'react';
-//import { useMixpanel } from 'gatsby-plugin-mixpanel';
+import { useMixpanel } from 'gatsby-plugin-mixpanel';
 import Helmet from 'react-helmet';
 import styled from '@emotion/styled';
 import { Global, css } from '@emotion/core';
@@ -46,8 +46,8 @@ type Props = {
 const Layout = (props: Props) => {
   const { children } = props;
   const [navMenuOpen, setOpen] = useState(false);
-  //const mixpanel = useMixpanel();
-  //mixpanel.track('Page.Seen', { page: props.page });
+  const mixpanel = useMixpanel();
+  mixpanel.track('Page.Seen', { page: props.page });
 
   function toggleNavMenu() {
     setOpen(!navMenuOpen);
