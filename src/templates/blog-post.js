@@ -43,7 +43,7 @@ class BlogPost extends React.Component<Props> {
     const { heroImageDesktop } = this.props.data;
 
     return (
-      <Layout>
+      <Layout page={'BlogPost'}>
         <SEO title={`${title}`} />
         <Root>
           <HeroSection

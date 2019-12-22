@@ -34,7 +34,7 @@ class BlogCategoryView extends React.Component<Props> {
     ].concat(this.props.data.allCategories.group);
 
     return (
-      <Layout>
+      <Layout page={'CategoryView'}>
         <SEO title={'Kategorisida'} />
         <Banner>
           <MainContainer py={spacing.l}>

@@ -43,11 +43,14 @@ type Props = {
   children: ?React.Node,
 };
 
-const Layout = (props: Props) => {
-  const { children } = props;
+const Layout = ({ page, children }: Props) => {
   const [navMenuOpen, setOpen] = useState(false);
   const mixpanel = useMixpanel();
-  mixpanel.track('Page.Seen', { page: props.page });
+
+  // Seems fubar and not really happy during SSR
+  if (typeof window !== 'undefined' && window) {
+    mixpanel.track('Page.Seen', { page: page });
+  }
 
   function toggleNavMenu() {
     setOpen(!navMenuOpen);

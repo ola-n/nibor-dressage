@@ -15,6 +15,11 @@ import { Display3, Body3 } from '@components/Typography';
 const Root = styled('div')({
   backgroundColor: colors.primary_white,
   boxShadow: '3px 1px 7px 0 rgba(0, 0, 0, 0.1)',
+  marginBottom: 24,
+
+  [breakpoints.desktopSmall]: {
+    marginBottom: 0,
+  },
 });
 
 const ImageWrap = styled('div')({
