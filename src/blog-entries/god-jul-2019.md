@@ -8,6 +8,10 @@ intro: 'intro'
 image: '../images/blog/god-jul-2019.jpg'
 categoryLabel: 'Övrigt'
 categorySlug: 'zovrigt'
+images:
+  - '../images/hastar/timo/cover-image.jpg'
+  - '../images/hastar/timo/cover-image.jpg'
+  - '../images/hastar/timo/cover-image.jpg'
 ---
 
 ## God Jul & Gott Nytt år

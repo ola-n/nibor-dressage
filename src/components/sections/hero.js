@@ -59,39 +59,56 @@ const Spacer = styled.div({
   },
 });
 
-const TildedImage = styled(Img)({
-  width: '100%',
-  height: '100%',
-  minWidth: 724,
-  maxWidth: 724,
-  position: 'absolute !important',
-  top: 0,
-  right: 0,
-  display: 'none',
+const TildedImage = styled(Img)(
+  {
+    width: '100%',
+    height: '100%',
+    minWidth: 724,
+    maxWidth: 724,
+    position: 'absolute !important',
+    top: 0,
+    right: 0,
+    display: 'none',
 
-  [breakpoints.desktopSmall]: {
-    minWidth: 720,
-    maxWidth: 720,
-    transform: 'translateX(70px)',
-    display: 'block',
-  },
+    [breakpoints.desktopSmall]: {
+      minWidth: 720,
+      maxWidth: 720,
+      transform: 'translateX(70px)',
+      display: 'block',
+    },
 
-  '@media screen and (min-width: 1170px)': {
-    minWidth: 660,
-    maxWidth: 660,
-    transform: 'translateX(0)',
-  },
+    '@media screen and (min-width: 1170px)': {
+      minWidth: 660,
+      maxWidth: 660,
+      transform: 'translateX(0)',
+    },
 
-  [breakpoints.desktopLarge]: {
-    minWidth: 750,
-    maxWidth: 750,
-  },
+    [breakpoints.desktopLarge]: {
+      minWidth: 750,
+      maxWidth: 750,
+    },
 
-  [breakpoints.desktopHuge]: {
-    minWidth: 1080,
-    maxWidth: 1080,
+    [breakpoints.desktopHuge]: {
+      minWidth: 1080,
+      maxWidth: 1080,
+    },
   },
-});
+  ({ wide }) =>
+    !!wide && {
+      minWidth: '700px !important',
+      maxWidth: '700px !important',
+
+      [breakpoints.desktopLarge]: {
+        minWidth: '950px !important',
+        maxWidth: '950px !important',
+      },
+
+      [breakpoints.desktopHuge]: {
+        minWidth: '1150px !important',
+        maxWidth: '1150px !important',
+      },
+    }
+);
 
 const MobileImage = styled(Img)({
   width: '100%',
@@ -113,6 +130,7 @@ type Props = {
   children: Object,
   heroImageDesktop: Object,
   heroImageMobile?: Object,
+  wide?: boolean,
 };
 
 export const HeroSection = ({
@@ -121,6 +139,7 @@ export const HeroSection = ({
   heroImageDesktop,
   heroImageMobile,
   children,
+  wide = false,
 }: Props) => {
   return (
     <HeroRoot
@@ -142,6 +161,7 @@ export const HeroSection = ({
         imgStyle={{ objectPosition: 'left center' }}
         fluid={heroImageDesktop.childImageSharp.fluid}
         loading="eager"
+        wide={wide}
       />
     </HeroRoot>
   );

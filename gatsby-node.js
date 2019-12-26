@@ -7,25 +7,52 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === `MarkdownRemark`) {
-    // Create slugs for blog entries if there are non in the md-file
-    let slug = createFilePath({ node, getNode, basePath: 'pages' });
-    let categorySlug = node.frontmatter.categorySlug;
-    if (!node.frontmatter.slug) {
-      node.frontmatter.slug = slugify(slug, { lower: true });
+    // Create slugs for blog entries
+    let slug = createFilePath({ node, getNode });
+
+    if (slug) {
+      createNodeField({
+        node,
+        name: `slug`,
+        value: slugify(slug, { lower: true }),
+      });
     }
 
-    createNodeField({
-      node,
-      name: `slug`,
-      value: slugify(slug, { lower: true }),
-    });
+    // Create slugs for blog categories
+    let categorySlug = node.frontmatter.categorySlug;
 
-    createNodeField({
-      node,
-      name: `categorySlug`,
-      value: slugify(categorySlug, { lower: true }),
-    });
+    if (categorySlug) {
+      createNodeField({
+        node,
+        name: `categorySlug`,
+        value: slugify(categorySlug, { lower: true }),
+      });
+    }
+
+    // Create slugs for the horses page
+    let horsesSlug = node.frontmatter.horsesSlug;
+
+    if (horsesSlug) {
+      createNodeField({
+        node,
+        name: `horsesSlug`,
+        value: slugify(horsesSlug, { lower: true }),
+      });
+    }
   }
+};
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  const typeDefs = `
+    type MarkdownRemark implements Node {
+      frontmatter: Frontmatter
+    }
+    type Frontmatter {
+      images: [String]
+    }
+  `;
+  createTypes(typeDefs);
 };
 
 exports.createPages = async ({ graphql, actions }) => {
@@ -54,6 +81,35 @@ exports.createPages = async ({ graphql, actions }) => {
             excerpt
             fields {
               slug
+            }
+          }
+        }
+      }
+      horses: allMarkdownRemark(
+        filter: { frontmatter: { layout: { eq: "horses" } } }
+        sort: { order: DESC, fields: [frontmatter___date] }
+      ) {
+        edges {
+          node {
+            id
+            html
+            frontmatter {
+              date: date(formatString: "YYYY-MM-DD")
+              layout
+              horsesSlug
+              title
+              gender
+              born
+              withersHeight
+              education
+              decorations
+              offsprings
+              images
+              path
+            }
+            excerpt
+            fields {
+              horsesSlug
             }
           }
         }
@@ -111,6 +167,27 @@ exports.createPages = async ({ graphql, actions }) => {
         component: blogCategoryTemplate,
         context: {
           categorySlug: category,
+        },
+      });
+    });
+
+    /************  Create horses-pages ************/
+    const horseTemplate = path.resolve(`./src/templates/horses.js`);
+    const horsesPosts = data.horses.edges;
+
+    horsesPosts.forEach(({ node }) => {
+      const {
+        fields: { horsesSlug },
+      } = node;
+
+      createPage({
+        path: node.frontmatter.path,
+        component: horseTemplate,
+        context: {
+          // Data passed to context is available
+          // in page queries as GraphQL variables.
+          horsesSlug,
+          node,
         },
       });
     });

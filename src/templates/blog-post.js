@@ -38,9 +38,8 @@ type Props = {
 
 class BlogPost extends React.Component<Props> {
   render() {
-    const { markdownRemark } = this.props.data;
+    const { heroImageDesktop, markdownRemark } = this.props.data;
     const { title, categoryLabel, categorySlug } = markdownRemark.frontmatter;
-    const { heroImageDesktop } = this.props.data;
 
     return (
       <Layout page={'BlogPost'}>
