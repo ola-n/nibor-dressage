@@ -14,6 +14,7 @@ decorations: false
 offsprings: 'Har ett flertal avkommor i Norge'
 images:
   - '../images/hastar/timo/cover-image.jpg'
-  - '../images/hastar/timo/cover-image.jpg'
-  - '../images/hastar/timo/cover-image.jpg'
+  - '../images/tjanster/dec.jpg'
+  - '../images/blog/damocha2019.jpg'
+  - '../images/blog/god-jul-2019.jpg'
 ---

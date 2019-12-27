@@ -226,7 +226,8 @@ export const Title1 = styled.h2(
   title1,
   color,
   space,
-  ({ light }) => !!light && { fontWeight: `${fontWeight.light} !important` }
+  ({ light }) => !!light && { fontWeight: `${fontWeight.light} !important` },
+  ({ bold }) => !!bold && { fontWeight: `${fontWeight.semiBold} !important` }
 );
 export const Subhead = styled.h3(
   subhead,

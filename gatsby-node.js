@@ -49,7 +49,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       frontmatter: Frontmatter
     }
     type Frontmatter {
-      images: [String]
+      images: [File] @fileByRelativePath
     }
   `;
   createTypes(typeDefs);
@@ -72,10 +72,7 @@ exports.createPages = async ({ graphql, actions }) => {
               date: date(formatString: "YYYY-MM-DD")
               layout
               slug
-              title
               path
-              intro
-              categoryLabel
               categorySlug
             }
             excerpt
@@ -97,14 +94,6 @@ exports.createPages = async ({ graphql, actions }) => {
               date: date(formatString: "YYYY-MM-DD")
               layout
               horsesSlug
-              title
-              gender
-              born
-              withersHeight
-              education
-              decorations
-              offsprings
-              images
               path
             }
             excerpt
@@ -187,7 +176,6 @@ exports.createPages = async ({ graphql, actions }) => {
           // Data passed to context is available
           // in page queries as GraphQL variables.
           horsesSlug,
-          node,
         },
       });
     });
