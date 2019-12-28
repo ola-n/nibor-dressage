@@ -170,7 +170,7 @@ class ServicesPage extends React.Component<Props> {
                 <Display2 mb={spacing.t}>Tillridning</Display2>
                 <Body2 mb={spacing.m}>
                   I mån av plats tar vi emot hästar för tillridning, tävling och
-                  visning. 7500kr/månad inkl. allt.
+                  visning.
                 </Body2>
 
                 <Display2 mb={spacing.t}>Uthyrning av ridhus</Display2>
@@ -220,10 +220,7 @@ const mapDispatchToProps = dispatch =>
     dispatch
   );
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ServicesPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ServicesPage);
 
 export const query = graphql`
   query ServicesPageQuery {
