@@ -32,6 +32,16 @@ const HeroContent = styled.div({
   },
 });
 
+const HorseName = styled(Display1)({
+  [breakpoints.tablet]: {
+    maxWidth: 455,
+  },
+
+  [breakpoints.desktopHuge]: {
+    maxWidth: 800,
+  },
+});
+
 const Images = styled(Grid)(
   {
     borderTop: `1px solid ${colors.primary_yellow}`,
@@ -46,7 +56,7 @@ const Image = styled(Img)({
   maxHeight: 450,
 });
 
-const Header = styled(Title1)({
+const ImagesHeader = styled(Title1)({
   fontSize: 16,
   marginBottom: 2,
 
@@ -71,11 +81,9 @@ class HorsesPage extends React.Component<Props> {
       withersHeight,
       education,
       decorations,
-      offsprings,
+      offsprings = false,
       images,
     } = markdownRemark.frontmatter;
-
-    console.log('images ', images);
 
     return (
       <Layout page={'horsesPage'}>
@@ -87,7 +95,7 @@ class HorsesPage extends React.Component<Props> {
             wide
           >
             <HeroContent>
-              <Display1 color={colors.primary_yellow}>{title}</Display1>
+              <HorseName color={colors.primary_yellow}>{title}</HorseName>
               <Intro medium>{gender}</Intro>
               <Intro medium>{born}</Intro>
               <Intro medium>{withersHeight}</Intro>
@@ -100,9 +108,9 @@ class HorsesPage extends React.Component<Props> {
             <MainContainer pt={spacing.l} pb={spacing.xl}>
               {!!images && (
                 <div>
-                  <Header bold color={colors.primary_blue}>
+                  <ImagesHeader bold color={colors.primary_blue}>
                     Bilder
-                  </Header>
+                  </ImagesHeader>
                   <Images numberColumns="2">
                     {images.map((image, key) => (
                       <Image key={key} fluid={image.childImageSharp.fluid} />

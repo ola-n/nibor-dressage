@@ -6,6 +6,7 @@ import { space } from 'styled-system';
 import { colors } from '@spec/colors/';
 import { breakpoints } from '@spec/ui-spec';
 import { resetStyle } from '@components/Grid';
+import { easeOut500 } from '@spec/animations';
 
 const Root = styled.div(
   { position: 'relative', overflow: 'hidden' },
@@ -62,6 +63,19 @@ const Clipper = styled.div(
 );
 
 const Image = styled(Img)(
+  ({ animated }) => {
+    if (animated) {
+      return {
+        transform: 'scale(1)',
+        transition: `.3s ${easeOut500}`,
+
+        '&:hover': {
+          transform: 'scale(1.07)',
+          cursor: 'pointer',
+        },
+      };
+    }
+  },
   ({ desktopSquare }) => {
     if (desktopSquare) {
       return {
@@ -85,15 +99,17 @@ type Props = {
   paddingReset: boolean,
   clipperPos: string,
   style: Object,
+  animated: boolean,
 };
 
 const ClippedImage = (props: Props) => {
   const {
-    image,
     desktopSquare,
-    imgStyle,
     paddingReset,
     clipperPos = 'tl',
+    animated,
+    imgStyle,
+    image,
     style,
   } = props;
 
@@ -105,6 +121,7 @@ const ClippedImage = (props: Props) => {
         imgStyle={imgStyle}
         paddingReset={paddingReset}
         style={style}
+        animated={animated}
       />
       <Clipper clipperPos={clipperPos} />
     </Root>

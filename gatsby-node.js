@@ -50,6 +50,8 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
     type Frontmatter {
       images: [File] @fileByRelativePath
+      decorations: String
+      offsprings: String
     }
   `;
   createTypes(typeDefs);

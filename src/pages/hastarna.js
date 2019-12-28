@@ -3,18 +3,21 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import styled from '@emotion/styled';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
+import { space } from 'styled-system';
 
-import { setActivePage } from '@state/navigation/actions';
 import { spacing, breakpoints, articleWidth } from '@spec/ui-spec';
+import { setActivePage } from '@state/navigation/actions';
 import { colors } from '@spec/colors/';
 import routes from '../routes';
 
 import Layout from '@components/layout';
 import SEO from '@components/seo';
 import { HeroSection } from '@components/sections/hero';
-import { Banner, MainContainer } from '@components/Grid';
+import { Banner, MainContainer, Grid, resetStyle } from '@components/Grid';
 import { Display1, Display3, Intro, Body2 } from '@components/Typography';
+import ClippedImage from '@components/ClippedImage';
+import ArrowLink from '@components/ArrowLink';
 
 const ContentWrap = styled.div({});
 
@@ -36,6 +39,53 @@ const Lead = styled(Intro)({
 
 const TextContainer = styled.div(articleWidth);
 
+const HorsesGrid = styled(Grid)(
+  {
+    gridRowGap: 0,
+
+    [breakpoints.tablet]: {
+      gridRowGap: 50,
+    },
+  },
+  ({ paddingReset }) => {
+    if (paddingReset) {
+      return resetStyle;
+    }
+  }
+);
+
+const HorseCard = styled('div')({
+  maxHeight: 570,
+});
+
+const HorseName = Intro.withComponent('h2');
+
+const CardText = styled('div')(
+  {
+    backgroundColor: colors.secondary_white,
+    position: 'relative',
+    paddingLeft: 16,
+    paddingRight: 16,
+
+    [breakpoints.tablet]: {
+      paddingLeft: 32,
+      paddingRight: 32,
+    },
+  },
+  space
+);
+
+const CardLink = styled('div')({
+  position: 'absolute',
+  right: 14,
+  bottom: 24,
+
+  [breakpoints.tablet]: {
+    right: 28,
+    bottom: 34,
+  },
+});
+
 type Props = {
   setActivePage: typeof setActivePage,
   currentPage: string,
@@ -52,7 +102,9 @@ class HorsesPage extends React.Component<Props> {
   }
 
   render() {
-    const { heroImageDesktop, heroImageMobile } = this.props.data;
+    const { heroImageDesktop, heroImageMobile, horses } = this.props.data;
+
+    console.log('horses ', horses);
 
     return (
       <Layout page={routes.HORSES}>
@@ -83,6 +135,49 @@ class HorsesPage extends React.Component<Props> {
             </Lead>
           </ContentWrap>
         </HeroSection>
+        {!!horses && (
+          <Banner>
+            <MainContainer py={spacing.l}>
+              <HorsesGrid numberColumns={2} paddingReset>
+                {horses.edges.map((horse, key) => {
+                  const {
+                    title,
+                    coverImage,
+                    horsesSlug,
+                    gender,
+                  } = horse.node.frontmatter;
+                  return (
+                    <HorseCard key={key}>
+                      <Link to={`${routes.HORSES}${horsesSlug}`}>
+                        <ClippedImage
+                          image={coverImage}
+                          imgStyle={{ objectPosition: `center center` }}
+                          clipperPos="tr"
+                          animated={true}
+                        />
+                      </Link>
+                      <CardText py={spacing.s}>
+                        <Link to={`${routes.HORSES}${horsesSlug}`}>
+                          <HorseName semiBold mb={0}>
+                            {title}
+                          </HorseName>
+                        </Link>
+
+                        <Body2>{gender}</Body2>
+
+                        <CardLink>
+                          <ArrowLink to={`${routes.HORSES}${horsesSlug}`}>
+                            Läs mer om hästen
+                          </ArrowLink>
+                        </CardLink>
+                      </CardText>
+                    </HorseCard>
+                  );
+                })}
+              </HorsesGrid>
+            </MainContainer>
+          </Banner>
+        )}
         <Banner>
           <MainContainer py={spacing.l}>
             <TextContainer>
@@ -150,10 +245,7 @@ const mapDispatchToProps = dispatch =>
     dispatch
   );
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(HorsesPage);
+export default connect(mapStateToProps, mapDispatchToProps)(HorsesPage);
 
 export const query = graphql`
   query HorsesPageQuery {
@@ -166,6 +258,28 @@ export const query = graphql`
       relativePath: { eq: "hero-images/mobile-hastarna.jpg" }
     ) {
       ...fragmentMobile
+    }
+    horses: allMarkdownRemark(
+      filter: { frontmatter: { layout: { eq: "horses" } } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            horsesSlug
+            coverImage {
+              childImageSharp {
+                fluid(maxWidth: 1200, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+
+            gender
+            born
+          }
+        }
+      }
     }
   }
 `;

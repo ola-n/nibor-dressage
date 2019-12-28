@@ -11,7 +11,7 @@ export const colors = {
   tertiary_blue: '#001350', // smaller text
   secondary_white: '#F1F2F5', // hero section-bg
   secondary_grey_100: '#f8f8f8',
-  secondary_grey_200: '#E7E9EE', // used footer
+  secondary_grey_200: '#E7E9EE', // used footer, horses page (not template)
   secondary_grey_800: '#7C808C', // footer grey text
 };
 

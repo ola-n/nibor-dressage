@@ -240,6 +240,8 @@ export const Intro = styled.p(
   color,
   space,
   ({ medium }) => !!medium && { fontWeight: `${fontWeight.medium} !important` },
+  ({ semiBold }) =>
+    !!semiBold && { fontWeight: `${fontWeight.semiBold} !important` },
   ({ bold }) => !!bold && { fontWeight: `${fontWeight.semiBold} !important` }
 );
 
