@@ -67,16 +67,11 @@ const Thumb = styled(Img)({
   [breakpoints.desktopSmall]: {
     maxWidth: 200,
   },
-
-  '&:hover': {
-    transform: 'scale(1.15)',
-    cursor: 'pointer',
-  },
 });
 
 const HorseContent = styled.div({
   paddingTop: 30,
-  paddingBottom: 45,
+  paddingBottom: 50,
   paddingLeft: 0,
 
   [breakpoints.desktopSmall]: {

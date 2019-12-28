@@ -137,7 +137,7 @@ class HorsesPage extends React.Component<Props> {
         </HeroSection>
         {!!horses && (
           <Banner>
-            <MainContainer py={spacing.l}>
+            <MainContainer pt={spacing.l}>
               <HorsesGrid numberColumns={2} paddingReset>
                 {horses.edges.map((horse, key) => {
                   const {
@@ -158,7 +158,11 @@ class HorsesPage extends React.Component<Props> {
                       </Link>
                       <CardText py={spacing.s}>
                         <Link to={`${routes.HORSES}${horsesSlug}`}>
-                          <HorseName semiBold mb={0}>
+                          <HorseName
+                            semiBold
+                            mb={0}
+                            style={{ display: 'inline-block' }}
+                          >
                             {title}
                           </HorseName>
                         </Link>
@@ -261,6 +265,7 @@ export const query = graphql`
     }
     horses: allMarkdownRemark(
       filter: { frontmatter: { layout: { eq: "horses" } } }
+      sort: { order: ASC, fields: [frontmatter___date] }
     ) {
       edges {
         node {

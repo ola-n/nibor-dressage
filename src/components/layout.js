@@ -30,7 +30,7 @@ const globalStyles = css`
   }
 `;
 
-const Root = styled.div({
+const Root = styled('div')({
   minHeight: '100%',
   display: 'flex',
   flexDirection: 'column',

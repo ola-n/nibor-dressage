@@ -12,8 +12,8 @@ withersHeight: '165 cm'
 education: 'Utbildningsnivå LB/LA'
 offsprings: 'Har ett flertal avkommor i Norge'
 images:
-  - '../images/hastar/timo/cover-image.jpg'
-  - '../images/tjanster/dec.jpg'
-  - '../images/blog/damocha2019.jpg'
-  - '../images/blog/god-jul-2019.jpg'
+  - '../images/hastar/timo/timohage.jpg'
+  - '../images/hastar/timo/timoridhus.jpg'
+  - '../images/hastar/timo/timoute.jpg'
+  - '../images/hastar/timo/timohuvud.jpg'
 ---
