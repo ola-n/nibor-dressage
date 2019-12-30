@@ -1,16 +1,22 @@
 import React from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import styled from '@emotion/styled';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
 import { colors, niborHorizontalGradient } from '@spec/colors/';
+import { setActivePage } from '@state/navigation/actions';
 import { breakpoints, spacing } from '@spec/ui-spec';
+import pedigrees from '../horses/pedigrees';
+import routes from '../routes';
 
 import Layout from '@components/layout';
 import SEO from '@components/seo';
 import { Banner, MainContainer, Grid, resetStyle } from '@components/Grid';
 import { HeroSection } from '@components/sections/hero';
 import { Display1, Intro, Title1 } from '@components/Typography';
+import Pedigree from '@components/Pedigree';
 
 const Root = styled.div({});
 
@@ -44,8 +50,6 @@ const HorseName = styled(Display1)({
 
 const Images = styled(Grid)(
   {
-    borderTop: `1px solid ${colors.primary_yellow}`,
-    paddingTop: 16,
     gridRowGap: '0 !important',
     gridColumnGap: '0 !important',
   },
@@ -56,34 +60,54 @@ const Image = styled(Img)({
   maxHeight: 450,
 });
 
-const ImagesHeader = styled(Title1)({
-  fontSize: 16,
+const DividerHeader = styled(Title1)({
+  fontSize: 18,
   marginBottom: 2,
 
   [breakpoints.tablet]: {
-    fontSize: 18,
+    fontSize: 20,
   },
 });
 
+const DividerLine = styled('div')({
+  borderTop: `1px solid ${colors.primary_yellow}`,
+  paddingTop: 16,
+});
+
 type Props = {
+  setActivePage: typeof setActivePage,
+  currentPage: string,
   data: Object,
 };
 
 class HorsesPage extends React.Component<Props> {
+  componentDidMount() {
+    const { setActivePage, currentPage } = this.props;
+
+    if (currentPage !== routes.HORSES) {
+      setActivePage(routes.HORSES);
+    }
+  }
+
   render() {
     const { markdownRemark } = this.props.data;
 
     const {
-      heroImage,
+      born,
       title,
       gender,
-      born,
-      withersHeight,
-      education,
-      decorations,
-      offsprings = false,
       images,
+      education,
+      heroImage,
+      horsesSlug,
+      decorations,
+      withersHeight,
+
+      offsprings = false,
     } = markdownRemark.frontmatter;
+
+    const pedigree = pedigrees[horsesSlug];
+    console.log('pedigree ', pedigree);
 
     return (
       <Layout page={'horsesPage'}>
@@ -104,23 +128,35 @@ class HorsesPage extends React.Component<Props> {
               {!!offsprings && <Intro medium>{offsprings}</Intro>}
             </HeroContent>
           </HeroSection>
-          <Banner>
-            <MainContainer pt={spacing.l} pb={spacing.xl}>
-              {!!images && (
-                <div>
-                  <ImagesHeader bold color={colors.primary_blue}>
-                    Bilder
-                  </ImagesHeader>
-                  <Images numberColumns="2">
-                    {images.map((image, key) => (
-                      <Image key={key} fluid={image.childImageSharp.fluid} />
-                    ))}
-                  </Images>
-                </div>
-              )}
-            </MainContainer>
-          </Banner>
+          {!!images && (
+            <Banner>
+              <MainContainer pt={spacing.l} pb={spacing.l}>
+                <DividerHeader bold color={colors.primary_blue}>
+                  Bilder
+                </DividerHeader>
+                <DividerLine />
 
+                <Images numberColumns="2">
+                  {images.map((image, key) => (
+                    <Image key={key} fluid={image.childImageSharp.fluid} />
+                  ))}
+                </Images>
+              </MainContainer>
+            </Banner>
+          )}
+
+          {!!pedigree && (
+            <Banner>
+              <MainContainer pb={spacing.xl}>
+                <DividerHeader bold color={colors.primary_blue}>
+                  Stamtavla
+                </DividerHeader>
+                <DividerLine />
+
+                <Pedigree pedigree={pedigree} />
+              </MainContainer>
+            </Banner>
+          )}
           <div style={{ height: 12 }}></div>
         </Root>
       </Layout>
@@ -128,7 +164,21 @@ class HorsesPage extends React.Component<Props> {
   }
 }
 
-export default HorsesPage;
+const mapStateToProps = state => {
+  return {
+    currentPage: state.navigation.currentPage,
+  };
+};
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      setActivePage,
+    },
+    dispatch
+  );
+
+export default connect(mapStateToProps, mapDispatchToProps)(HorsesPage);
 
 export const query = graphql`
   query HorsesQuery($horsesSlug: String!) {
@@ -144,6 +194,7 @@ export const query = graphql`
         education
         decorations
         offsprings
+        horsesSlug
         coverImage {
           childImageSharp {
             fluid(maxWidth: 1280, maxHeight: 720) {
@@ -169,15 +220,3 @@ export const query = graphql`
     }
   }
 `;
-
-/*
-goes boom:
-
-images {
-  childImageSharp {
-    fluid(maxWidth: 1200, quality: 100) {
-      ...GatsbyImageSharpFluid
-    }
-  }
-}
-*/

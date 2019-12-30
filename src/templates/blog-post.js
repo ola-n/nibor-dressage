@@ -1,10 +1,13 @@
 import React from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import styled from '@emotion/styled';
 import { graphql, Link } from 'gatsby';
 
 import routes from '../routes';
 import { colors } from '@spec/colors/';
 import { breakpoints } from '@spec/ui-spec';
+import { setActivePage } from '@state/navigation/actions';
 
 import Layout from '@components/layout';
 import SEO from '@components/seo';
@@ -33,10 +36,20 @@ const Root = styled.div({
 const HeroContent = styled.div({});
 
 type Props = {
+  setActivePage: typeof setActivePage,
+  currentPage: string,
   data: Object,
 };
 
 class BlogPost extends React.Component<Props> {
+  componentDidMount() {
+    const { setActivePage, currentPage } = this.props;
+
+    if (currentPage !== routes.NEWS) {
+      setActivePage(routes.NEWS);
+    }
+  }
+
   render() {
     const { heroImageDesktop, markdownRemark } = this.props.data;
     const { title, categoryLabel, categorySlug } = markdownRemark.frontmatter;
@@ -76,9 +89,21 @@ class BlogPost extends React.Component<Props> {
   }
 }
 
-// to={`${routes.BLOG_CATEGORY}${category.id}/`}
+const mapStateToProps = state => {
+  return {
+    currentPage: state.navigation.currentPage,
+  };
+};
 
-export default BlogPost;
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      setActivePage,
+    },
+    dispatch
+  );
+
+export default connect(mapStateToProps, mapDispatchToProps)(BlogPost);
 
 export const query = graphql`
   query BlogPostQuery($slug: String!) {

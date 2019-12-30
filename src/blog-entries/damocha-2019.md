@@ -8,10 +8,6 @@ intro: 'Mitt intro från frontmatter'
 image: '../images/blog/damocha2019.jpg'
 categoryLabel: 'Tävling'
 categorySlug: 'tavling'
-images:
-  - '../images/hastar/timo/cover-image.jpg'
-  - '../images/hastar/timo/cover-image.jpg'
-  - '../images/hastar/timo/cover-image.jpg'
 ---
 
 ### Lördag

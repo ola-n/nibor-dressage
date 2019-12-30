@@ -61,7 +61,7 @@ export const BlogEntry = ({ latestEntry }: Props) => {
           />
           <Display2 mb={spacing.t}>{title}</Display2>
           <Subhead>{date}</Subhead>
-          <div dangerouslySetInnerHTML={{ __html: html }}></div>
+          <div id="markdown" dangerouslySetInnerHTML={{ __html: html }}></div>
         </BlogContent>
       </MainContainer>
     </Root>

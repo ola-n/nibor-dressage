@@ -8,10 +8,6 @@ intro: 'intro'
 image: '../images/blog/trad.jpg'
 categoryLabel: 'Anläggningen'
 categorySlug: 'anlaggningen'
-images:
-  - '../images/hastar/timo/cover-image.jpg'
-  - '../images/hastar/timo/cover-image.jpg'
-  - '../images/hastar/timo/cover-image.jpg'
 ---
 
 ## Nya träd skall ge skugga till hästarna

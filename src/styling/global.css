@@ -38,3 +38,12 @@ a {
 a:hover {
   color: #ffa62d;
 }
+
+#markdown a {
+  color: #ffa62d;
+  text-decoration: none;
+}
+
+#markdown a:hover {
+  color: #000f3e;
+}
