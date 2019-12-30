@@ -6,7 +6,6 @@ import { space, color } from 'styled-system';
 import { colors } from '@spec/colors/';
 import { breakpoints } from '@spec/ui-spec';
 import { fontWeight } from '@components/Typography';
-import { resetStyle } from '@components/Grid';
 
 import colorBrown from '@images/pedigree/color_brown.svg';
 import colorWhite from '@images/pedigree/color_white.svg';
@@ -18,18 +17,15 @@ import prizeGreen from '@images/pedigree/prize_green.svg';
 import prizeOrange from '@images/pedigree/prize_orange.svg';
 import prizeYellow from '@images/pedigree/prize_yellow.svg';
 
-const PedigreeScroller = styled('div')(
-  {
-    overflowY: 'hidden',
-    overflowX: 'scroll',
+const PedigreeScroller = styled('div')({
+  overflowY: 'hidden',
+  overflowX: 'scroll',
 
-    // Template literals not allowed, breakpoint is kind of 1280 + sidePaddingDesktopLarge * 2
-    '@media screen and (min-width: 1425px)': {
-      overflowX: 'hidden',
-    },
+  // Template literals not allowed, breakpoint is kind of 1280 + sidePaddingDesktopLarge * 2
+  '@media screen and (min-width: 1425px)': {
+    overflowX: 'hidden',
   },
-  resetStyle
-);
+});
 
 const PedigreeRoot = styled('div')({
   display: 'flex',
