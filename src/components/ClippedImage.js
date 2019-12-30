@@ -122,6 +122,7 @@ const ClippedImage = (props: Props) => {
         paddingReset={paddingReset}
         style={style}
         animated={animated}
+        loading="eager"
       />
       <Clipper clipperPos={clipperPos} />
     </Root>

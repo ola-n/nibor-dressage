@@ -75,7 +75,7 @@ export const NewsCard = ({
     <Root>
       <Link to={`${routes.NEWS}${slug}`}>
         <ImageWrap>
-          <Image fluid={image.childImageSharp.fluid}></Image>
+          <Image fluid={image.childImageSharp.fluid} loading="eager"></Image>
         </ImageWrap>
       </Link>
       <Text pt={spacing.s} pb={spacing.t} px={spacing.s}>

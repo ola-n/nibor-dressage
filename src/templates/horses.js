@@ -138,7 +138,11 @@ class HorsesPage extends React.Component<Props> {
 
                 <Images numberColumns="2">
                   {images.map((image, key) => (
-                    <Image key={key} fluid={image.childImageSharp.fluid} />
+                    <Image
+                      key={key}
+                      fluid={image.childImageSharp.fluid}
+                      loading="eager"
+                    />
                   ))}
                 </Images>
               </MainContainer>
