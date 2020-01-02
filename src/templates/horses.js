@@ -107,7 +107,6 @@ class HorsesPage extends React.Component<Props> {
     } = markdownRemark.frontmatter;
 
     const pedigree = pedigrees[horsesSlug];
-    console.log('pedigree ', pedigree);
 
     return (
       <Layout page={'horsesPage'}>
@@ -151,7 +150,7 @@ class HorsesPage extends React.Component<Props> {
 
           {!!pedigree && (
             <Banner>
-              <MainContainer pb={spacing.xl}>
+              <MainContainer pb={spacing.l}>
                 <DividerHeader bold color={colors.primary_blue}>
                   Stamtavla
                 </DividerHeader>

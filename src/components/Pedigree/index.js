@@ -30,8 +30,8 @@ const PedigreeScroller = styled('div')({
 const PedigreeRoot = styled('div')({
   display: 'flex',
   flexDirection: 'row',
-  minWidth: 1280,
   alignItems: 'center',
+  paddingBottom: 24,
 });
 
 const Box = styled('div')(
@@ -106,7 +106,30 @@ const Column = styled('div')(
     flexDirection: 'column',
     justifyContent: 'space-between',
   },
-  ({ border }) => border && { borderLeft: `1px solid ${border}` }
+  ({ border }) => border && { borderLeft: `1px solid ${border}` },
+  ({ col2 }) =>
+    col2 && {
+      minHeight: 486,
+      zIndex: 1,
+      transform: 'translateX(-230px)',
+
+      [breakpoints.tablet]: { transform: 'translateX(0)' },
+    },
+  ({ col3 }) =>
+    col3 && {
+      minHeight: 696,
+      transform: 'translateX(-460px)',
+
+      [breakpoints.tablet]: { transform: 'translateX(0)' },
+    },
+  ({ col4 }) =>
+    col4 && {
+      minHeight: 798,
+      zIndex: 1,
+      transform: 'translateX(-460px)',
+
+      [breakpoints.tablet]: { transform: 'translateX(0)' },
+    }
 );
 
 const ParentBox = styled('div')(
@@ -171,7 +194,7 @@ class Pedigree extends React.Component<Props> {
       <PedigreeScroller>
         <PedigreeRoot>
           {/******** #1 ********/}
-          <Column>
+          <Column style={{ zIndex: 2 }}>
             <Box gender={'male'} hero>
               <Text>
                 <Name mb={0} hero color={colors.primary_blue}>
@@ -192,7 +215,7 @@ class Pedigree extends React.Component<Props> {
           </Column>
 
           {/******** #2 ********/}
-          <Column style={{ minHeight: 486 }} border={'#B4B4B4'}>
+          <Column col2 border={'#B4B4B4'}>
             {pedigree.line1.map((horse, key) => (
               <Box key={key} gender={horse.gender} style={{ marginRight: -1 }}>
                 <Text>
@@ -217,7 +240,7 @@ class Pedigree extends React.Component<Props> {
           </Column>
 
           {/******** #3********/}
-          <Column style={{ minHeight: 696 }}>
+          <Column col3>
             <ParentBox border={'#B4B4B4'}>
               {pedigree.line2a.map((horse, key) => (
                 <div key={key}>
@@ -274,7 +297,7 @@ class Pedigree extends React.Component<Props> {
           </Column>
 
           {/******** #4 ********/}
-          <Column style={{ minHeight: 798 }}>
+          <Column col4>
             <ParentBox>
               {pedigree.line3a.map((horse, key) => (
                 <div key={key}>
