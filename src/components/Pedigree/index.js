@@ -587,10 +587,10 @@ class Pedigree extends React.Component<Props> {
           color={colors.primary_blue}
           style={{ maxWidth: 650, marginTop: 16 }}
         >
-          Eftersom ANCCE inte har något öppet API vi kan hämta data från, hoppas
-          vi att vi fört över datan korrekt. Samtliga hästar är klickbara med
-          länk till korresponderande sida hos ANCCE. Skulle där visa sig vara
-          någon skillnad i träden så är det ANCCE som gäller.
+          Eftersom ANCCE inte har något öppet API där vi kan hämta data från,
+          hoppas vi att vi fört över datan korrekt. Samtliga hästar är klickbara
+          med länk till korresponderande sida hos ANCCE. Skulle där visa sig
+          vara någon skillnad i träden så är det ANCCE som gäller.
         </Body3>
       </div>
     );
