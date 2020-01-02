@@ -48,8 +48,8 @@ export const navbarSpec = {
 
 export const zIndexDefinition = {
   content: 1,
-  navbar: 2,
-  popup: 3,
+  navbar: 3,
+  popup: 4,
   aboveAll: 50,
 };
 
