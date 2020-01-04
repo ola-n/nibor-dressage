@@ -29,7 +29,6 @@ const ArrowText = styled(Subhead)({
   '& h3': {
     fontSize: 16,
     display: 'inline',
-    //marginBottom: 0,
 
     [breakpoints.desktopSmall]: { fontSize: 17 },
     [breakpoints.desktopLarge]: { fontSize: 20 },

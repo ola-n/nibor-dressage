@@ -5,7 +5,7 @@ import { space, color } from 'styled-system';
 
 import { colors } from '@spec/colors/';
 import { breakpoints, spacing } from '@spec/ui-spec';
-import { Body1, Body2, Body3, fontWeight } from '@components/Typography';
+import { Body1, Body3, fontWeight } from '@components/Typography';
 
 import { Grid } from '@components/Grid';
 

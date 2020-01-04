@@ -109,7 +109,7 @@ class NavMenu extends React.Component<Props> {
           >
             ANLÄGGNINGEN
           </NavMenuLink>
-          <NavMenuLink
+          {/* <NavMenuLink
             to={routes.TEAM}
             selected={currentPage === routes.TEAM}
             onClick={() => {
@@ -121,7 +121,7 @@ class NavMenu extends React.Component<Props> {
             }}
           >
             TEAMET
-          </NavMenuLink>
+          </NavMenuLink>*/}
           <NavMenuLink
             to={routes.SERVICES}
             selected={currentPage === routes.SERVICES}
@@ -159,7 +159,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  null
-)(NavMenu);
+export default connect(mapStateToProps, null)(NavMenu);

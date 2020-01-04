@@ -128,12 +128,12 @@ class Navbar extends React.Component<Props> {
                 >
                   ANLÄGGNINGEN
                 </NavbarLink>
-                <NavbarLink
+                {/*<NavbarLink
                   to={routes.TEAM}
                   selected={currentPage === routes.TEAM}
                 >
                   TEAMET
-                </NavbarLink>
+                </NavbarLink>*/}
                 <NavbarLink
                   to={routes.SERVICES}
                   selected={currentPage === routes.SERVICES}
@@ -176,7 +176,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  null
-)(Navbar);
+export default connect(mapStateToProps, null)(Navbar);
