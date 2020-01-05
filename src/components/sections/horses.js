@@ -120,7 +120,7 @@ export const HorsesSection = () => {
 
   return (
     <Root>
-      <MainContainer>
+      <MainContainer pb={spacing.l}>
         <MainGrid>
           <Image fluid={data.horsesImage.childImageSharp.fluid}></Image>
 

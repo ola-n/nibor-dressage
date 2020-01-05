@@ -13,6 +13,8 @@ export const colors = {
   secondary_grey_100: '#f8f8f8',
   secondary_grey_200: '#E7E9EE', // used footer, horses page (not template)
   secondary_grey_800: '#7C808C', // footer grey text
+
+  blue_bg: '#E4E8F2',
 };
 
 export const niborHorizontalGradient =

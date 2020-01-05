@@ -13,11 +13,13 @@ import routes from '../routes';
 
 import Layout from '@components/layout';
 import SEO from '@components/seo';
+import ForSale from '@components/sections/ForSale';
 import { HeroSection } from '@components/sections/hero';
 import { Banner, MainContainer, Grid, resetStyle } from '@components/Grid';
 import { Display1, Display3, Intro, Body2 } from '@components/Typography';
 import ClippedImage from '@components/ClippedImage';
 import ArrowLink from '@components/ArrowLink';
+import Results from '@components/sections/Results';
 
 const ContentWrap = styled.div({});
 
@@ -37,7 +39,7 @@ const Lead = styled(Intro)({
   },
 });
 
-const TextContainer = styled.div(articleWidth);
+const TextContainer = styled.div({ margin: '0 auto' }, articleWidth);
 
 const HorsesGrid = styled(Grid)(
   {
@@ -104,8 +106,6 @@ class HorsesPage extends React.Component<Props> {
   render() {
     const { heroImageDesktop, heroImageMobile, horses } = this.props.data;
 
-    console.log('horses ', horses);
-
     return (
       <Layout page={routes.HORSES}>
         <SEO
@@ -170,7 +170,10 @@ class HorsesPage extends React.Component<Props> {
                         <Body2>{gender}</Body2>
 
                         <CardLink>
-                          <ArrowLink to={`${routes.HORSES}${horsesSlug}`}>
+                          <ArrowLink
+                            smallText={'true'}
+                            to={`${routes.HORSES}${horsesSlug}`}
+                          >
                             Läs mer om hästen
                           </ArrowLink>
                         </CardLink>
@@ -183,7 +186,7 @@ class HorsesPage extends React.Component<Props> {
           </Banner>
         )}
         <Banner>
-          <MainContainer py={spacing.l}>
+          <MainContainer py={spacing.xl}>
             <TextContainer>
               <Display3 mb={spacing.s}>Varför PRE?</Display3>
 
@@ -230,6 +233,8 @@ class HorsesPage extends React.Component<Props> {
             </TextContainer>
           </MainContainer>
         </Banner>
+        <ForSale />
+        <Results />
       </Layout>
     );
   }

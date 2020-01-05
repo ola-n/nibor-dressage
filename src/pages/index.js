@@ -16,6 +16,8 @@ import SEO from '@components/seo';
 import { HeroSection } from '@components/sections/hero';
 import { HorsesSection } from '@components/sections/horses';
 import { Display1, Intro } from '@components/Typography';
+import ForSale from '@components/sections/ForSale';
+import { LatestResults } from '@components/sections/results';
 
 const HeroContent = styled.div({
   [breakpoints.desktopSmall]: {
@@ -84,6 +86,9 @@ class LandingPage extends React.Component<Props> {
           </HeroContent>
         </HeroSection>
         <HorsesSection />
+
+        <ForSale />
+        <LatestResults />
       </Layout>
     );
   }
@@ -103,10 +108,7 @@ const mapDispatchToProps = dispatch =>
     dispatch
   );
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(LandingPage);
+export default connect(mapStateToProps, mapDispatchToProps)(LandingPage);
 
 export const query = graphql`
   query LandingPageQuery {

@@ -9,8 +9,8 @@ export const spacing = {
   xxl: [64, null, null, 96, 128, 160],
   // Horizontal spacing used when resizing
   maxWidthDesktopLarge: 1440,
-  sidePaddingPhoneSmall: 16,
-  sidePaddingPhone: 24,
+  sidePaddingPhoneSmall: 12,
+  sidePaddingPhone: 16,
   sidePaddingPhoneLarge: 24,
   sidePaddingTablet: 32,
   sidePaddingDesktopSmall: 64,

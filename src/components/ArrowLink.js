@@ -8,7 +8,8 @@ import { breakpoints } from '@spec/ui-spec';
 import { colors } from '@spec/colors/';
 
 import chevron from '@images/common/chevron.svg';
-import { Body3 } from '@components/Typography';
+import chevronInverted from '@images/common/chevron_yellow.svg';
+import { Body2, Body3 } from '@components/Typography';
 
 const Root = styled.div(
   {
@@ -41,23 +42,49 @@ const ArrowLink = styled(Link)(
       transform: 'translateX(0)',
     },
   },
+  ({ inverted }) => {
+    if (inverted) {
+      return {
+        color: `${colors.primary_yellow} !important`,
+
+        '&:hover': {
+          color: `${colors.primary_yellow} !important`,
+        },
+      };
+    }
+  },
   space
 );
 
 const ArrowA = ArrowLink.withComponent('a');
 
-const Chevron = styled('img')({
-  verticalAlign: 'middle',
-  display: 'inline-block',
-  pointerEvents: 'none',
-  marginTop: 1,
-  width: 7,
-  height: 17,
+const Chevron = styled('img')(
+  {
+    verticalAlign: 'middle',
+    display: 'inline-block',
+    pointerEvents: 'none',
+    marginTop: 2,
+    width: 8,
+    height: 19,
 
-  [breakpoints.desktopSmall]: {
-    marginTop: 3,
+    [breakpoints.desktopSmall]: {
+      marginTop: 4,
+    },
   },
-});
+  ({ smallText }) => {
+    if (smallText) {
+      return {
+        width: 7,
+        height: 17,
+        marginTop: 1,
+
+        [breakpoints.desktopSmall]: {
+          marginTop: 3,
+        },
+      };
+    }
+  }
+);
 
 type Props = {
   trackingId?: string,
@@ -69,6 +96,8 @@ type Props = {
   rootClass?: any,
   target?: string,
   onClick?: Function,
+  inverted: string,
+  smallText: string,
 };
 
 const Arrow = ({
@@ -81,6 +110,8 @@ const Arrow = ({
   className,
   target,
   onClick,
+  inverted,
+  smallText,
 }: Props) => {
   if (!href && !to) {
     return null;
@@ -95,8 +126,10 @@ const Arrow = ({
           data-tracking-id={trackingId}
           className={className}
           onClick={onClick}
+          inverted={inverted}
         >
-          <Body3>{children}</Body3>
+          {!smallText && <Body2>{children}</Body2>}
+          {!!smallText && <Body3>{children}</Body3>}
         </ArrowA>
       )}
       {!!to && !href && (
@@ -105,11 +138,17 @@ const Arrow = ({
           to={to}
           data-tracking-id={trackingId}
           className={className}
+          inverted={inverted}
         >
-          <Body3>{children}</Body3>
+          {!smallText && <Body2>{children}</Body2>}
+          {!!smallText && <Body3>{children}</Body3>}
         </ArrowLink>
       )}
-      <Chevron src={chevron} alt="" />
+      <Chevron
+        smallText={smallText}
+        src={!inverted ? chevron : chevronInverted}
+        alt=""
+      />
     </Root>
   );
 };
