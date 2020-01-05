@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 import { breakpoints, spacing, navbarSpec } from '@spec/ui-spec';
 import { colors } from '@spec/colors/';
 import routes from '../../routes';
-import results from '../../horses/results';
+import resultsObject from '../../horses/results';
 
 import { Banner, MainContainer } from '@components/Grid';
 import { Display2, Display4, Body3 } from '@components/Typography';
@@ -125,8 +125,8 @@ export const Results = () => {
       <MainContainer>
         <Display2 color={colors.primary_blue}>Tävlingsresultat</Display2>
 
-        {!!results &&
-          results.map((result, key) => {
+        {!!resultsObject &&
+          resultsObject.map((result, key) => {
             // ****** Divider item ******
             if (result.type === 'divider') {
               return (
@@ -228,7 +228,7 @@ export const Results = () => {
   );
 };
 
-const latestResults = results.slice(0, 7);
+const latestResultsObject = resultsObject.slice(0, 7);
 
 export const LatestResults = () => {
   return (
@@ -238,8 +238,8 @@ export const LatestResults = () => {
           Senaste tävlingsresultat
         </Display2>
 
-        {!!latestResults &&
-          latestResults.map((result, key) => {
+        {!!latestResultsObject &&
+          latestResultsObject.map((result, key) => {
             // ****** Explanation ******
             if (result.type === 'explanation') {
               return (
