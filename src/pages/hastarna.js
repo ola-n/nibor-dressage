@@ -19,7 +19,7 @@ import { Banner, MainContainer, Grid, resetStyle } from '@components/Grid';
 import { Display1, Display3, Intro, Body2 } from '@components/Typography';
 import ClippedImage from '@components/ClippedImage';
 import ArrowLink from '@components/ArrowLink';
-import Results from '@components/sections/Results';
+import Results from '@components/sections/results';
 
 const ContentWrap = styled.div({});
 
