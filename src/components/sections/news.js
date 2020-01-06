@@ -1,13 +1,11 @@
 // @flow
 import React from 'react';
 import styled from '@emotion/styled';
-import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
 import { breakpoints, spacing } from '@spec/ui-spec';
 import { colors } from '@spec/colors/';
 import routes from '../../routes';
-import { easeOut500 } from '@spec/animations';
 
 import { Banner, MainContainer } from '@components/Grid';
 import { Display3, Display4, Body2 } from '@components/Typography';
@@ -15,7 +13,7 @@ import { Button } from '../Button';
 import ArrowLink from '@components/ArrowLink';
 
 import largeArrowBlue from '@images/common/arrow-large-blue.svg';
-import largeArrowYellow from '@images/common/arrow-large-yellow.svg';
+//import largeArrowYellow from '@images/common/arrow-large-yellow.svg';
 
 const cardWidth = {
   xTiny: 270,
