@@ -97,12 +97,12 @@ class HorsesPage extends React.Component<Props> {
       title,
       gender,
       images,
+      breeder,
       education,
       heroImage,
       horsesSlug,
       decorations,
       withersHeight,
-
       offsprings = false,
     } = markdownRemark.frontmatter;
 
@@ -123,6 +123,7 @@ class HorsesPage extends React.Component<Props> {
               <Intro medium>{born}</Intro>
               <Intro medium>{withersHeight}</Intro>
               <Intro medium>{education}</Intro>
+              <Intro medium>{breeder}</Intro>
               {!!decorations && <Intro medium>{decorations}</Intro>}
               {!!offsprings && <Intro medium>{offsprings}</Intro>}
             </HeroContent>
@@ -193,11 +194,12 @@ export const query = graphql`
         title
         gender
         born
-        withersHeight
+        breeder
         education
         decorations
         offsprings
         horsesSlug
+        withersHeight
         coverImage {
           childImageSharp {
             fluid(maxWidth: 1280, maxHeight: 720) {

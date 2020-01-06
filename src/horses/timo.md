@@ -11,6 +11,7 @@ born: 'Född 2014'
 withersHeight: '165 cm'
 education: 'Utbildningsnivå LB/LA'
 offsprings: 'Har ett flertal avkommor i Norge'
+breeder: 'Uppfödare: Ganaderia Antares SL'
 images:
   - '../images/hastar/timo/timohage.jpg'
   - '../images/hastar/timo/timoridhus.jpg'

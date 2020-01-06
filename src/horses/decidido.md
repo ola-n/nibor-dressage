@@ -11,6 +11,7 @@ born: 'Född 2010'
 withersHeight: '165 cm'
 education: 'Utbildningsnivå MsvA'
 decorations: 'Flertalet placeringar upp till MsvB'
+breeder: 'Uppfödare: Yeguada El Romerito'
 images:
   - '../images/hastar/decidido/decipaddock.jpg'
   - '../images/hastar/decidido/decigras.jpg'

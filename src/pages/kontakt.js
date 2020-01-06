@@ -80,6 +80,7 @@ class ContactPage extends React.Component<Props> {
             <Title1 color={colors.primary_blue} medium>
               Nibor Dressage PRE
             </Title1>
+            <Lead color={colors.primary_blue}>Mika Nordström</Lead>
             <Lead color={colors.primary_blue}>Gränskullavägen 7</Lead>
             <Lead color={colors.primary_blue}>218 75 Tygelsjö</Lead>
             <Lead color={colors.primary_blue} mb={spacing.t}>
@@ -106,10 +107,7 @@ const mapDispatchToProps = dispatch =>
     dispatch
   );
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ContactPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ContactPage);
 
 export const query = graphql`
   query ContactPageQuery {

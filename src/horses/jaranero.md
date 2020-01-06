@@ -1,0 +1,20 @@
+---
+coverImage: '../images/hastar/jaranero/cover-image.jpg'
+heroImage: '../images/hastar/jaranero/jaranero-hero.png'
+layout: 'horses'
+date: '2018-11-22'
+path: '/hastarna/jaranero/'
+horsesSlug: 'jaranero'
+title: 'Jaranero CIV'
+gender: 'Vallack'
+born: 'Född 2012'
+withersHeight: '172 cm'
+education: 'Utbildningsnivå MsvB'
+decorations: 'Flertalet vinster och placeringar upp till MsvB'
+breeder: 'Uppfödare: Yeguada El Romerito'
+images:
+  - '../images/hastar/jaranero/jaranero1.jpg'
+  - '../images/hastar/jaranero/jaranero2.jpg'
+  - '../images/hastar/jaranero/jaranero3.jpg'
+  - '../images/hastar/jaranero/jaranero4.jpg'
+---

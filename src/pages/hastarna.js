@@ -151,7 +151,9 @@ class HorsesPage extends React.Component<Props> {
                       <Link to={`${routes.HORSES}${horsesSlug}`}>
                         <ClippedImage
                           image={coverImage}
-                          imgStyle={{ objectPosition: `center center` }}
+                          imgStyle={{
+                            objectPosition: `center center`,
+                          }}
                           clipperPos="tr"
                           animated={true}
                         />
@@ -271,7 +273,7 @@ export const query = graphql`
     }
     horses: allMarkdownRemark(
       filter: { frontmatter: { layout: { eq: "horses" } } }
-      sort: { order: ASC, fields: [frontmatter___date] }
+      sort: { order: DESC, fields: [frontmatter___date] }
     ) {
       edges {
         node {
