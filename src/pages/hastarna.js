@@ -286,7 +286,7 @@ export const query = graphql`
             horsesSlug
             coverImage {
               childImageSharp {
-                fluid(maxWidth: 1200, quality: 100) {
+                fluid(maxWidth: 720, quality: 90) {
                   ...GatsbyImageSharpFluid
                 }
               }
