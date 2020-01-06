@@ -74,7 +74,7 @@ class LandingPage extends React.Component<Props> {
         >
           <HeroContent>
             <Header mb={spacing.m} color={colors.primary_yellow}>
-              PRE med kvalitét
+              PRE med kvalité
             </Header>
             <Lead>
               Nibor Dressage PRE drivs av Mika Nordström som satsar på att få
