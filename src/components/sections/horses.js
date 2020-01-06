@@ -153,7 +153,7 @@ export const HorsesSection = () => {
             </HorseGrid>
             <Body1 mt={spacing.s} mb={spacing.m}>
               Vi har valt att satsa på PRE-hästar med extra hög kvalité både
-              gällande hållbarhet och ridbarhet. Hästarna är väl uppföda på
+              gällande hållbarhet och ridbarhet. Hästarna är väl uppfödda på
               stora kuperade ytor, röntgade och gås regelbundet igenom av
               veterinär och equiterapeut.
             </Body1>

@@ -128,7 +128,7 @@ class HorsesPage extends React.Component<Props> {
             </Header>
             <Lead color={colors.primary_blue} mb={0}>
               Vi har valt att satsa på PRE-hästar med extra hög kvalité både
-              gällande hållbarhet och ridbarhet. Hästarna är väl uppföda på
+              gällande hållbarhet och ridbarhet. Hästarna är väl uppfödda på
               stora kuperade ytor, röntgade och gås regelbundet igenom av
               veterinär och equiterapeut. Alla rids på varierande underlag och
               är vana vid uteritt och olika miljöer.
