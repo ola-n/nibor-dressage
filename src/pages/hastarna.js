@@ -200,28 +200,32 @@ class HorsesPage extends React.Component<Props> {
                 Lusitanon mer användes vid tjurfäktning.
               </Body2>
               <Body2 color={colors.secondary_blue} mb={spacing.s}>
-                En PRE (pura raza española) är intelligent, vänlig, modig,
+                En PRE (Pura Raza Española) är intelligent, vänlig, modig,
                 samabetsvillig och väldigt lojal. Den är mångsidig och har lätt
                 att anpassa sig i olika situationer. Hästen är mycket lyhörd mot
                 sin ryttare och vill vara till lags. Vissa PRE-hästar är
                 enmanshästar som väljer ut &quot;sin&quot; människa som den gör
                 allt för. De kan också var skeptiska mot människor de inte
                 känner men är alltid vänliga om än vissa mer försiktiga än
-                andra. Jag brukar säga att det inte var förrän jag fick min
-                första PRE-häst som jag lärde mig rida på riktigt. Alla mina
-                hästar säger vänligt men bestämt till mig när jag gör något fel,
-                och mycket självrannsakan krävs för att rida och utbilda en
-                riktigt bra PRE.
+                andra.
               </Body2>
+
+              <Body2 color={colors.secondary_blue} mb={spacing.s}>
+                Jag brukar säga att det inte var förrän jag fick min första
+                PRE-häst som jag lärde mig rida på riktigt. Alla mina hästar
+                säger vänligt men bestämt till mig när jag gör något fel, och
+                mycket självrannsakan krävs för att rida och utbilda en riktigt
+                bra PRE.
+              </Body2>
+
               <Body2 color={colors.secondary_blue} mb={spacing.s}>
                 En PRE har ofta mjuka bekväma rörelser och är behaglig att sitta
                 på. De är också födda &quot;naturligt i form&quot; och du som
                 ryttare måste bevara denna mjukhet och medfödda bärighet.
                 Hästarna är lätta i handen och har ibland svårt att ta stöd på
                 bettet, men genom en mjuk och följsam hand, som går mot bettet,
-                kommer hästen tillsist att söka ett lätt stöd. Det brukar räcka
-                med några gram i handen, du ska aldrig tvinga en PRE till att ta
-                stöd.
+                kommer hästen att söka ett lätt stöd. Det brukar räcka med några
+                gram i handen, du ska aldrig tvinga en PRE till att ta stöd.
               </Body2>
               <Body2 color={colors.secondary_blue}>
                 Man får ofta höra att PRE-hästen inte kan utföra en korrekt ökad
