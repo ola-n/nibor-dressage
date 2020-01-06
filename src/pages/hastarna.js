@@ -198,17 +198,18 @@ class HorsesPage extends React.Component<Props> {
                 Lusitanon mer användes vid tjurfäktning.
               </Body2>
               <Body2 color={colors.secondary_blue} mb={spacing.s}>
-                En PRE är intelligent, vänlig, modig, samabetsvillig och väldigt
-                lojal. Den är mångsidig och har lätt att anpassa sig i olika
-                situationer. Hästen är mycket lyhörd mot sin ryttare och vill
-                vara till lags. Vissa PRE-hästar är enmanshästar som väljer ut
-                &quot;sin&quot; människa som den gör allt för. De kan också var
-                skeptiska mot människor de inte känner men är alltid vänliga om
-                än vissa mer försiktiga än andra. Jag brukar säga att det inte
-                var fören jag fick min första PRE-häst som jag lärde mig rida på
-                riktigt. Alla mina hästar säger vänligt men bestämt till mig när
-                jag gör något fel och mycket självranskan krävs för att rida och
-                utbilda en riktigt bra PRE.
+                En PRE (pura raza española) är intelligent, vänlig, modig,
+                samabetsvillig och väldigt lojal. Den är mångsidig och har lätt
+                att anpassa sig i olika situationer. Hästen är mycket lyhörd mot
+                sin ryttare och vill vara till lags. Vissa PRE-hästar är
+                enmanshästar som väljer ut &quot;sin&quot; människa som den gör
+                allt för. De kan också var skeptiska mot människor de inte
+                känner men är alltid vänliga om än vissa mer försiktiga än
+                andra. Jag brukar säga att det inte var förrän jag fick min
+                första PRE-häst som jag lärde mig rida på riktigt. Alla mina
+                hästar säger vänligt men bestämt till mig när jag gör något fel,
+                och mycket självrannsakan krävs för att rida och utbilda en
+                riktigt bra PRE.
               </Body2>
               <Body2 color={colors.secondary_blue} mb={spacing.s}>
                 En PRE har ofta mjuka bekväma rörelser och är behaglig att sitta

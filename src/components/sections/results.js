@@ -315,7 +315,7 @@ export const LatestResults = () => {
                 </ResultRoot>
               );
             } else {
-              console.log('no item, probably divider');
+              // console.log('no item, probably divider');
             }
           })}
 

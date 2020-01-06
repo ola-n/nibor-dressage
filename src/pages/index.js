@@ -15,6 +15,7 @@ import Layout from '@components/layout';
 import SEO from '@components/seo';
 import { HeroSection } from '@components/sections/hero';
 import { HorsesSection } from '@components/sections/horses';
+import News from '@components/sections/news';
 import { Display1, Intro } from '@components/Typography';
 import ForSale from '@components/sections/ForSale';
 import { LatestResults } from '@components/sections/results';
@@ -60,7 +61,8 @@ class LandingPage extends React.Component<Props> {
   }
 
   render() {
-    const { heroImageDesktop, heroImageMobile } = this.props.data;
+    const { heroImageDesktop, heroImageMobile, articles } = this.props.data;
+    const firstArticles = articles.edges.slice(0, 4);
 
     return (
       <Layout page={routes.HOME}>
@@ -86,7 +88,7 @@ class LandingPage extends React.Component<Props> {
           </HeroContent>
         </HeroSection>
         <HorsesSection />
-
+        <News firstArticles={firstArticles} />
         <ForSale />
         <LatestResults />
       </Layout>
@@ -119,6 +121,35 @@ export const query = graphql`
       relativePath: { eq: "hero-images/decidido-low-res.jpg" }
     ) {
       ...fragmentMobile
+    }
+    articles: allMarkdownRemark(
+      filter: { frontmatter: { layout: { eq: "blog" } } }
+      sort: { order: DESC, fields: [frontmatter___date] }
+    ) {
+      edges {
+        node {
+          id
+          html
+          excerpt(pruneLength: 380)
+          frontmatter {
+            title
+            date
+            slug
+            path
+            layout
+            intro
+            categoryLabel
+            categorySlug
+            image {
+              childImageSharp {
+                fluid(maxWidth: 327, maxHeight: 202) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 `;

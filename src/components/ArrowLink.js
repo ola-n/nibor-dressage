@@ -98,6 +98,7 @@ type Props = {
   onClick?: Function,
   inverted: string,
   smallText: string,
+  bold: string,
 };
 
 const Arrow = ({
@@ -112,6 +113,7 @@ const Arrow = ({
   onClick,
   inverted,
   smallText,
+  bold,
 }: Props) => {
   if (!href && !to) {
     return null;
@@ -128,8 +130,10 @@ const Arrow = ({
           onClick={onClick}
           inverted={inverted}
         >
-          {!smallText && <Body2>{children}</Body2>}
-          {!!smallText && <Body3>{children}</Body3>}
+          {!smallText && !bold && <Body2>{children}</Body2>}
+          {!smallText && !!bold && <Body2 bold>{children}</Body2>}
+          {!!smallText && !bold && <Body3>{children}</Body3>}
+          {!!smallText && !!bold && <Body3 bold>{children}</Body3>}
         </ArrowA>
       )}
       {!!to && !href && (
@@ -140,8 +144,10 @@ const Arrow = ({
           className={className}
           inverted={inverted}
         >
-          {!smallText && <Body2>{children}</Body2>}
-          {!!smallText && <Body3>{children}</Body3>}
+          {!smallText && !bold && <Body2>{children}</Body2>}
+          {!smallText && !!bold && <Body2 bold>{children}</Body2>}
+          {!!smallText && !bold && <Body3>{children}</Body3>}
+          {!!smallText && !!bold && <Body3 bold>{children}</Body3>}
         </ArrowLink>
       )}
       <Chevron

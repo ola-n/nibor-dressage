@@ -19,6 +19,20 @@ const Root = styled(Banner)({
   position: 'relative',
 });
 
+const HorseMC = styled(MainContainer)({
+  paddingBottom: 12,
+
+  [breakpoints.tablet]: {
+    paddingBottom: 24,
+  },
+  [breakpoints.desktopSmall]: {
+    paddingBottom: 32,
+  },
+  [breakpoints.desktopLarge]: {
+    paddingBottom: 48,
+  },
+});
+
 const MainGrid = styled.div({
   display: 'grid',
   gridColumnGap: '25px',
@@ -120,7 +134,7 @@ export const HorsesSection = () => {
 
   return (
     <Root>
-      <MainContainer pb={spacing.l}>
+      <HorseMC>
         <MainGrid>
           <Image fluid={data.horsesImage.childImageSharp.fluid}></Image>
 
@@ -147,7 +161,7 @@ export const HorsesSection = () => {
             <Button to={routes.HORSES}>Se alla våra hästar</Button>
           </HorseContent>
         </MainGrid>
-      </MainContainer>
+      </HorseMC>
     </Root>
   );
 };

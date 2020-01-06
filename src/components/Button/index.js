@@ -23,6 +23,7 @@ export const ButtonLink = styled.a(
     minHeight: 50,
     maxHeight: 50,
     textTransform: 'uppercase',
+    width: '100%',
 
     [':hover:not(:disabled)']: {
       color: colors.primary_white,
@@ -60,6 +61,7 @@ export const ButtonLink = styled.a(
     },
 
     [breakpoints.tablet]: {
+      width: 'auto',
       minWidth: 300,
       paddingLeft: 30,
       paddingRight: 30,

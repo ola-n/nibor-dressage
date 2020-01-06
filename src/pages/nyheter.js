@@ -152,7 +152,7 @@ export const query = graphql`
             categorySlug
             image {
               childImageSharp {
-                fluid(maxWidth: 1280, maxHeight: 720) {
+                fluid(maxWidth: 750, maxHeight: 450) {
                   ...GatsbyImageSharpFluid
                 }
               }
