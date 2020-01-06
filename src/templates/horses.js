@@ -202,7 +202,7 @@ export const query = graphql`
         withersHeight
         coverImage {
           childImageSharp {
-            fluid(maxWidth: 1280, maxHeight: 720) {
+            fluid(maxWidth: 730, maxHeight: 520) {
               ...GatsbyImageSharpFluid
             }
           }
@@ -216,7 +216,7 @@ export const query = graphql`
         }
         images {
           childImageSharp {
-            fluid(maxWidth: 1200, quality: 100) {
+            fluid(maxWidth: 720, quality: 90) {
               ...GatsbyImageSharpFluid
             }
           }
