@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'Nibor Dressage PRE',
     description:
-      'Hästar med bästa möjliga blodslinjer framtagna för såväl hållbarhet som gångarter och utstrålning.',
+      'PRE-hästar som matchas för att bli högklassiga sporthästar i dressyr. Hästar med bästa möjliga blodslinjer framtagna för såväl hållbarhet som gångarter och utstrålning.',
     author: 'mika@nibor.se',
     siteLang: 'sv',
     siteLocale: 'sv_SE',
