@@ -81,7 +81,7 @@ class BlogPost extends React.Component<Props> {
               />
             </HeroContent>
           </HeroSection>
-          <BlogEntry latestEntry={markdownRemark} />
+            <BlogEntry latestEntry={markdownRemark} />
           <div style={{ height: 12 }}></div>
         </Root>
       </Layout>

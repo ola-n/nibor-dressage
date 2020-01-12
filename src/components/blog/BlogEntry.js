@@ -6,15 +6,20 @@ import { breakpoints, spacing, articleWidth } from '@spec/ui-spec';
 import { colors } from '@spec/colors/';
 
 import { Banner, MainContainer } from '@components/Grid';
-import { Display2, Subhead } from '@components/Typography';
+import { Display2, Body2 } from '@components/Typography';
 import ClippedImage from '@components/ClippedImage';
 
 const Root = styled(Banner)({
   color: colors.primary_blue,
   position: 'relative',
+
+  '& #markdown > h2, h3': {
+    marginBottom: 6,
+    marginTop: 32
+  },
 });
 
-const BlogContent = styled('div')({
+const BlogContent = styled('div')({  
   [breakpoints.desktopSmall]: {
     maxWidth: 600,
   },
@@ -29,6 +34,20 @@ const BlogContent = styled('div')({
 const BlogImage = styled(ClippedImage)({
   [breakpoints.desktopSmall]: {
     marginTop: -278,
+  },
+});
+
+const MarkDown = styled('div')({
+  paddingTop: 32, 
+  
+  '& > h1:nth-child(1)': {
+    marginTop: '0 !important',
+  },
+  '& > h2:nth-child(1)': {
+    marginTop: '0 !important',
+  },
+  '& > h3:nth-child(1)': {
+    marginTop: '0 !important',
   },
 });
 
@@ -59,9 +78,9 @@ export const BlogEntry = ({ latestEntry }: Props) => {
             mb={spacing.m}
             clipperPos="tr"
           />
-          <Display2 mb={spacing.t}>{title}</Display2>
-          <Subhead>{date}</Subhead>
-          <div id="markdown" dangerouslySetInnerHTML={{ __html: html }}></div>
+          <Display2 style={{marginBottom: 4}}>{title}</Display2>
+          <Body2 bold>{date}</Body2>
+          <MarkDown id="markdown" dangerouslySetInnerHTML={{ __html: html }}></MarkDown>
         </BlogContent>
       </MainContainer>
     </Root>
