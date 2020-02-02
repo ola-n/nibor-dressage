@@ -13,8 +13,10 @@ education: 'Utbildningsnivå MsvB'
 decorations: 'Flertalet vinster och placeringar upp till MsvB'
 breeder: 'Uppfödare: Yeguada El Romerito'
 images:
-  - '../images/hastar/jaranero/jaranero1.jpg'
+  - '../images/hastar/jaranero/IMG_4688.jpg'
   - '../images/hastar/jaranero/jaranero2.jpg'
+  - '../images/hastar/jaranero/jaranero1.jpg'
+  - '../images/hastar/jaranero/jaranero.jpg'
   - '../images/hastar/jaranero/jaranero3.jpg'
   - '../images/hastar/jaranero/jaranero4.jpg'
 ---

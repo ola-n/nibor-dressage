@@ -549,7 +549,7 @@ class Pedigree extends React.Component<Props> {
         <Explanation numberColumns={2} mt={spacing.m}>
           <ExplanationCol>
             <Body1 bold color={colors.primary_blue}>
-              Leyenda Capas
+              Hästens färg
             </Body1>
             <Items>
               {!!leyendaCapas &&
@@ -568,7 +568,7 @@ class Pedigree extends React.Component<Props> {
 
           <ExplanationCol>
             <Body1 bold color={colors.primary_blue}>
-              Leyenda Escarapelas
+              Hästens utmärkelser
             </Body1>
             <Items>
               {!!leyendaEscarapelas &&
