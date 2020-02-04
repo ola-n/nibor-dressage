@@ -14,13 +14,14 @@ import { siteUrl } from '../config/siteConfig';
 import niborPreview from '../images/common/colored-log.png';
 
 type Props = {
-  description?: string,
   lang?: string,
   meta?: Array<Object>,
   title: string,
+  description?: string,
+  ogImage?: string,
 };
 
-function SEO({ description, lang = `en`, meta = [], title = `` }: Props) {
+function SEO({ lang = `en`, meta = [], title, description, ogImage }: Props) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -39,6 +40,7 @@ function SEO({ description, lang = `en`, meta = [], title = `` }: Props) {
   );
 
   const metaDescription = description || site.siteMetadata.description;
+  const metaImage = ogImage || `${siteUrl}${niborPreview}`;
 
   return (
     <Helmet
@@ -74,7 +76,7 @@ function SEO({ description, lang = `en`, meta = [], title = `` }: Props) {
         },
         {
           property: `og:image`,
-          content: `${siteUrl}${niborPreview}`,
+          content: metaImage,
         },
         {
           property: `og:image:width`,

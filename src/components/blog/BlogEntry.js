@@ -15,11 +15,11 @@ const Root = styled(Banner)({
 
   '& #markdown > h2, h3': {
     marginBottom: 6,
-    marginTop: 32
+    marginTop: 32,
   },
 });
 
-const BlogContent = styled('div')({  
+const BlogContent = styled('div')({
   [breakpoints.desktopSmall]: {
     maxWidth: 600,
   },
@@ -38,15 +38,15 @@ const BlogImage = styled(ClippedImage)({
 });
 
 const MarkDown = styled('div')({
-  paddingTop: 18, 
-  
-  '& > h1:nth-child(1)': {
+  paddingTop: 18,
+
+  '& > h1:nth-of-type(1)': {
     marginTop: '0 !important',
   },
-  '& > h2:nth-child(1)': {
+  '& > h2:nth-of-type(1)': {
     marginTop: '0 !important',
   },
-  '& > h3:nth-child(1)': {
+  '& > h3:nth-of-type(1)': {
     marginTop: '0 !important',
   },
 });
@@ -78,9 +78,12 @@ export const BlogEntry = ({ latestEntry }: Props) => {
             mb={spacing.m}
             clipperPos="tr"
           />
-          <Display2 style={{marginBottom: 4}}>{title}</Display2>
+          <Display2 style={{ marginBottom: 4 }}>{title}</Display2>
           <Body2 bold>{date}</Body2>
-          <MarkDown id="markdown" dangerouslySetInnerHTML={{ __html: html }}></MarkDown>
+          <MarkDown
+            id="markdown"
+            dangerouslySetInnerHTML={{ __html: html }}
+          ></MarkDown>
         </BlogContent>
       </MainContainer>
     </Root>

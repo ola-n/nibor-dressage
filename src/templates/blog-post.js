@@ -52,11 +52,21 @@ class BlogPost extends React.Component<Props> {
 
   render() {
     const { heroImageDesktop, markdownRemark } = this.props.data;
-    const { title, categoryLabel, categorySlug } = markdownRemark.frontmatter;
+    const { excerpt } = markdownRemark;
+    const {
+      title,
+      categoryLabel,
+      categorySlug,
+      image,
+    } = markdownRemark.frontmatter;
 
     return (
       <Layout page={'BlogPost'}>
-        <SEO title={`${title}`} />
+        <SEO
+          title={`${title}`}
+          description={`${excerpt}`}
+          ogImage={`${image.publicURL}`}
+        />
         <Root>
           <HeroSection
             backgroundColor={colors.secondary_white}
@@ -81,7 +91,7 @@ class BlogPost extends React.Component<Props> {
               />
             </HeroContent>
           </HeroSection>
-            <BlogEntry latestEntry={markdownRemark} />
+          <BlogEntry latestEntry={markdownRemark} />
           <div style={{ height: 12 }}></div>
         </Root>
       </Layout>
@@ -131,6 +141,7 @@ export const query = graphql`
               ...GatsbyImageSharpFluid
             }
           }
+          publicURL
         }
       }
     }
