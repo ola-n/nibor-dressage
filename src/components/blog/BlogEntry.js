@@ -39,6 +39,7 @@ const BlogImage = styled(ClippedImage)({
 
 const MarkDown = styled('div')({
   paddingTop: 18,
+  lineHeight: '24px',
 
   '& > h1:nth-of-type(1)': {
     marginTop: '0 !important',
