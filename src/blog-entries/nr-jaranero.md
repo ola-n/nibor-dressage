@@ -19,3 +19,5 @@ Juniors styrkor är hans härliga bakben och oerhörda lätthet. Han har ett fan
 I början av 2019 gjorde han sin tävlingsdebut med vinst på över 70% och därefter har det rullat på med segrar och placeringar i stort sett i varje start. På vår första utställning Damocha fick han en mängd priser och utmärkelser.
 
 Framåt satsar vi på att starta MsvB och även försöka kvala till 6årsklassen på Falsterbo Horse Show. Denna lilla häst har en oändlig kapacitet och jag ser fram emot framtiden tillsammans med min trogna kompanjon
+
+Läs mer om NR Jaranero [här](/hastarna/junior).

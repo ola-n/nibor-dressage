@@ -62,7 +62,7 @@ class LandingPage extends React.Component<Props> {
 
   render() {
     const { heroImageDesktop, heroImageMobile, articles } = this.props.data;
-    const firstArticles = articles.edges.slice(0, 4);
+    const firstArticles = articles.edges.slice(0, 8);
 
     return (
       <Layout page={routes.HOME}>

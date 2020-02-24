@@ -17,3 +17,5 @@ Jaranero är utan tvekan den häst som lärt mig allra mest som ryttare. Han är
 Jag och Jaranero har tävlat upp till MsvB med både vinster och placeringar. Dock kände jag tidigt att hans korta, spända rygg hämmade honom och han musklades inte på det sätt som förväntades. Han hade i perioder mycket sadeltvång och var stressad vid uppsittning, förmodligen pga att han hade obekväma känningar i sin rygg. 2019 blev han opererad för kissing spines, en åkomma som många hästar har helt bekymmersfritt, men som Jaranero tydligt hade obehag av. Operationen blev väldigt lyckad och han är idag helt smärtfri och lider inte längre av sadeltvång. Vi jobbar oss sakta men säkert tillbaka till tävlingsform och hoppas rehaben fortgår som planerat.
 
 Det bästa Jaranero vet är att strosa runt med sina bästa kompisar. Därför bor han på vår lösdrift tillsammans två ponnysar som han älskar över allt annat. Lågrangade Benetton försvarar han med sitt liv om det skulle krävas, han ser det som sin livsuppgift att vara bodyguard för de små, vilket han gör med bravur.
+
+Läs mer om Jaranero CIV [här](/hastarna/jaranero).

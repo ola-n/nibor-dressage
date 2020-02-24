@@ -246,7 +246,6 @@ export class NewsSection extends React.Component<Props> {
   render() {
     const { firstArticles } = this.props;
     const { selectedIndex } = this.state;
-    console.log('selectedIndex ', selectedIndex);
 
     const transform = -1 * 100 * selectedIndex;
 
@@ -326,19 +325,13 @@ export class NewsSection extends React.Component<Props> {
                   <div style={{ width: 78, height: '100%' }}>
                     <ArrowNext
                       style={{
-                        display: selectedIndex < 3 ? 'block' : 'none',
+                        display: selectedIndex < 7 ? 'block' : 'none',
                       }}
                       src={largeArrowBlue}
                       alt="arroweNext"
                       onClick={() => this.next()}
                     />
                   </div>
-                  {/* <ArrowNext
-                    selected
-                    src={largeArrowYellow}
-                    alt="arroweNextSel"
-                  />
-                  */}
                 </NavArrows>
               </Controls>
             </Padder>
