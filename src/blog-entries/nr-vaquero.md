@@ -16,4 +16,4 @@ I skrivande stund har Valle hunnit fylla 5 år. Han är en stor kille på nästa
 
 En stor kropp och långa ben är inte det lättaste att hålla reda på och Valle behöver tid för att växa och hitta balans och styrka. Han är utbildad Lb/La och kommer göra sina första dressyrstarter under året. Valle är även till salu för den som vill ha en riktig kvalitetshäst.
 
-Läs mer om NR Vaquero [här](/hastarna/vaquero).
+Se fler bilder och stamtavla av NR Vaquero [här](/hastarna/vaquero).

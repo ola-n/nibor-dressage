@@ -20,4 +20,4 @@ I början av 2019 gjorde han sin tävlingsdebut med vinst på över 70% och där
 
 Framåt satsar vi på att starta MsvB och även försöka kvala till 6årsklassen på Falsterbo Horse Show. Denna lilla häst har en oändlig kapacitet och jag ser fram emot framtiden tillsammans med min trogna kompanjon
 
-Läs mer om NR Jaranero [här](/hastarna/junior).
+Se fler bilder och stamtavla av NR Jaranero [här](/hastarna/junior).

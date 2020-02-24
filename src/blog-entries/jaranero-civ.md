@@ -18,4 +18,4 @@ Jag och Jaranero har tävlat upp till MsvB med både vinster och placeringar. Do
 
 Det bästa Jaranero vet är att strosa runt med sina bästa kompisar. Därför bor han på vår lösdrift tillsammans två ponnysar som han älskar över allt annat. Lågrangade Benetton försvarar han med sitt liv om det skulle krävas, han ser det som sin livsuppgift att vara bodyguard för de små, vilket han gör med bravur.
 
-Läs mer om Jaranero CIV [här](/hastarna/jaranero).
+Se fler bilder och stamtavla av Jaranero CIV [här](/hastarna/jaranero).
