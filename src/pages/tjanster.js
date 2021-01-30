@@ -139,7 +139,7 @@ class ServicesPage extends React.Component<Props> {
                 <Body2 mb={spacing.s}>
                   Jag erbjuder träning av ryttare enligt VBR (vertikal
                   balanserad ridning). Fokus på ryttarens sits, tyngdpunkt och
-                  bålstabilitet. 300kr/lektion. Sms eller mail för tidsbokning.
+                  bålstabilitet. Privatlektion 450kr. Två eller flera ekipage samtidigt, 350kr per person. Sms eller mail för tidsbokning.
                 </Body2>
 
                 <Display4>Min filosofi</Display4>
@@ -170,7 +170,7 @@ class ServicesPage extends React.Component<Props> {
                 <Display2 mb={spacing.t}>Tillridning</Display2>
                 <Body2 mb={spacing.m}>
                   I mån av plats tar vi emot hästar för tillridning, tävling och
-                  visning.
+                  visning. Kontakta oss för priser och upplägg.
                 </Body2>
 
                 <Display2 mb={spacing.t}>Uthyrning av ridhus</Display2>
